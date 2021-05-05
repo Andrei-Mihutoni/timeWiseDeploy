@@ -8,26 +8,25 @@ import Home from "./pages/Home";
 import Requests from "./pages/Requests";
 import { Appbar, Button, Container } from "muicss/react";
 
+import UserList from "./containers/user-list";
+
 import "./App.scss";
 
 function App() {
   return (
-    <div
-     
-    >
+    <div>
       <Router>
         <div>
           <Appbar>
-         
-
-          <nav>
-            <ul>
-              <li>
-                <Link to="/Home">Home</Link>
-              </li>
-            </ul>
-          </nav>
-        </Appbar>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/Home">Home</Link>
+                </li>
+              </ul>
+            </nav>
+            <UserList></UserList>
+          </Appbar>
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
