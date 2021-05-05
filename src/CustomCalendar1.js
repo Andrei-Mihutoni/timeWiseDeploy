@@ -26,6 +26,7 @@ const materialTheme = createMuiTheme({
 });
 
 export const styles = makeStyles(() => ({
+ 
   notInThisMonthDayPaper: {
     width: "55px",
     height: "55px",

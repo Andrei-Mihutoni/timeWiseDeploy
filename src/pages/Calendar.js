@@ -6,9 +6,9 @@ function Calendar() {
     <div
       className="Calendar"
       style={{
-        display: "grid",
-        placeItems: "center",
-        height: "100vh",
+        // display: "grid",
+        // placeItems: "center",
+        // height: "100vh",
       }}
     >
       {/* <header className="App-header"> */}

@@ -13,18 +13,12 @@ import "./App.scss";
 function App() {
   return (
     <div
-      className="App"
-      style={{
-        display: "grid",
-        placeItems: "center",
-        height: "100vh",
-      }}
+     
     >
       <Router>
         <div>
-          <Appbar></Appbar>
-          <Button>hahah</Button>
-          <Button color="primary">button</Button>
+          <Appbar>
+         
 
           <nav>
             <ul>
@@ -33,7 +27,7 @@ function App() {
               </li>
             </ul>
           </nav>
-
+        </Appbar>
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
