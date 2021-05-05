@@ -1,3 +1,7 @@
-.MuiPickersBasePick.MuiPickersBasePicker-pickerViewer {
-  width: 2500px;
+div.MuiPickersBasePicker-pickerView {
+  max-width: 100%;
+}
+.MuiGrid-root.MuiGrid-item {
+  margin-top: -6px;
+  text-align: center;
 }

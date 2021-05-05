@@ -28,8 +28,8 @@ const materialTheme = createMuiTheme({
 export const styles = makeStyles(() => ({
  
   notInThisMonthDayPaper: {
-    width: "55px",
-    height: "55px",
+    width: "35px",
+    height: "35px",
     backgroundColor: "#eeeeee",
     margin: "3px",
     boxShadow: "none",
@@ -37,8 +37,8 @@ export const styles = makeStyles(() => ({
     padding: "1px",
   },
   normalDayPaper: {
-    width: "55px",
-    height: "55px",
+    width: "35px",
+    height: "35px",
     backgroundColor: "#e8f5e9",
     margin: "3px",
     boxShadow: "none",
@@ -47,8 +47,8 @@ export const styles = makeStyles(() => ({
     cursor: "pointer",
   },
   selectedDayPaper: {
-    width: "51px",
-    height: "51px",
+    width: "31px",
+    height: "31px",
     backgroundColor: "#f9fbe7",
     margin: "3px",
     boxShadow: "none",
@@ -61,8 +61,8 @@ export const styles = makeStyles(() => ({
   },
 
   todayPaper: {
-    width: "55px",
-    height: "55px",
+    width: "35px",
+    height: "35px",
     backgroundColor: "lightGreen",
     margin: "3px",
     boxShadow: "none",
@@ -72,14 +72,17 @@ export const styles = makeStyles(() => ({
     color: " white",
   },
   shiftDay: {
-    width: "55px",
-    height: "55px",
+    width: "35px",
+    height: "35px",
     backgroundColor: "lightBlue",
     margin: "3px",
     boxShadow: "none",
-    borderRadius: "50%",
+    borderRadius: 0,
     padding: "1px",
     cursor: "pointer",
+    textAlign: "center",
+    
+
   },
 }));
 
@@ -116,7 +119,7 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <WbSunnyIcon style={{ color: "orange" }} />
+              <WbSunnyIcon style={{ color: "orange", width:"15px" }} />
             </Grid>
             <Grid item>{day.getDate()}</Grid>
           </Paper>
@@ -133,7 +136,7 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <CloudIcon style={{ color: "gray" }} />
+              <CloudIcon style={{ color: "gray", width:"15px" }} />
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>
@@ -150,7 +153,7 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <AcUnitIcon style={{ color: "#3d5afe" }} />
+              <AcUnitIcon style={{ color: "#3d5afe", width:"15px", marginTop:"-2px" }} />
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>
@@ -167,7 +170,7 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <CloudIcon style={{ color: "gray" }} />
+              <CloudIcon style={{ color: "gray", width:"15px" }} />
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>
@@ -178,7 +181,7 @@ export default function CustomCalendar() {
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
           >
             <Grid item>
-              <AcUnitIcon style={{ color: "#3d5afe" }} />
+              <AcUnitIcon style={{ color: "#3d5afe", width:"15px" }} />
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>

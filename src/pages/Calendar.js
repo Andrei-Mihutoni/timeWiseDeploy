@@ -6,17 +6,16 @@ function Calendar() {
     <div
       className="Calendar"
       style={{
-        // display: "grid",
+        display: "grid",
         // placeItems: "center",
         // height: "100vh",
+       
+
       }}
     >
-      {/* <header className="App-header"> */}
-      {/* <h1>TimeWise</h1> */}
-      <CustomCalendar1 />
-      {/* </header> */}
 
-      {/* React router code */}
+      <CustomCalendar1 />
+     
     </div>
   );
 }
