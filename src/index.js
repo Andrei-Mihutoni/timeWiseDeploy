@@ -14,15 +14,13 @@ const store = createStore(allReducers);
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <BrowserRouter> */}
-    <Auth0ProviderWithHistory>
-      {/* <Auth0Provider> */}
-      <Provider store={store}>
-        <App />
-      </Provider>
-      {/* </Auth0Provider> */}
-    </Auth0ProviderWithHistory>
-    {/* </BrowserRouter> */}
+    <Router>
+      <Auth0ProviderWithHistory>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </Auth0ProviderWithHistory>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );
