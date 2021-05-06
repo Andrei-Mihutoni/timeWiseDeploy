@@ -6,13 +6,23 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import allReducers from "./reducers";
+
+import { BrowserRouter as Router } from "react-router-dom";
+import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
+
 const store = createStore(allReducers);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    {/* <BrowserRouter> */}
+    <Auth0ProviderWithHistory>
+      {/* <Auth0Provider> */}
+      <Provider store={store}>
+        <App />
+      </Provider>
+      {/* </Auth0Provider> */}
+    </Auth0ProviderWithHistory>
+    {/* </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById("root")
 );
