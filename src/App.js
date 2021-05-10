@@ -5,7 +5,7 @@ import CustomCalendar1 from "./CustomCalendar1";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
-import Requests from "./pages/Requests";
+import Locations from "./pages/Locations";
 import Users from "./pages/Users";
 import { Appbar, Button, Container } from "muicss/react";
 
@@ -36,8 +36,8 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
-            <Route path="/requests">
-              <Requests />
+            <Route path="/Locations">
+              <Locations />
             </Route>
              <Route path="/usersList">
               <Users />

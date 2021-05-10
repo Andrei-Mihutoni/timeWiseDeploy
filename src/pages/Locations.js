@@ -2,7 +2,7 @@ import React from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-function Requests() {
+function Locations() {
   return (
     <div className="Requests">
       <Header />
@@ -13,6 +13,6 @@ function Requests() {
     </div>
   );
 }
-export default Requests;
+export default Locations;
 
 

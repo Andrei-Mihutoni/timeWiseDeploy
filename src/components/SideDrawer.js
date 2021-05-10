@@ -56,7 +56,7 @@ const SideDrawer = ({ navLinks }) => {
           </a>
         ))} */}
         <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Home'> <h2>Home</h2></NavLink>
-        <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/requests'> <h2>Requests</h2></NavLink>
+        <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Locations'> <h2>Locations</h2></NavLink>
         <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Calendar'> <h2>Calendar</h2></NavLink>
       </List>
     </div>

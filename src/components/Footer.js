@@ -5,6 +5,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import TodayIcon from '@material-ui/icons/Today';
 import { Home } from "@material-ui/icons";
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Grid from '@material-ui/core/Grid';
@@ -49,7 +50,7 @@ export default function Footer() {
       <Grid container spacing={1} style={{marginTop:'10px'}}>
          <Grid item xs={4}>
          <NavLink exact={true} activeClassName='is-active' to="/Calendar">
-      <RestoreIcon />
+      <TodayIcon />
       <p style={{marginTop:"-10px"}}>Calendar</p>
       </NavLink>
         </Grid>
@@ -64,7 +65,7 @@ export default function Footer() {
      </Grid>
     
          <Grid item xs={4}>
-     <NavLink activeClassName='is-active' to="/requests">
+     <NavLink activeClassName='is-active' to="/Locations">
        <LocationOnIcon /> 
       <p style={{marginTop:"-10px"}}>Location</p>
       </NavLink>
