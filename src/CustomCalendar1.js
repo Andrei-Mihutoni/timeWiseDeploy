@@ -26,14 +26,13 @@ const materialTheme = createMuiTheme({
 });
 
 export const styles = makeStyles(() => ({
- 
   notInThisMonthDayPaper: {
     width: "35px",
     height: "35px",
     backgroundColor: "#eeeeee",
     margin: "3px",
     boxShadow: "none",
-    borderRadius: 0,
+    borderRadius: "50%",
     padding: "1px",
   },
   normalDayPaper: {
@@ -42,7 +41,7 @@ export const styles = makeStyles(() => ({
     backgroundColor: "#e8f5e9",
     margin: "3px",
     boxShadow: "none",
-    borderRadius: 0,
+    borderRadius: "50%",
     padding: "1px",
     cursor: "pointer",
   },
@@ -52,7 +51,7 @@ export const styles = makeStyles(() => ({
     backgroundColor: "#f9fbe7",
     margin: "3px",
     boxShadow: "none",
-    borderRadius: 0,
+    borderRadius: "50%",
     borderStyle: "solid",
     borderWidth: "2px",
     borderColor: "lime",
@@ -66,7 +65,7 @@ export const styles = makeStyles(() => ({
     backgroundColor: "lightGreen",
     margin: "3px",
     boxShadow: "none",
-    borderRadius: 0,
+    borderRadius: "50%",
     padding: "1px",
     cursor: "pointer",
     color: " white",
@@ -77,25 +76,25 @@ export const styles = makeStyles(() => ({
     backgroundColor: "lightBlue",
     margin: "3px",
     boxShadow: "none",
-    borderRadius: 0,
+    borderRadius: "50%",
     padding: "1px",
     cursor: "pointer",
     textAlign: "center",
-    
-
   },
-  
 }));
 
 export default function CustomCalendar() {
-  
   const [selectedDate, handleDateChange] = useState(new Date());
   const classes = styles();
   const today = new Date();
-  const sunnyDays = [1, 6, 10, 24, 15];
-  const cloudyDays = [30, 4, 13, 21];
-  const snowyDays = [25, 3, 12, 11, 27];
+  const sunnyDays = [];
+  const cloudyDays = [];
+  const snowyDays = [];
   const shiftDays = [26, 30, 19, 2, 5];
+
+  function openShift(day) {
+    console.log("shift", day);
+  }
 
   function getDayElement(day, selectedDate, isInCurrentMonth, dayComponent) {
     const isSunny = sunnyDays.includes(day.getDate());
@@ -106,7 +105,7 @@ export default function CustomCalendar() {
     const isSelected = day.getDate() === selectedDate.getDate();
     const isToday =
       day.getDate() === today.getDate() && day.getMonth() === today.getMonth();
-    console.log(day.getTime());
+    // console.log(day.getTime());
     let dateTile;
     if (isInCurrentMonth) {
       if (isSunny) {
@@ -121,7 +120,7 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <WbSunnyIcon style={{ color: "orange", width:"15px" }} />
+              <WbSunnyIcon style={{ color: "orange", width: "15px" }} />
             </Grid>
             <Grid item>{day.getDate()}</Grid>
           </Paper>
@@ -138,7 +137,7 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <CloudIcon style={{ color: "gray", width:"15px" }} />
+              <CloudIcon style={{ color: "gray", width: "15px" }} />
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>
@@ -155,7 +154,9 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <AcUnitIcon style={{ color: "#3d5afe", width:"15px", marginTop:"-2px" }} />
+              <AcUnitIcon
+                style={{ color: "#3d5afe", width: "15px", marginTop: "-2px" }}
+              />
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>
@@ -172,7 +173,7 @@ export default function CustomCalendar() {
             }
           >
             <Grid item>
-              <CloudIcon style={{ color: "gray", width:"15px" }} />
+              <CloudIcon style={{ color: "gray", width: "15px" }} />
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>
@@ -181,9 +182,10 @@ export default function CustomCalendar() {
         dateTile = (
           <Paper
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
+            onClick={openShift(selectedDate)}
           >
-            <Grid item>
-              <AcUnitIcon style={{ color: "#3d5afe", width:"15px" }} />
+            <Grid style={{ marginTop: "15px" }} item>
+              {/* <AcUnitIcon style={{ color: "#3d5afe", width: "15px" }} /> */}
             </Grid>
             <Grid item> {day.getDate()}</Grid>
           </Paper>
@@ -222,12 +224,11 @@ export default function CustomCalendar() {
   }
 
   return (
-    <div 
-     style={{
+    <div
+      style={{
         display: "grid",
         placeItems: "center",
         height: "80vh",
-
       }}
     >
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
