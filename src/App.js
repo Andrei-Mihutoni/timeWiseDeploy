@@ -9,7 +9,8 @@ import Requests from "./pages/Requests";
 import { Appbar, Button, Container } from "muicss/react";
 
 
-import UserList from "./containers/user-list";
+import UserList from "./containers/UserList";
+
 
 import "./App.scss";
 
