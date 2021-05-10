@@ -84,9 +84,11 @@ export const styles = makeStyles(() => ({
     
 
   },
+  
 }));
 
 export default function CustomCalendar() {
+  
   const [selectedDate, handleDateChange] = useState(new Date());
   const classes = styles();
   const today = new Date();
@@ -220,7 +222,14 @@ export default function CustomCalendar() {
   }
 
   return (
-    <div>
+    <div 
+     style={{
+        display: "grid",
+        placeItems: "center",
+        height: "80vh",
+
+      }}
+    >
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <ThemeProvider theme={materialTheme}>
           <DatePicker
