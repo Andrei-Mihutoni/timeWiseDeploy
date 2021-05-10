@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Requests from "./pages/Requests";
 import { Appbar, Button, Container } from "muicss/react";
 
+
 import UserList from "./containers/user-list";
 
 import "./App.scss";
@@ -17,7 +18,7 @@ function App() {
     <div>
       <Router>
         <div>
-          <Appbar>
+          {/* <Appbar>
             <nav>
               <ul>
                 <li>
@@ -26,7 +27,7 @@ function App() {
               </ul>
             </nav>
             <UserList></UserList>
-          </Appbar>
+          </Appbar> */}
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
