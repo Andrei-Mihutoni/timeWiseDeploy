@@ -6,9 +6,9 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 import Requests from "./pages/Requests";
+import Users from "./pages/Users";
 import { Appbar, Button, Container } from "muicss/react";
 
-import UserList from "./containers/UserList";
 
 import "./App.scss";
 
@@ -17,7 +17,7 @@ function App() {
     <div>
       <Router>
         <div>
-          <Appbar>
+          {/* <Appbar>
             <nav>
               <ul>
                 <li>
@@ -25,8 +25,8 @@ function App() {
                 </li>
               </ul>
             </nav>
-            <UserList></UserList>
-          </Appbar>
+           
+          </Appbar> */}
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
@@ -38,6 +38,9 @@ function App() {
             </Route>
             <Route path="/requests">
               <Requests />
+            </Route>
+             <Route path="/usersList">
+              <Users />
             </Route>
           </Switch>
         </div>

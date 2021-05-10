@@ -52,12 +52,14 @@ function Home() {
           <h3 className="marginTopHome2">Add new shift</h3>
         </Grid>
         <Grid item xs={6}>
+          <Link to="/usersList">
           <Button variant="contained" style={{
         backgroundColor: "#009bcc",
         color:"white",
       }}>
         ADD SHIFT
       </Button>
+      </Link>
         </Grid>
         <Box borderBottom={1} style={ {width: '100vw', borderColor: 'gray', margin:'10px' }} />
         <Grid item xs={6}>
