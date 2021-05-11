@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DateFnsUtils from "@date-io/date-fns";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { Paper, Grid } from "@material-ui/core";
@@ -8,6 +8,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import CloudIcon from "@material-ui/icons/Cloud";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import AcUnitIcon from "@material-ui/icons/AcUnit";
+
+import { connect } from "react-redux";
+import { fetchShifts } from "./actions/shiftActions";
 
 const materialTheme = createMuiTheme({
   overrides: {
@@ -83,15 +86,21 @@ export const styles = makeStyles(() => ({
   },
 }));
 
-export default function CustomCalendar() {
+function CustomCalendar({ shiftData, fetchShifts }) {
+  useEffect(() => {
+    fetchShifts();
+  }, []);
+  console.log(shiftData.shifts[0].date.substring(6, 7));
   const [selectedDate, handleDateChange] = useState(new Date());
   const classes = styles();
   const today = new Date();
   const sunnyDays = [];
   const cloudyDays = [];
   const snowyDays = [];
-  const shiftDays = [26, 30, 19, 2, 5];
-
+  const shiftDays = shiftData.shifts.map((shift) => {
+    return parseInt(shift.date.substring(6, 7));
+  });
+  console.log(shiftDays);
   function openShift(day) {
     console.log("shift", day);
   }
@@ -246,3 +255,17 @@ export default function CustomCalendar() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    shiftData: state.shift,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchShifts: () => dispatch(fetchShifts()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomCalendar);

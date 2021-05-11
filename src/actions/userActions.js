@@ -18,9 +18,12 @@ export const fetchUsers = () => {
         "cache-control": "no-cache",
       },
     })
-      .then((response) => {
+      .then((response) => response.json())
+
+      .then((data) => {
         // response.data is the users
-        const users = response.data;
+        const users = data;
+        console.log(users, "users");
         dispatch(fetchUsersSuccess(users));
       })
       .catch((error) => {
