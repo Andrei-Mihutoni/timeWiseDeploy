@@ -75,10 +75,14 @@ const ExternalApi = () => {
     <div className="container">
       <h1>External API</h1>
       <p>
-        Use these buttons to call an external API. The protected API call has an
-        access token in its authorization header. The API server will validate
+        Use these buttons to call an external API.
+        <br></br>
+          The protected API call has an
+          access token in its authorization header.
+          <br></br>
+          The API server will validate
         the access token using the Auth0 Audience value.
-      </p>
+      </p >
       <div
         className="btn-group mt-5"
         role="group"
@@ -108,17 +112,19 @@ const ExternalApi = () => {
 
 
       </div>
-      {message && (
-        <div className="mt-5">
-          <h6 className="muted">Result</h6>
-          <div className="container-fluid">
-            <div className="row">
-              <code className="col-12 text-light bg-dark p-4">{message}</code>
+      {
+        message && (
+          <div className="mt-5">
+            <h6 className="muted">Result</h6>
+            <div className="container-fluid">
+              <div className="row">
+                <code className="col-12 text-light bg-dark p-4">{message}</code>
+              </div>
             </div>
           </div>
-        </div>
-      )}
-    </div>
+        )
+      }
+    </div >
   );
 };
 

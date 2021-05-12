@@ -21,7 +21,8 @@ li {
 
 .signupBtn,
 .loginBtn,
-.logoutBtn {
+.logoutBtn,
+.btn {
   color: white;
   background-color: #009bcc;
   width: 80%;
@@ -46,4 +47,15 @@ li {
 .logoImg {
   width: 80%;
   max-width: 300px;
+}
+
+.navbar-nav {
+  display: inline-flex;
+}
+.navItem {
+  margin-left: 10px;
+}
+
+.userProfileJson {
+  text-align: left;
 }

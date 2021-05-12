@@ -23,7 +23,7 @@ const Profile = () => {
         </div>
       </div>
       <div className="row">
-        <pre className="col-12 text-light bg-dark p-4">
+        <pre className="userProfileJson">
           {JSON.stringify(user, null, 2)}
         </pre>
       </div>

@@ -31,6 +31,7 @@ function App() {
         <div className="container flex-grow-1">
           <Switch>
             <Route path="/" exact component={HomePage} />
+            <Route path="/" exact component={Calendar} />
             <ProtectedRoute path="/profile" component={Profile} />
             <ProtectedRoute path="/external-api" component={ExternalApi} />
           </Switch>
