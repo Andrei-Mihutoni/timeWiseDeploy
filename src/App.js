@@ -63,11 +63,13 @@ function App() {
             <Users />
           </Route>
 
-          {/* {isAuthenticated && <Redirect to="/home" from='/'/>} */}
+           <ProtectedRoute path="/profile" component={Profile} />
+          <ProtectedRoute path="/external-api" component={ExternalApi} />
+          
+          {isAuthenticated && <Redirect to="/home" from='/'/>}
           <Route path="/" exact component={HomePage} />
 
-          <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/external-api" component={ExternalApi} />
+         
         </Switch>
       </Router>
     </div>

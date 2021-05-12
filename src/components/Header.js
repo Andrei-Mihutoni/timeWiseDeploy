@@ -15,6 +15,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import LogoutButton from '../components/logout-button';
+import { Link } from "react-router-dom";
 import {
  
   Container,
@@ -172,6 +173,7 @@ export default function PrimarySearchAppBar() {
         <p>Notifications</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
+        <Link to='/profile'>
         <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
@@ -180,6 +182,7 @@ export default function PrimarySearchAppBar() {
         >
           <AccountCircle />
         </IconButton>
+        </Link>
         <p>Profile</p>
       </MenuItem>
        <MenuItem>
