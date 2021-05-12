@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { NavBar, Footer, Loading } from "./components";
+import { HomePage, Profile, ExternalApi } from "./views";
+import { useAuth0 } from "@auth0/auth0-react";
+import ProtectedRoute from "./auth/protected-route";
+
 import CustomCalendar1 from "./CustomCalendar1";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Calendar from "./pages/Calendar";
@@ -13,9 +18,22 @@ import { Appbar, Button, Container } from "muicss/react";
 import "./App.scss";
 
 function App() {
+  const { isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <div>
       <Router>
+        <NavBar />
+        <div className="container flex-grow-1">
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/" exact component={Calendar} />
+            <ProtectedRoute path="/profile" component={Profile} />
+            <ProtectedRoute path="/external-api" component={ExternalApi} />
         <div>
           {/* <Appbar>
             <nav>
@@ -44,6 +62,7 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <Footer />
       </Router>
     </div>
   );
