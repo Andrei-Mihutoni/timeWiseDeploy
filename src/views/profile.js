@@ -11,11 +11,15 @@ function Profile({ userData, fetchUsers, addUser }) {
     fetchUsers();
   }, []);
   useEffect(() => {
-    userData.forEach((newUser) => {
-      if (newUser.email !== user.email) {
-        addUser(user);
-      }
-    });
+    const newUser = {
+      email: user.email,
+    };
+    console.log(user);
+    // userData.users.forEach((newUser) => {
+    // if (newUser.email !== user.email) {
+    addUser(JSON.stringify(user));
+    // }
+    // });
   }, []);
 
   return (
