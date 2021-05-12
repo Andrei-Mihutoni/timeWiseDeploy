@@ -9,7 +9,9 @@ function Locations() {
      
     
       <h1>I am your request page!</h1>
+       <div  style={{marginTop:'150px'}}>
        <Footer/>
+       </div>
     </div>
   );
 }

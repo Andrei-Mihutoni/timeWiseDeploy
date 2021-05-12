@@ -27,7 +27,7 @@ export default function Footer() {
       position="static"
       color="primary"
       style={{
-        position: "absolute",
+        position: "fix",
         bottom: "0",
       }}
     >

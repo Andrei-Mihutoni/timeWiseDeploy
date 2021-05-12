@@ -6,7 +6,7 @@ const LoginPage = () => (
     <Fragment>
 
         <hr />
-        {/* <Hero /> */}
+        <Hero />
         <HomeContent />
         <Footer />
     </Fragment>

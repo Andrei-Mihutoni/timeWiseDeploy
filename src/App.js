@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import { NavBar, Footer, Loading } from "./components";
 import { HomePage, Profile, ExternalApi } from "./views";
-import { useAuth0 } from "@auth0/auth0-react";
 import ProtectedRoute from "./auth/protected-route";
-
+import LogoutButton from '../src/components/logout-button'
 import CustomCalendar1 from "./CustomCalendar1";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link,Redirect } from "react-router-dom";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
@@ -16,7 +15,9 @@ import { Appbar, Button, Container } from "muicss/react";
 
 import "./App.scss";
 
+
 function App() {
+  const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
 
   if (isLoading) {
@@ -27,10 +28,7 @@ function App() {
     <div>
       <div className="container flex-grow-1">
         {/* <Switch> */}
-        <Route path="/" exact component={HomePage} />
-        <Route path="/" exact component={Calendar} />
-        <ProtectedRoute path="/profile" component={Profile} />
-        <ProtectedRoute path="/external-api" component={ExternalApi} />
+       
         {/* </Switch> */}
       </div>
       {/* <Appbar>
@@ -59,6 +57,15 @@ function App() {
           <Route path="/usersList">
             <Users />
           </Route>
+          <Route path="/logout">
+            <LogoutButton />
+          </Route>
+          
+          {isAuthenticated && <Redirect to="/home" from='/'/>}
+           <Route path="/" exact component={HomePage}/>
+       
+        <ProtectedRoute path="/profile" component={Profile} />
+        <ProtectedRoute path="/external-api" component={ExternalApi} />
         </Switch>
       </Router>
     </div>
