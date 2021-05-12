@@ -12,6 +12,11 @@ import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
 
 const store = createStore(allReducers);
 
+import rootReducer from "./reducers/rootReducer";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
 ReactDOM.render(
   <React.StrictMode>
     <Router>

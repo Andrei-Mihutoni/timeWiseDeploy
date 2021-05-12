@@ -1,0 +1,35 @@
+.marginTopHome1 {
+  margin-top: 35px;
+  margin-left: 10px;
+}
+h2.marginTopHome1 {
+  text-align: left;
+}
+.marginTopHome1.request {
+  background-color: rgba(0, 167, 238, 0.08);
+  cursor: pointer;
+}
+.marginTopHome1.request h3 span {
+  color: red;
+}
+
+.marginTopHome2 {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+h2.marginTopHome2 {
+  margin-top: 20px;
+  margin-bottom: -20px;
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
+  margin-top: 5px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}

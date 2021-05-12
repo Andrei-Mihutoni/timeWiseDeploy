@@ -1,0 +1,29 @@
+header.MuiPaper-root.MuiAppBar-root.MuiAppBar-positionStatic.MuiAppBar-colorPrimary.MuiPaper-elevation4 {
+  background-color: #009bcc;
+}
+
+.MuiContainer-root.MuiContainer-maxWidthMd {
+  padding-top: 10px;
+}
+
+.MuiBottomNavigation-root.makeStyles-root-23,
+.MuiBottomNavigation-root.makeStyles-root-18,
+.MuiBottomNavigation-root.makeStyles-root-13 {
+  background-color: #009bcc;
+}
+
+a {
+  svg {
+    color: white;
+  }
+  p {
+    color: white;
+  }
+}
+
+.is-active {
+  color: white;
+  svg {
+    font-size: 32px;
+  }
+}
