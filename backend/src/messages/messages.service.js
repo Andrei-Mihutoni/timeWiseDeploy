@@ -25,5 +25,5 @@ const getProtectedMessage = () => {
 module.exports = {
   getPublicMessage,
   getProtectedMessage,
-  getRoleBasedMessage,
+  // getRoleBasedMessage,
 };
