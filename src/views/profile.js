@@ -11,22 +11,12 @@ function Profile({ userData, fetchUsers, addUser }) {
     fetchUsers();
   }, []);
   useEffect(() => {
-
-    console.log(user.nickname);
-
-    let userEmail = Object.keys(user.nickname);
-    let userNickname = user.nickname;
-    console.log(userNickname)
-
-    const newUser = {
-      email: user.email,
-      nickname: userNickname
-    };
-    // userData.users.forEach((newUser) => {
-    // if (newUser.email !== user.email) {
-    addUser(newUser);
-    // }
-    // });
+    console.log(user);
+    userData.users.forEach((newUser) => {
+      if (newUser.email !== user.email) {
+        addUser(user);
+      }
+    });
   }, []);
 
   return (
@@ -60,7 +50,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
-    addUser: () => dispatch(addUser()),
+    addUser: (newUser) => dispatch(addUser(newUser)),
   };
 };
 

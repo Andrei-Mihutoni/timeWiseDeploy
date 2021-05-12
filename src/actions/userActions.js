@@ -36,8 +36,13 @@ export const fetchUsers = () => {
 };
 
 export const addUser = (user) => {
+  // let data = {
+  //   email: user.email,
+  // };
+  let postData = JSON.stringify(user);
+
   return (dispatch) => {
-    dispatch(postUserRequest(user));
+    dispatch(postUserRequest(postData));
     fetch(`${endpoint}`, {
       method: "post",
       headers: {
@@ -45,6 +50,7 @@ export const addUser = (user) => {
         "x-apikey": key,
         "cache-control": "no-cache",
       },
+      body: postData,
     })
       .then((response) => response.json())
 
