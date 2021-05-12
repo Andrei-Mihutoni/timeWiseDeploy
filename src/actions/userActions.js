@@ -5,14 +5,25 @@ import {
   FETCH_USERS_FAILURE,
 } from "./userTypes";
 
+const endpoint = "https://danieldb-2683.restdb.io/rest/timewiseusers";
+const key = "5f959ef84b77c1637d147d90";
 export const fetchUsers = () => {
   return (dispatch) => {
     dispatch(fetchUsersRequest());
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
+    fetch(`${endpoint}`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-apikey": key,
+        "cache-control": "no-cache",
+      },
+    })
+      .then((response) => response.json())
+
+      .then((data) => {
         // response.data is the users
-        const users = response.data;
+        const users = data;
+        console.log(users, "users");
         dispatch(fetchUsersSuccess(users));
       })
       .catch((error) => {
