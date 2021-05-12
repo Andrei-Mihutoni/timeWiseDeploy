@@ -14,11 +14,11 @@ const getProtectedMessage = () => {
   };
 };
 
-const getRoleBasedMessage = () => {
-  return {
-    message: "You called the Role Based Endpoint.",
-  };
-};
+// const getRoleBasedMessage = () => {
+//   return {
+//     message: "You called the Role Based Endpoint.",
+//   };
+// };
 
 
 

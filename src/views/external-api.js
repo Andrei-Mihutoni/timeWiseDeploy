@@ -99,12 +99,12 @@ const ExternalApi = () => {
           Get Protected Message
         </button>
 
-        <button
+        {/* <button
           type="button"
           className="btn btn-primary"
           onClick={callRoleBasedEndpoint}        >
           Ping Role Based
-        </button>
+        </button> */}
 
 
       </div>

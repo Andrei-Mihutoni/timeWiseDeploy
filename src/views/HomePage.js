@@ -4,8 +4,10 @@ import { Hero, HomeContent } from "../components";
 
 const HomePage = () => (
   <Fragment>
-    <Hero />
+
     <hr />
+    <Hero />
+
     <HomeContent />
   </Fragment>
 );

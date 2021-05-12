@@ -3,10 +3,12 @@
  */
 
 const express = require("express");
-const { getPublicMessage, getProtectedMessage } = require("./messages.service");
+const { getPublicMessage, getProtectedMessage, getRoleBasedMessage } = require("./messages.service");
 const { checkJwt } = require("../authz/check-jwt");
 
 const { jwtAuthz } = require("../authz/check-jwt");
+// const jwtAuthz = require("express-jwt-authz");
+
 
 
 
@@ -15,10 +17,17 @@ const { jwtAuthz } = require("../authz/check-jwt");
  */
 
 const messagesRouter = express.Router();
-
+const app = express();
 /**
  * Controller Definitions
  */
+
+
+const checkPermissions = jwtAuthz(["add:shift"], {
+  customScopeKey: "permissions",
+  checkAllScopes: true
+});
+
 
 // GET messages/
 
@@ -32,10 +41,16 @@ messagesRouter.get("/protected-message", checkJwt, (req, res) => {
   res.status(200).send(message);
 });
 
-messagesRouter.get("/role", checkJwt, jwtAuthz, (req, res) => {
+messagesRouter.get("/role", checkJwt, checkPermissions, (req, res) => {
   const message = getRoleBasedMessage();
   res.status(200).send(message);
 });
+
+
+// app.get("/role", checkJwt, checkPermissions, (req, res) => {
+//   const message = getRoleBasedMessage();
+//   res.status(200).send(message);
+// });
 
 
 module.exports = {

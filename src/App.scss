@@ -10,3 +10,40 @@ li {
   display: block;
   text-align: center;
 }
+
+* {
+  text-align: center;
+}
+
+.btn {
+  border: none;
+}
+
+.signupBtn,
+.loginBtn,
+.logoutBtn {
+  color: white;
+  background-color: #009bcc;
+  width: 80%;
+  max-width: 300px;
+  height: 40px;
+  border-radius: 25px;
+  margin-top: 25px;
+  font-weight: 600;
+}
+
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30%;
+}
+
+.timeWiselogo {
+  margin-top: 25%;
+}
+
+.logoImg {
+  width: 80%;
+  max-width: 300px;
+}

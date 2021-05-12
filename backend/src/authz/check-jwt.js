@@ -16,11 +16,12 @@ const checkJwt = jwt({
     algorithms: ['RS256'],
 });
 
-const checkPermissions = jwtAuthz(["read:shifts"], {
-    customScopeKey: "permssions"
-});
+// const checkPermissions = jwtAuthz(["read:shifts"], {
+//     customScopeKey: "permssions"
+// });
 
 module.exports = {
     checkJwt,
-    checkPermissions,
+    // checkPermissions,
+    jwtAuthz,
 };
