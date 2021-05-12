@@ -2,6 +2,9 @@ import {
   FETCH_USERS_REQUEST,
   FETCH_USERS_SUCCESS,
   FETCH_USERS_FAILURE,
+  POST_USER_REQUEST,
+  POST_USER_SUCCESS,
+  POST_USER_FAILURE,
 } from "../actions/userTypes";
 
 const initialState = {
@@ -24,6 +27,23 @@ const reducer = (state = initialState, action) => {
         error: "",
       };
     case FETCH_USERS_FAILURE:
+      return {
+        loading: false,
+        users: [],
+        error: action.payload,
+      };
+    case POST_USER_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case POST_USER_SUCCESS:
+      return {
+        loading: false,
+        users: action.payload,
+        error: "",
+      };
+    case POST_USER_FAILURE:
       return {
         loading: false,
         users: [],

@@ -1,11 +1,22 @@
-
-import React from "react";
+import React, { useEffect } from "react";
+import { addUser, fetchUsers } from "../actions/userActions";
+import { connect } from "react-redux";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Profile = () => {
+function Profile({ userData, fetchUsers, addUser }) {
   const { user } = useAuth0();
   const { name, picture, email } = user;
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+  useEffect(() => {
+    userData.forEach((newUser) => {
+      if (newUser.email !== user.email) {
+        addUser(user);
+      }
+    });
+  }, []);
 
   return (
     <div>
@@ -23,12 +34,23 @@ const Profile = () => {
         </div>
       </div>
       <div className="row">
-        <pre className="userProfileJson">
-          {JSON.stringify(user, null, 2)}
-        </pre>
+        <pre className="userProfileJson">{JSON.stringify(user, null, 2)}</pre>
       </div>
     </div>
   );
+}
+
+const mapStateToProps = (state) => {
+  return {
+    userData: state.user,
+  };
 };
 
-export default Profile;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchUsers: () => dispatch(fetchUsers()),
+    addUser: (newUser) => dispatch(addUser(newUser)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
