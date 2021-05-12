@@ -4,13 +4,9 @@ import "./index.css";
 import { Provider } from "react-redux";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
-import allReducers from "./reducers";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import Auth0ProviderWithHistory from "./auth/auth0-provider-with-history";
-
-const store = createStore(allReducers);
 
 import rootReducer from "./reducers/rootReducer";
 import { createStore, applyMiddleware } from "redux";

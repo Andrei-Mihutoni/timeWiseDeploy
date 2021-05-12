@@ -14,7 +14,6 @@ import Locations from "./pages/Locations";
 import Users from "./pages/Users";
 import { Appbar, Button, Container } from "muicss/react";
 
-
 import "./App.scss";
 
 function App() {
@@ -26,43 +25,41 @@ function App() {
 
   return (
     <div>
-      <Router>
-        <NavBar />
-        <div className="container flex-grow-1">
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/" exact component={Calendar} />
-            <ProtectedRoute path="/profile" component={Profile} />
-            <ProtectedRoute path="/external-api" component={ExternalApi} />
-        <div>
-          {/* <Appbar>
+      <div className="container flex-grow-1">
+        {/* <Switch> */}
+        <Route path="/" exact component={HomePage} />
+        <Route path="/" exact component={Calendar} />
+        <ProtectedRoute path="/profile" component={Profile} />
+        <ProtectedRoute path="/external-api" component={ExternalApi} />
+        {/* </Switch> */}
+      </div>
+      {/* <Appbar>
             <nav>
-              <ul>
-                <li>
-                  <Link to="/Home">Home</Link>
-                </li>
-              </ul>
+            <ul>
+            <li>
+            <Link to="/Home">Home</Link>
+            </li>
+            </ul>
             </nav>
-           
+            
           </Appbar> */}
-          {/* A <Switch> looks through its children <Route>s and
+      {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
-            <Route path="/calendar">
-              <Calendar />
-            </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/Locations">
-              <Locations />
-            </Route>
-             <Route path="/usersList">
-              <Users />
-            </Route>
-          </Switch>
-        </div>
-        <Footer />
+      <Router>
+        <Switch>
+          <Route path="/calendar">
+            <Calendar />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/Locations">
+            <Locations />
+          </Route>
+          <Route path="/usersList">
+            <Users />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
