@@ -14,6 +14,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import LogoutButton from '../components/logout-button';
 import {
  
   Container,
@@ -180,6 +181,15 @@ export default function PrimarySearchAppBar() {
           <AccountCircle />
         </IconButton>
         <p>Profile</p>
+      </MenuItem>
+       <MenuItem>
+        <IconButton aria-label="show 11 new notifications" color="inherit">
+          <div >
+            <LogoutButton className="buttonCustomLogout"/>
+         
+          </div>
+        </IconButton>
+       
       </MenuItem>
     </Menu>
   );

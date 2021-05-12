@@ -66,7 +66,7 @@ function Home() {
           <h3 className="marginTopHome2">Edit a shift</h3>
         </Grid>
         <Grid item xs={6}>
-          <Link to="/logout">
+          <Link to="/home">
           <Button variant="contained" style={{
         backgroundColor: "#009bcc",
         color:"white",

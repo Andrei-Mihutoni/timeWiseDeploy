@@ -9,7 +9,7 @@ const AuthenticationButton = () => {
     const { isAuthenticated } = useAuth0();
 
     return isAuthenticated ? <LogoutButton /> : <LoginButton />;
-    // return isAuthenticated ? <Link to='/Home'/> : <LoginButton />;
+   
 };
 
 export default AuthenticationButton;

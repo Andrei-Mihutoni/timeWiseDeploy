@@ -57,9 +57,6 @@ function App() {
           <Route path="/usersList">
             <Users />
           </Route>
-          <Route path="/logout">
-            <LogoutButton />
-          </Route>
           
           {isAuthenticated && <Redirect to="/home" from='/'/>}
            <Route path="/" exact component={HomePage}/>
