@@ -104,7 +104,9 @@ function Home() {
       
       </Container>
     </div>
+    <div  style={{marginTop:'150px'}}>
      <Footer/>
+     </div>
    </div>
   );
 }

@@ -6,9 +6,24 @@ header.MuiPaper-root.MuiAppBar-root.MuiAppBar-positionStatic.MuiAppBar-colorPrim
   padding-top: 10px;
 }
 
-.is-active {
-  color: #009bcc;
+.MuiBottomNavigation-root.makeStyles-root-23,
+.MuiBottomNavigation-root.makeStyles-root-18,
+.MuiBottomNavigation-root.makeStyles-root-13 {
+  background-color: #009bcc;
+}
+
+a {
   svg {
-    font-size: 29px;
+    color: white;
+  }
+  p {
+    color: white;
+  }
+}
+
+.is-active {
+  color: white;
+  svg {
+    font-size: 32px;
   }
 }

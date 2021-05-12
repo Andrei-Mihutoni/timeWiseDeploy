@@ -30,10 +30,12 @@ export default function Footer() {
   const [value, setValue] = React.useState(0);
 
   return (
-      <AppBar position="static" color="primary"
+       <AppBar position="static" color="primary"
       style={{
-          position:'absolute',
+         
+          position:'fixed',
           bottom:'0',
+         
       }}>
           <Container maxWidth="md">
             <Toolbar>
