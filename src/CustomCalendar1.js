@@ -8,6 +8,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import CloudIcon from "@material-ui/icons/Cloud";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import AcUnitIcon from "@material-ui/icons/AcUnit";
+import Modal from "@material-ui/core/Modal";
+// import CreateShift from "../component/CreateShift";
 
 import { connect } from "react-redux";
 import { fetchShifts } from "./actions/shiftActions";
@@ -90,7 +92,7 @@ function CustomCalendar({ shiftData, fetchShifts }) {
   useEffect(() => {
     fetchShifts();
   }, []);
-  console.log(shiftData.shifts[0].date.substring(6, 7));
+  // console.log(shiftData.shifts[0].date.substring(6, 7));
   const [selectedDate, handleDateChange] = useState(new Date());
   const classes = styles();
   const today = new Date();
@@ -193,6 +195,7 @@ function CustomCalendar({ shiftData, fetchShifts }) {
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
             onClick={openShift(selectedDate)}
           >
+            {/* <CreateShift></CreateShift> */}
             <Grid style={{ marginTop: "15px" }} item>
               {/* <AcUnitIcon style={{ color: "#3d5afe", width: "15px" }} /> */}
             </Grid>
