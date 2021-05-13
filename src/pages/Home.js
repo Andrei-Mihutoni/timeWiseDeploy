@@ -10,6 +10,11 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,11 +26,25 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     color: theme.palette.text.secondary,
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
 function Home() {
-  const { user } = useAuth0();
 
+  const [location, setLocation] = React.useState('');
+
+  const handleChange = (event) => {
+    setLocation(event.target.value);
+  };
+
+
+  const { user } = useAuth0();
   const classes = useStyles();
   return (
     <div>
@@ -66,7 +85,7 @@ function Home() {
               <h3 className="marginTopHome2">Add new shift</h3>
             </Grid>
             <Grid item xs={6}>
-              <Link to="/usersList">
+              <Link to="/AddShifts">
                 <Button
                   variant="contained"
                   style={{

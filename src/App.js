@@ -17,9 +17,11 @@ import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
 import Users from "./pages/Users";
+import Addshifts from './pages/Addshifts'
 import { Appbar, Button, Container } from "muicss/react";
 
 import "./App.scss";
+
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -54,6 +56,7 @@ function App() {
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/Locations" component={Locations} />
           <ProtectedRoute path="/usersList" component={Users} />
+           <ProtectedRoute path="/AddShifts" component={Addshifts} />
 
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
