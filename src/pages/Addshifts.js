@@ -85,7 +85,7 @@ function Addshifts() {
           <MenuItem value={30}>Valby</MenuItem>
           <MenuItem value={30}>Frederiksberg</MenuItem>
         </Select>
-        <FormHelperText>Chose The Location</FormHelperText>
+        <FormHelperText>Choose The Location</FormHelperText>
         
       </FormControl>
       </Grid>
