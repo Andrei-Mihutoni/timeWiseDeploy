@@ -50,26 +50,44 @@ function App() {
             renders the first one that matches the current URL. */}
       <Router>
         <Switch>
-          <Route path="/calendar">
+          <ProtectedRoute path="/home" component={Home} />
+          <ProtectedRoute path="/calendar" component={Calendar} />
+          <ProtectedRoute path="/Locations" component={Locations} />
+          <ProtectedRoute path="/usersList" component={Users} />
+
+          <ProtectedRoute path="/profile" component={Profile} />
+          <ProtectedRoute path="/external-api" component={ExternalApi} />
+
+          {isAuthenticated && <Redirect to="/home" from='/' />}
+          <Route path="/" exact component={HomePage} />
+
+
+
+
+          {/* <Route path="/calendar">
             <Calendar />
           </Route>
+
           <Route path="/home">
             <Home />
           </Route>
+
           <Route path="/Locations">
             <Locations />
           </Route>
+
           <Route path="/usersList">
             <Users />
           </Route>
 
-           <ProtectedRoute path="/profile" component={Profile} />
+          <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
-          
-          {isAuthenticated && <Redirect to="/home" from='/'/>}
-          <Route path="/" exact component={HomePage} />
 
-         
+          {isAuthenticated && <Redirect to="/home" from='/' />}
+          <Route path="/" exact component={HomePage} /> */}
+
+
+
         </Switch>
       </Router>
     </div>

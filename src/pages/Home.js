@@ -38,7 +38,7 @@ function Home() {
           <Grid container spacing={3}>
             <Grid item xs={6}>
               <h2 className={(classes.paper, "marginTopHome1")}>
-                {JSON.stringify(user, null, 2)}
+                {/* {JSON.stringify(user, null, 2)} */}
                 Hello {user.nickname}
               </h2>
             </Grid>
