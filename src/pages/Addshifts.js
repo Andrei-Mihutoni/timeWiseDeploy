@@ -112,7 +112,7 @@ function Addshifts() {
          <Divider variant="middle" />
       </Grid>
       <Grid item xs={12}>
-        <h2>Chosoe a date</h2>
+        <h2>Choose a date</h2>
       </Grid>
        <Grid item xs={12} style={{marginTop:'-50px', marginBottom:'-50px'}}>
          <CustomCalendar />
