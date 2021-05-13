@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
   },
   insideGrid: {
-   padding: '50px',
+   padding: '20px',
 },
  modal: {
     display: 'flex',
