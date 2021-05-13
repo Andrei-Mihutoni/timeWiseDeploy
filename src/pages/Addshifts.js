@@ -125,18 +125,20 @@ function Addshifts() {
         backgroundColor: "#E5E5E5",
         color:"black",
         borderRadius:'28px',
+        width:'100px',
       }}>
         Back
       </Button>
       </Link>
         </Grid>
         <Grid item xs={6} style={{marginTop:'20px'}}>
-          <Link to="/Calendar">
+          <Link to="/Confirmshift">
 
           <Button variant="contained" style={{
         backgroundColor: "#03DAC5",
         color:"white",
         borderRadius:'28px',
+        width:'100px',
       }}>
         Next
       </Button>

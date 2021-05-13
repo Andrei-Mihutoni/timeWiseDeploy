@@ -17,7 +17,9 @@ import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
 import Users from "./pages/Users";
-import Addshifts from './pages/Addshifts'
+import Addshifts from './pages/Addshifts';
+import Confirmshift from './pages/Confirmshift'
+import Modal1 from './components/TransitionsModal'
 import { Appbar, Button, Container } from "muicss/react";
 
 import "./App.scss";
@@ -56,8 +58,9 @@ function App() {
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/Locations" component={Locations} />
           <ProtectedRoute path="/usersList" component={Users} />
-           <ProtectedRoute path="/AddShifts" component={Addshifts} />
-
+          <ProtectedRoute path="/AddShifts" component={Addshifts} />
+          <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> 
+           <ProtectedRoute path="/Modal1" component={Modal1} />    
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
 
