@@ -17,22 +17,25 @@ import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
 import Users from "./pages/Users";
-import Addshifts from './pages/Addshifts';
-import Confirmshift from './pages/Confirmshift'
-import Modal1 from './components/TransitionsModal'
+import Addshifts from "./pages/Addshifts";
+import Confirmshift from "./pages/Confirmshift";
+import Modal1 from "./components/TransitionsModal";
 import { Appbar, Button, Container } from "muicss/react";
 
 import "./App.scss";
 
-
 function App() {
   const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
+  const [shift, setShif] = useState({});
 
   if (isLoading) {
     return <Loading />;
   }
 
+  function getShiftDetails(shift) {
+    console.log(shift, "shift in app");
+  }
   return (
     <div>
       <div className="container flex-grow-1">
@@ -58,17 +61,18 @@ function App() {
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/Locations" component={Locations} />
           <ProtectedRoute path="/usersList" component={Users} />
-          <ProtectedRoute path="/AddShifts" component={Addshifts} />
-          <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> 
-           <ProtectedRoute path="/Modal1" component={Modal1} />    
+          <ProtectedRoute
+            getShiftDetails={getShiftDetails}
+            path="/AddShifts"
+            component={Addshifts}
+          />
+          <ProtectedRoute path="/ConfirmShift" component={Confirmshift} />
+          <ProtectedRoute path="/Modal1" component={Modal1} />
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
 
-          {isAuthenticated && <Redirect to="/home" from='/' />}
+          {isAuthenticated && <Redirect to="/home" from="/" />}
           <Route path="/" exact component={HomePage} />
-
-
-
 
           {/* <Route path="/calendar">
             <Calendar />
@@ -91,9 +95,6 @@ function App() {
 
           {isAuthenticated && <Redirect to="/home" from='/' />}
           <Route path="/" exact component={HomePage} /> */}
-
-
-
         </Switch>
       </Router>
     </div>
