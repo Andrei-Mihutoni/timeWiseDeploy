@@ -2,6 +2,9 @@ import {
   FETCH_SHIFTS_REQUEST,
   FETCH_SHIFTS_SUCCESS,
   FETCH_SHIFTS_FAILURE,
+  POST_SHIFT_REQUEST,
+  POST_SHIFT_SUCCESS,
+  POST_SHIFT_FAILURE
 } from "../actions/shiftTypes";
 
 const initialState = {
@@ -29,6 +32,24 @@ const reducer = (state = initialState, action) => {
         shifts: [],
         error: action.payload,
       };
+    case POST_SHIFT_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case POST_SHIFT_SUCCESS:
+      return {
+        loading: false,
+        users: action.payload,
+        error: "",
+      };
+    case POST_SHIFT_FAILURE:
+      return {
+        loading: false,
+        users: [],
+        error: action.payload,
+      };
+
     default:
       return state;
   }

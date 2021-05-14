@@ -51,20 +51,6 @@ export const styles = makeStyles(() => ({
     cursor: "pointer",
   },
   selectedDayPaper: {
-    width: "31px",
-    height: "31px",
-    backgroundColor: "#f9fbe7",
-    margin: "3px",
-    boxShadow: "none",
-    borderRadius: "50%",
-    borderStyle: "solid",
-    borderWidth: "2px",
-    borderColor: "lime",
-    padding: "1px",
-    cursor: "pointer",
-  },
-
-  todayPaper: {
     width: "35px",
     height: "35px",
     backgroundColor: "lightGreen",
@@ -74,6 +60,21 @@ export const styles = makeStyles(() => ({
     padding: "1px",
     cursor: "pointer",
     color: " white",
+
+  },
+
+  todayPaper: {
+    width: "35px",
+    height: "35px",
+    margin: "3px",
+    boxShadow: "none",
+    backgroundColor: "#f9fbe7",
+    borderRadius: "50%",
+    borderStyle: "solid",
+    borderWidth: "2px",
+    borderColor: "lime",
+    padding: "1px",
+    cursor: "pointer",
   },
   shiftDay: {
     width: "35px",
@@ -88,7 +89,7 @@ export const styles = makeStyles(() => ({
   },
 }));
 
-function CustomCalendar({ shiftData, fetchShifts }) {
+function CustomCalendar({ shiftData, fetchShifts, addShiftToCalendar }) {
   useEffect(() => {
     fetchShifts();
   }, []);
@@ -104,7 +105,8 @@ function CustomCalendar({ shiftData, fetchShifts }) {
   });
   console.log(shiftDays);
   function openShift(day) {
-    console.log("shift", day);
+    // console.log("shift", day);
+    addShiftToCalendar(day);
   }
 
   function getDayElement(day, selectedDate, isInCurrentMonth, dayComponent) {
@@ -126,8 +128,8 @@ function CustomCalendar({ shiftData, fetchShifts }) {
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -143,8 +145,8 @@ function CustomCalendar({ shiftData, fetchShifts }) {
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -160,8 +162,8 @@ function CustomCalendar({ shiftData, fetchShifts }) {
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -179,8 +181,8 @@ function CustomCalendar({ shiftData, fetchShifts }) {
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -209,8 +211,8 @@ function CustomCalendar({ shiftData, fetchShifts }) {
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
