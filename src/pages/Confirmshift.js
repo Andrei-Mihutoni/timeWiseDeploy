@@ -93,7 +93,7 @@ function Confirmshift({ shiftToAdd }) {
             </Grid>
 
             <Grid item xs={12}>
-              <h2>{shiftToAdd.day.toString()}</h2>
+              <h2>{shiftToAdd.day.toString().substr(0, 10)}</h2>
             </Grid>
 
             <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
@@ -212,6 +212,16 @@ function Confirmshift({ shiftToAdd }) {
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
                     <p style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
                      {shiftToAdd.shiftLocation.toString()}
+                    </p>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left'}}>
+                      Date:
+                    </h3>
+                  </Grid>
+                  <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
+                    <p style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
+                     {shiftToAdd.day.toString().substr(0, 10)}
                     </p>
                   </Grid>
                   <Grid item xs={6}>
