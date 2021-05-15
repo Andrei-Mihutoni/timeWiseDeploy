@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useState} from "react";
 import ReactDOM from "react-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavBar, Footer, Loading } from "./components";
@@ -61,11 +61,10 @@ function App() {
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/Locations" component={Locations} />
           <ProtectedRoute path="/usersList" component={Users} />
-          <ProtectedRoute
-            getShiftDetails={getShiftDetails}
-            path="/AddShifts"
-            component={Addshifts}
-          />
+          
+           <Route  path="/AddShifts">
+            <Addshifts getShiftDetails={getShiftDetails} />
+          </Route>
           <ProtectedRoute path="/ConfirmShift" component={Confirmshift} />
           <ProtectedRoute path="/Modal1" component={Modal1} />
           <ProtectedRoute path="/profile" component={Profile} />

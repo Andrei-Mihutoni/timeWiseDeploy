@@ -93,7 +93,7 @@ function Confirmshift({ newShift }) {
             </Grid>
 
             <Grid item xs={12}>
-              <h2>{}</h2>
+              <h2>{newShift}</h2>
             </Grid>
 
             <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
