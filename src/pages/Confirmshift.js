@@ -97,12 +97,12 @@ function Confirmshift({ shiftToAdd }) {
             </Grid>
 
             <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
-              <Grid container spacing={0}>
+              <Grid container spacing={3}>
                 <Grid item xs={6}>
                   <h3>Company :</h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "20px 0px 10px" }}>
-                  <p>Ny Liv Spa</p>
+                  <p style={{ marginLeft: "45px", textAlign:'left' }}>Ny Liv Spa</p>
                 </Grid>
                 <Grid item xs={6}>
                   <h3 style={{ marginTop: "-20px", marginLeft: "-10px" }}>
@@ -110,7 +110,7 @@ function Confirmshift({ shiftToAdd }) {
                   </h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                  <p style={{ marginTop: "-20px", marginLeft: "-20px", textAlign:'left' }}>
+                  <p style={{ marginTop: "-20px", marginLeft: "45px", textAlign:'left' }}>
                   {shiftToAdd.shiftLocation.toString()}
                   </p>
                 </Grid>
@@ -120,7 +120,7 @@ function Confirmshift({ shiftToAdd }) {
                   </h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                  <p style={{ marginTop: "-20px", marginLeft: "15px", textAlign:'left' }}>
+                  <p style={{ marginTop: "-20px", marginLeft: "45px", textAlign:'left' }}>
                     {shiftToAdd.shiftTime.toString()}
                   </p>
                 </Grid>
