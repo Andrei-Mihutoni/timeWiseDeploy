@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Addshifts({ addShift, getShiftDetails }) {
+function Addshifts({ addShift, setShiftToAdd }) {
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftTime, setShiftTime] = useState("");
@@ -57,7 +57,7 @@ function Addshifts({ addShift, getShiftDetails }) {
       shiftTime,
       shiftLocation,
     };
-    getShiftDetails(newShift);
+    setShiftToAdd(newShift);
     // setShift(newShift);
   }
 

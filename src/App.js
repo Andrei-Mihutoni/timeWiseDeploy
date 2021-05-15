@@ -27,7 +27,8 @@ import "./App.scss";
 function App() {
   const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
-  const [shift, setShif] = useState({});
+  const [shiftToAdd, setShiftToAdd] = useState({});
+  // let shiftToAdd;
 
   if (isLoading) {
     return <Loading />;
@@ -35,6 +36,8 @@ function App() {
 
   function getShiftDetails(shift) {
     console.log(shift, "shift in app");
+    // shiftToAdd=shift;
+    
   }
   return (
     <div>
@@ -63,9 +66,12 @@ function App() {
           <ProtectedRoute path="/usersList" component={Users} />
           
            <Route  path="/AddShifts">
-            <Addshifts getShiftDetails={getShiftDetails} />
+            <Addshifts setShiftToAdd={setShiftToAdd} />
           </Route>
-          <ProtectedRoute path="/ConfirmShift" component={Confirmshift} />
+           <Route  path="/ConfirmShift">
+            <Confirmshift shiftToAdd={shiftToAdd} />
+          </Route>
+          {/* <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> */}
           <ProtectedRoute path="/Modal1" component={Modal1} />
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />

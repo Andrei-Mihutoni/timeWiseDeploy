@@ -50,9 +50,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Confirmshift({ newShift }) {
+function Confirmshift({ shiftToAdd }) {
   const classes = useStyles();
-  console.log(newShift, "newShift in confirmshift");
+  console.log(shiftToAdd, "newShift in confirmshift");
   const [open, setOpen] = React.useState(false);
   const [person, setPerson] = React.useState("");
 
@@ -93,7 +93,7 @@ function Confirmshift({ newShift }) {
             </Grid>
 
             <Grid item xs={12}>
-              <h2>{newShift}</h2>
+              <h2>{shiftToAdd.day.toString()}</h2>
             </Grid>
 
             <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
@@ -110,8 +110,8 @@ function Confirmshift({ newShift }) {
                   </h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                  <p style={{ marginTop: "-20px", marginLeft: "-20px" }}>
-                    Amager
+                  <p style={{ marginTop: "-20px", marginLeft: "-20px", textAlign:'left' }}>
+                  {shiftToAdd.shiftLocation.toString()}
                   </p>
                 </Grid>
                 <Grid item xs={6}>
@@ -120,8 +120,8 @@ function Confirmshift({ newShift }) {
                   </h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                  <p style={{ marginTop: "-20px", marginLeft: "15px" }}>
-                    10:00 - 15:00
+                  <p style={{ marginTop: "-20px", marginLeft: "15px", textAlign:'left' }}>
+                    {shiftToAdd.shiftTime.toString()}
                   </p>
                 </Grid>
                 <Grid item xs={12}>
@@ -136,9 +136,9 @@ function Confirmshift({ newShift }) {
                       <MenuItem value="person">
                         <em>None</em>
                       </MenuItem>
-                      <MenuItem value={10}>Daniel</MenuItem>
-                      <MenuItem value={20}>Andrie</MenuItem>
-                      <MenuItem value={30}>Laufey</MenuItem>
+                      <MenuItem value={"Daniel"}>Daniel</MenuItem>
+                      <MenuItem value={"Andrie"}>Andrie</MenuItem>
+                      <MenuItem value={"Laufey"}>Laufey</MenuItem>
                     </Select>
                     <FormHelperText>Chose The Personal</FormHelperText>
                   </FormControl>
@@ -199,29 +199,39 @@ function Confirmshift({ newShift }) {
               <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
                 <Grid container spacing={3} className={classes.insideGrid}>
                   <Grid item xs={6}>
-                    <h3>Company :</h3>
+                    <h3 style={{marginLeft: "-5px", textAlign:'left' }}>Company :</h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "20px 0px 10px" }}>
-                    <p>Ny Liv Spa</p>
+                    <p style={{marginLeft: "-5px", textAlign:'left' }}>Ny Liv Spa</p>
                   </Grid>
                   <Grid item xs={6}>
-                    <h3 style={{ marginTop: "-20px", marginLeft: "-10px" }}>
+                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
                       Location :
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                    <p style={{ marginTop: "-20px", marginLeft: "-20px" }}>
-                      Amager
+                    <p style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
+                     {shiftToAdd.shiftLocation.toString()}
                     </p>
                   </Grid>
                   <Grid item xs={6}>
-                    <h3 style={{ marginTop: "-20px", marginLeft: "-45px" }}>
+                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left'}}>
                       Time:
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                    <p style={{ marginTop: "-20px", marginLeft: "15px" }}>
-                      10:00 - 15:00
+                    <p style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
+                     {shiftToAdd.shiftTime.toString()}
+                    </p>
+                  </Grid>
+                   <Grid item xs={6}>
+                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
+                      Employee
+                    </h3>
+                  </Grid>
+                  <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
+                    <p style={{ marginTop: "-20px", marginLeft: "-5px",textAlign:'left' }}>
+                     {person}
                     </p>
                   </Grid>
                 </Grid>
