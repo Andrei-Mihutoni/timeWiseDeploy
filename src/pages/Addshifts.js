@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CustomCalendar from "../CustomCalendar1";
@@ -15,7 +15,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Divider from "@material-ui/core/Divider";
 import { connect } from "react-redux";
-import { addShift } from "../actions/shiftActions";
+import { updateShiftToAdd } from "../actions/shiftActions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,31 +35,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Addshifts({ addShift, setShiftToAdd }) {
+function Addshifts({ shiftData, updateShiftToAdd }) {
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftTime, setShiftTime] = useState("");
-  // const [shift, setShift] = useState({});
-  function sendShiftData() {}
   let newShift = {};
 
-  function addShiftToCalendar(day) {
-    console.log(
-      "day inside AddShift comp.",
-      day,
-      "location : ",
-      shiftLocation,
-      "shift time:",
-      shiftTime
-    );
-    newShift = {
-      day,
-      shiftTime,
-      shiftLocation,
-    };
-    setShiftToAdd(newShift);
-    // setShift(newShift);
-  }
+  // function addShiftToCalendar(day) {
+  //   console.log(
+  //     "day inside AddShift comp.",
+  //     day,
+  //     "location : ",
+  //     shiftLocation,
+  //     "shift time:",
+  //     shiftTime
+  //   );
+  //   newShift = {
+  //     day,
+  //     shiftTime,
+  //     shiftLocation,
+  //   };
+  //   console.log(newShift, "shiftData");
+  //   // updateShiftToAdd(newShift);
+  //   console.log(shiftData, "shiftToAdd");
+  // }
+  useEffect(() => {
+    // updateShiftToAdd(newShift);
+  }, []);
 
   const handleTimeChange = (event) => {
     setShiftTime(event.target.value);
@@ -136,7 +138,9 @@ function Addshifts({ addShift, setShiftToAdd }) {
               xs={12}
               style={{ marginTop: "-50px", marginBottom: "-50px" }}
             >
-              <CustomCalendar addShiftToCalendar={addShiftToCalendar} />
+              <CustomCalendar
+                shiftSelectedDetails={{ shiftLocation, shiftTime }}
+              />
             </Grid>
 
             <Grid item xs={6} style={{ marginTop: "20px" }}>
@@ -157,7 +161,6 @@ function Addshifts({ addShift, setShiftToAdd }) {
             <Grid item xs={6} style={{ marginTop: "20px" }}>
               <Link to="/Confirmshift">
                 <Button
-                  onClick={sendShiftData}
                   variant="contained"
                   style={{
                     backgroundColor: "#03DAC5",
@@ -180,10 +183,17 @@ function Addshifts({ addShift, setShiftToAdd }) {
   );
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    addShift: (newShift) => dispatch(addShift(newShift)),
+    shiftData: state.shift,
   };
 };
 
-export default connect(mapDispatchToProps)(Addshifts);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateShiftToAdd: (shiftToAdd) =>
+      dispatch({ type: "UPDATE_SHIFT_TO_ADD", shiftToAdd: shiftToAdd }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Addshifts);

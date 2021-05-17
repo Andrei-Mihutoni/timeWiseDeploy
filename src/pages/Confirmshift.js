@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CustomCalendar from "../CustomCalendar1";
@@ -17,6 +17,8 @@ import Divider from "@material-ui/core/Divider";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import { connect } from "react-redux";
+import { postShift, updateShiftToAdd } from "../actions/shiftActions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,17 +52,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Confirmshift({ shiftToAdd }) {
+function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
   const classes = useStyles();
-  console.log(shiftToAdd, "newShift in confirmshift");
   const [open, setOpen] = React.useState(false);
   const [person, setPerson] = React.useState("");
-
   const handlePersonChange = (event) => {
     setPerson(event.target.value);
+    console.log(person);
+    const newShift = {
+      day: shiftData.shiftToAdd.day,
+      shiftTime: shiftData.shiftToAdd.shiftTime,
+      shiftLocation: shiftData.shiftToAdd.shiftLocation,
+      worker: person,
+    };
+    console.log(newShift);
+    updateShiftToAdd(newShift);
+    console.log(shiftData.shiftToAdd);
   };
 
+  function submitShift() {
+    postShift(shiftData.shiftToAdd);
+  }
+
   const handleOpen = () => {
+    submitShift();
     setOpen(true);
   };
 
@@ -93,7 +108,7 @@ function Confirmshift({ shiftToAdd }) {
             </Grid>
 
             <Grid item xs={12}>
-              <h2>{shiftToAdd.day.toString().substr(0, 10)}</h2>
+              <h2>{shiftData.shiftToAdd.day.toString().substr(0, 10)}</h2>
             </Grid>
 
             <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
@@ -102,7 +117,9 @@ function Confirmshift({ shiftToAdd }) {
                   <h3>Company :</h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "20px 0px 10px" }}>
-                  <p style={{ marginLeft: "45px", textAlign:'left' }}>Ny Liv Spa</p>
+                  <p style={{ marginLeft: "45px", textAlign: "left" }}>
+                    Ny Liv Spa
+                  </p>
                 </Grid>
                 <Grid item xs={6}>
                   <h3 style={{ marginTop: "-20px", marginLeft: "-10px" }}>
@@ -110,8 +127,14 @@ function Confirmshift({ shiftToAdd }) {
                   </h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                  <p style={{ marginTop: "-20px", marginLeft: "45px", textAlign:'left' }}>
-                  {shiftToAdd.shiftLocation.toString()}
+                  <p
+                    style={{
+                      marginTop: "-20px",
+                      marginLeft: "45px",
+                      textAlign: "left",
+                    }}
+                  >
+                    {shiftData.shiftToAdd.shiftLocation.toString()}
                   </p>
                 </Grid>
                 <Grid item xs={6}>
@@ -120,8 +143,14 @@ function Confirmshift({ shiftToAdd }) {
                   </h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                  <p style={{ marginTop: "-20px", marginLeft: "45px", textAlign:'left' }}>
-                    {shiftToAdd.shiftTime.toString()}
+                  <p
+                    style={{
+                      marginTop: "-20px",
+                      marginLeft: "45px",
+                      textAlign: "left",
+                    }}
+                  >
+                    {shiftData.shiftToAdd.shiftTime.toString()}
                   </p>
                 </Grid>
                 <Grid item xs={12}>
@@ -199,49 +228,101 @@ function Confirmshift({ shiftToAdd }) {
               <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
                 <Grid container spacing={3} className={classes.insideGrid}>
                   <Grid item xs={6}>
-                    <h3 style={{marginLeft: "-5px", textAlign:'left' }}>Company :</h3>
+                    <h3 style={{ marginLeft: "-5px", textAlign: "left" }}>
+                      Company :
+                    </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "20px 0px 10px" }}>
-                    <p style={{marginLeft: "-5px", textAlign:'left' }}>Ny Liv Spa</p>
+                    <p style={{ marginLeft: "-5px", textAlign: "left" }}>
+                      Ny Liv Spa
+                    </p>
                   </Grid>
                   <Grid item xs={6}>
-                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
+                    <h3
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
                       Location :
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                    <p style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
-                     {shiftToAdd.shiftLocation.toString()}
+                    <p
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
+                      {shiftData.shiftToAdd.shiftLocation.toString()}
                     </p>
                   </Grid>
                   <Grid item xs={6}>
-                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left'}}>
+                    <h3
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
                       Date:
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                    <p style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
-                     {shiftToAdd.day.toString().substr(0, 10)}
+                    <p
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
+                      {shiftData.shiftToAdd.day.toString().substr(0, 10)}
                     </p>
                   </Grid>
                   <Grid item xs={6}>
-                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left'}}>
+                    <h3
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
                       Time:
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                    <p style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
-                     {shiftToAdd.shiftTime.toString()}
+                    <p
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
+                      {shiftData.shiftToAdd.shiftTime.toString()}
                     </p>
                   </Grid>
-                   <Grid item xs={6}>
-                    <h3 style={{ marginTop: "-20px", marginLeft: "-5px", textAlign:'left' }}>
+                  <Grid item xs={6}>
+                    <h3
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
                       Employee
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
-                    <p style={{ marginTop: "-20px", marginLeft: "-5px",textAlign:'left' }}>
-                     {person}
+                    <p
+                      style={{
+                        marginTop: "-20px",
+                        marginLeft: "-5px",
+                        textAlign: "left",
+                      }}
+                    >
+                      {person}
                     </p>
                   </Grid>
                 </Grid>
@@ -271,4 +352,17 @@ function Confirmshift({ shiftToAdd }) {
     </div>
   );
 }
-export default Confirmshift;
+const mapStateToProps = (state) => {
+  return {
+    shiftData: state.shift,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    postShift: (newShift) => dispatch(postShift(newShift)),
+    updateShiftToAdd: (worker) => dispatch(updateShiftToAdd(worker)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Confirmshift);

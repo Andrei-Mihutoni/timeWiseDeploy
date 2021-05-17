@@ -16,7 +16,7 @@ function ShiftList({ shiftData, fetchShifts }) {
       <div>
         {shiftData &&
           shiftData.shifts &&
-          shiftData.shifts.map((shift) => <p>{shift.location}</p>)}
+          shiftData.shifts.map((shift) => <p>{shift.day}</p>)}
       </div>
     </div>
   );

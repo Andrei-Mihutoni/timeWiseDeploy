@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import { React, useState } from "react";
 import ReactDOM from "react-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavBar, Footer, Loading } from "./components";
@@ -20,6 +20,8 @@ import Users from "./pages/Users";
 import Addshifts from "./pages/Addshifts";
 import Confirmshift from "./pages/Confirmshift";
 import Modal1 from "./components/TransitionsModal";
+import ShiftList from "./containers/ShiftList";
+
 import { Appbar, Button, Container } from "muicss/react";
 
 import "./App.scss";
@@ -37,7 +39,8 @@ function App() {
   function getShiftDetails(shift) {
     console.log(shift, "shift in app");
     // shiftToAdd=shift;
-    
+    const nextShift = { ...shift };
+    // setShiftToAdd(nextShift);
   }
   return (
     <div>
@@ -58,17 +61,18 @@ function App() {
           </Appbar> */}
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+      {/* <ShiftList></ShiftList> */}
       <Router>
         <Switch>
           <ProtectedRoute path="/home" component={Home} />
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/Locations" component={Locations} />
           <ProtectedRoute path="/usersList" component={Users} />
-          
-           <Route  path="/AddShifts">
-            <Addshifts setShiftToAdd={setShiftToAdd} />
+
+          <Route path="/AddShifts">
+            <Addshifts getShiftDetails={getShiftDetails} />
           </Route>
-           <Route  path="/ConfirmShift">
+          <Route path="/ConfirmShift">
             <Confirmshift shiftToAdd={shiftToAdd} />
           </Route>
           {/* <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> */}
