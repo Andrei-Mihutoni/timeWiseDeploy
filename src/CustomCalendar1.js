@@ -121,10 +121,10 @@ function CustomCalendar({
   const sunnyDays = [];
   const cloudyDays = [];
   const snowyDays = [];
-  const shiftDays = [];
-  // const shiftDays = shiftData.shifts.map((shift) => {
-  //   return parseInt(shift.date.substring(6, 7));
-  // });
+  // const shiftDays = [];
+  const shiftDays = shiftData.shifts.map((shift) => {
+    return parseInt(shift.day.substring(8, 10));
+  });
   let newShift;
   newShift = {
     day: selectedDate,
