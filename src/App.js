@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import ReactDOM from "react-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavBar, Footer, Loading } from "./components";
@@ -17,22 +17,31 @@ import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
 import Users from "./pages/Users";
-import Addshifts from './pages/Addshifts';
-import Confirmshift from './pages/Confirmshift'
-import Modal1 from './components/TransitionsModal'
+import Addshifts from "./pages/Addshifts";
+import Confirmshift from "./pages/Confirmshift";
+import Modal1 from "./components/TransitionsModal";
+import ShiftList from "./containers/ShiftList";
+
 import { Appbar, Button, Container } from "muicss/react";
 
 import "./App.scss";
 
-
 function App() {
   const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
+  const [shiftToAdd, setShiftToAdd] = useState({});
+  // let shiftToAdd;
 
   if (isLoading) {
     return <Loading />;
   }
 
+  function getShiftDetails(shift) {
+    console.log(shift, "shift in app");
+    // shiftToAdd=shift;
+    const nextShift = { ...shift };
+    // setShiftToAdd(nextShift);
+  }
   return (
     <div>
       <div className="container flex-grow-1">
@@ -52,23 +61,27 @@ function App() {
           </Appbar> */}
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+      {/* <ShiftList></ShiftList> */}
       <Router>
         <Switch>
           <ProtectedRoute path="/home" component={Home} />
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/Locations" component={Locations} />
           <ProtectedRoute path="/usersList" component={Users} />
-          <ProtectedRoute path="/AddShifts" component={Addshifts} />
-          <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> 
-           <ProtectedRoute path="/Modal1" component={Modal1} />    
+
+          <Route path="/AddShifts">
+            <Addshifts getShiftDetails={getShiftDetails} />
+          </Route>
+          <Route path="/ConfirmShift">
+            <Confirmshift shiftToAdd={shiftToAdd} />
+          </Route>
+          {/* <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> */}
+          <ProtectedRoute path="/Modal1" component={Modal1} />
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
 
-          {isAuthenticated && <Redirect to="/home" from='/' />}
+          {isAuthenticated && <Redirect to="/home" from="/" />}
           <Route path="/" exact component={HomePage} />
-
-
-
 
           {/* <Route path="/calendar">
             <Calendar />
@@ -91,9 +104,6 @@ function App() {
 
           {isAuthenticated && <Redirect to="/home" from='/' />}
           <Route path="/" exact component={HomePage} /> */}
-
-
-
         </Switch>
       </Router>
     </div>

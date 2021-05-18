@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import DateFnsUtils from "@date-io/date-fns";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { Paper, Grid } from "@material-ui/core";
@@ -12,7 +12,24 @@ import Modal from "@material-ui/core/Modal";
 // import CreateShift from "../component/CreateShift";
 
 import { connect } from "react-redux";
-import { fetchShifts } from "./actions/shiftActions";
+import { fetchShifts, updateShiftToAdd } from "./actions/shiftActions";
+
+// const initialState = {
+//   shiftToAdd: { day: "", shiftTime: "", shiftLocation: "" },
+// };
+// function reduce(state, action) {
+//   switch (action.type) {
+//     case "updateNewShift":
+//       return { ...state.shiftToAdd, ...action.payload };
+
+//     default:
+//       throw new Error();
+//   }
+// }
+// const ReducerContext = React.createContext();
+// function useGlobalReducer() {
+//   return React.useContext(ReducerContext);
+// }
 
 const materialTheme = createMuiTheme({
   overrides: {
@@ -51,20 +68,6 @@ export const styles = makeStyles(() => ({
     cursor: "pointer",
   },
   selectedDayPaper: {
-    width: "31px",
-    height: "31px",
-    backgroundColor: "#f9fbe7",
-    margin: "3px",
-    boxShadow: "none",
-    borderRadius: "50%",
-    borderStyle: "solid",
-    borderWidth: "2px",
-    borderColor: "lime",
-    padding: "1px",
-    cursor: "pointer",
-  },
-
-  todayPaper: {
     width: "35px",
     height: "35px",
     backgroundColor: "lightGreen",
@@ -74,6 +77,20 @@ export const styles = makeStyles(() => ({
     padding: "1px",
     cursor: "pointer",
     color: " white",
+  },
+
+  todayPaper: {
+    width: "35px",
+    height: "35px",
+    margin: "3px",
+    boxShadow: "none",
+    backgroundColor: "#f9fbe7",
+    borderRadius: "50%",
+    borderStyle: "solid",
+    borderWidth: "2px",
+    borderColor: "lime",
+    padding: "1px",
+    cursor: "pointer",
   },
   shiftDay: {
     width: "35px",
@@ -88,7 +105,12 @@ export const styles = makeStyles(() => ({
   },
 }));
 
-function CustomCalendar({ shiftData, fetchShifts }) {
+function CustomCalendar({
+  shiftData,
+  fetchShifts,
+  updateShiftToAdd,
+  shiftSelectedDetails,
+}) {
   useEffect(() => {
     fetchShifts();
   }, []);
@@ -99,15 +121,29 @@ function CustomCalendar({ shiftData, fetchShifts }) {
   const sunnyDays = [];
   const cloudyDays = [];
   const snowyDays = [];
+  // const shiftDays = [];
   const shiftDays = shiftData.shifts.map((shift) => {
-    return parseInt(shift.date.substring(6, 7));
+    return parseInt(shift.day.substring(8, 10));
   });
-  console.log(shiftDays);
-  function openShift(day) {
-    console.log("shift", day);
+  let newShift;
+  newShift = {
+    day: selectedDate,
+    shiftTime: shiftSelectedDetails.shiftTime,
+    shiftLocation: shiftSelectedDetails.shiftLocation,
+  };
+
+  function storeShift() {
+    console.log(shiftData.shiftToAdd, newShift, "in storeShift");
+    updateShiftToAdd(newShift);
   }
 
-  function getDayElement(day, selectedDate, isInCurrentMonth, dayComponent) {
+  function getDayElement(
+    day,
+    selectedDate,
+    isInCurrentMonth,
+    dayComponent,
+    newShift
+  ) {
     const isSunny = sunnyDays.includes(day.getDate());
     const isCloudy = cloudyDays.includes(day.getDate());
     const isSnow = snowyDays.includes(day.getDate());
@@ -193,7 +229,6 @@ function CustomCalendar({ shiftData, fetchShifts }) {
         dateTile = (
           <Paper
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
-            onClick={openShift(selectedDate)}
           >
             {/* <CreateShift></CreateShift> */}
             <Grid style={{ marginTop: "15px" }} item>
@@ -205,6 +240,7 @@ function CustomCalendar({ shiftData, fetchShifts }) {
       } else {
         dateTile = (
           <Paper
+            onClick={storeShift}
             className={
               isSelected
                 ? classes.selectedDayPaper
@@ -268,6 +304,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchShifts: () => dispatch(fetchShifts()),
+    updateShiftToAdd: (shift) => dispatch(updateShiftToAdd(shift)),
   };
 };
 
