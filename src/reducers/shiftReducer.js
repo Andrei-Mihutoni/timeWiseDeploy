@@ -35,7 +35,7 @@ const reducer = (state = initialState, action) => {
         ...state,
 
         loading: false,
-        shifts: action.payload,
+        shifts: state.shifts.concat(action.payload),
         error: "",
       };
     case FETCH_SHIFTS_FAILURE:
@@ -56,7 +56,7 @@ const reducer = (state = initialState, action) => {
         ...state,
 
         loading: false,
-        shifts: action.payload,
+        shifts: state.shifts.concat(action.payload),
         error: "",
       };
     case POST_SHIFT_FAILURE:
@@ -92,19 +92,25 @@ const reducer = (state = initialState, action) => {
       };
     case SET_SHIFT_DETAILS:
       let chosenShifts = state.shifts.filter((shift) => {
-        console.log(shift.day);
+        console.log(
+          shift.day.substring(8, 10),
+          action.payload.toISOString().substring(8, 10)
+        );
+
         if (
           shift.day.substring(8, 10) ===
           action.payload.toISOString().substring(8, 10)
         ) {
+          console.log(shift);
           return shift;
         }
       });
+      let newChosenShifts = chosenShifts[0];
       console.log("in SET_SHIFT_DETAILS", chosenShifts);
 
       return {
         ...state,
-        shiftDetails: chosenShifts[0],
+        shiftDetails: { ...state.shiftDetails, ...newChosenShifts },
       };
     default:
       return state;

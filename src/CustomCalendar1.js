@@ -149,6 +149,7 @@ function CustomCalendar({
   }
   function storeShiftDetails() {
     setShiftDetails(selectedDate);
+    console.log(selectedDate);
     handleOpen();
   }
 
@@ -251,6 +252,7 @@ function CustomCalendar({
       } else if (isShift) {
         dateTile = (
           <Paper
+            value={selectedDate}
             onClick={storeShiftDetails}
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
           >
@@ -418,20 +420,19 @@ function CustomCalendar({
                     </Grid>
                   </Grid>
                 </Container>
-                {/* <Link to="/home"> */}
-                  <Button
-                    onClick={handleClose}
-                    variant="contained"
-                    style={{
-                      backgroundColor: "#03DAC5",
-                      color: "white",
-                      borderRadius: "28px",
-                      width: "100px",
-                    }}
-                  >
-                    Ok
-                  </Button>
-                {/* </Link> */}
+                <Button
+                  onClick={handleClose}
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#03DAC5",
+                    color: "white",
+                    borderRadius: "28px",
+                    width: "100px",
+                  }}
+                >
+                  Ok
+                </Button>
+
               </div>
             </Fade>
           </Modal>
