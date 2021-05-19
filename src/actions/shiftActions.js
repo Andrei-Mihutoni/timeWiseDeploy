@@ -136,7 +136,6 @@ export const updateShiftLocation = (shiftLocation) => {
 };
 
 export const setShiftDetails = (shiftDay) => {
-  console.log("in setShiftDetails ", shiftDay);
   return {
     type: SET_SHIFT_DETAILS,
     payload: shiftDay,
