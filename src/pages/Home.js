@@ -39,11 +39,11 @@ function Home(props) {
   const [location, setLocation] = useState("");
   // const [currentPageName, setCurrentPageName] = useState("");
 
-  const currentPageName = props.location.pathname.substring(1);
-  console.log(currentPageName);
-  const handleChange = (event) => {
-    setLocation(event.target.value);
-  };
+  // const currentPageName = props.location.pathname.substring(1);
+  // console.log(currentPageName);
+  // const handleChange = (event) => {
+  //   setLocation(event.target.value);
+  // };
 
   const { user } = useAuth0();
   const classes = useStyles();
@@ -52,7 +52,7 @@ function Home(props) {
       <CssBaseline />
       {/* <Header /> */}
 
-      <Header currentPageName={currentPageName} />
+      <Header  />
       <div className={classes.root}>
         <Container fixed>
           <Grid container spacing={3}>
