@@ -38,7 +38,7 @@ const materialTheme = createMuiTheme({
   },
 });
 
-export const styles = makeStyles(() => ({
+export const styles = makeStyles((theme) => ({
   notInThisMonthDayPaper: {
     width: "35px",
     height: "35px",
@@ -93,6 +93,24 @@ export const styles = makeStyles(() => ({
     padding: "1px",
     cursor: "pointer",
     textAlign: "center",
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paperModal: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -400,7 +418,7 @@ function CustomCalendar({
                     </Grid>
                   </Grid>
                 </Container>
-                <Link to="/home">
+                {/* <Link to="/home"> */}
                   <Button
                     onClick={handleClose}
                     variant="contained"
@@ -413,7 +431,7 @@ function CustomCalendar({
                   >
                     Ok
                   </Button>
-                </Link>
+                {/* </Link> */}
               </div>
             </Fade>
           </Modal>
