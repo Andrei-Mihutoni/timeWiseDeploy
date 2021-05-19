@@ -100,11 +100,12 @@ const reducer = (state = initialState, action) => {
           return shift;
         }
       });
+      let newChosenShifts = chosenShifts[0];
       console.log("in SET_SHIFT_DETAILS", chosenShifts);
 
       return {
         ...state,
-        shiftDetails: chosenShifts[0],
+        shiftDetails: { ...state.shiftDetails, newChosenShifts },
       };
     default:
       return state;
