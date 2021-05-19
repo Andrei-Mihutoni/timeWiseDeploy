@@ -9,6 +9,11 @@ import CloudIcon from "@material-ui/icons/Cloud";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import AcUnitIcon from "@material-ui/icons/AcUnit";
 import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import Container from "@material-ui/core/Container";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 import { connect } from "react-redux";
 import {
@@ -102,6 +107,8 @@ function CustomCalendar({
   }, []);
   // console.log(shiftData.shifts[0].date.substring(6, 7));
   const [selectedDate, handleDateChange] = useState(new Date());
+  const [open, setOpen] = React.useState(false);
+
   const classes = styles();
   const today = new Date();
   const sunnyDays = [];
@@ -124,7 +131,16 @@ function CustomCalendar({
   }
   function storeShiftDetails() {
     setShiftDetails(selectedDate);
+    handleOpen();
   }
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   function getDayElement(
     day,
@@ -281,6 +297,128 @@ function CustomCalendar({
           />
         </ThemeProvider>
       </MuiPickersUtilsProvider>
+
+      {shiftData.shiftDetails && (
+        <div>
+          <Modal
+            aria-labelledby="transition-modal-title"
+            aria-describedby="transition-modal-description"
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <div className={classes.paperModal}>
+                <h2 id="transition-modal-title">Shift created</h2>
+                <p id="transition-modal-description">
+                  The following shift has been created and added to the calendar
+                </p>
+                <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
+                  <Grid container spacing={3} className={classes.insideGrid}>
+                    <Grid item xs={6}>
+                      <h3 style={{ marginLeft: "-5px", textAlign: "left" }}>
+                        Company :
+                      </h3>
+                    </Grid>
+                    <Grid item xs={6} style={{ margin: "20px 0px 10px" }}>
+                      <p style={{ marginLeft: "-5px", textAlign: "left" }}>
+                        Ny Liv Spa
+                      </p>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <h3
+                        style={{
+                          marginTop: "-20px",
+                          marginLeft: "-5px",
+                          textAlign: "left",
+                        }}
+                      >
+                        Location :
+                      </h3>
+                    </Grid>
+
+                    <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
+                      <p
+                        style={{
+                          marginTop: "-20px",
+                          marginLeft: "-5px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {shiftData.shiftDetails.shiftLocation.toString()}
+                      </p>
+                    </Grid>
+
+                    <Grid item xs={6}>
+                      <h3
+                        style={{
+                          marginTop: "-20px",
+                          marginLeft: "-5px",
+                          textAlign: "left",
+                        }}
+                      >
+                        Date:
+                      </h3>
+                    </Grid>
+                    <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
+                      <p
+                        style={{
+                          marginTop: "-20px",
+                          marginLeft: "-5px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {shiftData.shiftDetails.day.toString().substr(0, 10)}
+                      </p>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <h3
+                        style={{
+                          marginTop: "-20px",
+                          marginLeft: "-5px",
+                          textAlign: "left",
+                        }}
+                      >
+                        Time:
+                      </h3>
+                    </Grid>
+                    <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
+                      <p
+                        style={{
+                          marginTop: "-20px",
+                          marginLeft: "-5px",
+                          textAlign: "left",
+                        }}
+                      >
+                        {shiftData.shiftDetails.shiftTime.toString()}
+                      </p>
+                    </Grid>
+                  </Grid>
+                </Container>
+                <Link to="/home">
+                  <Button
+                    onClick={handleClose}
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#03DAC5",
+                      color: "white",
+                      borderRadius: "28px",
+                      width: "100px",
+                    }}
+                  >
+                    Ok
+                  </Button>
+                </Link>
+              </div>
+            </Fade>
+          </Modal>
+        </div>
+      )}
     </div>
   );
 }

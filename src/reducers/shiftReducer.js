@@ -20,7 +20,7 @@ const initialState = {
   shiftToAdd: { day: "", shiftTime: "", shiftLocation: "", worker: "" },
   shiftLocation: "",
   shiftTime: "",
-  shiftDetails: {},
+  shiftDetails: { day: "", shiftTime: "", shiftLocation: "", worker: "" },
 };
 
 const reducer = (state = initialState, action) => {
