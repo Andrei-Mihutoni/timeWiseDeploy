@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "https://nitzanmoise.github.io/TimeWise/",
+  "homepage": "https://nitzanmoise.github.io/TimeWise/home",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
