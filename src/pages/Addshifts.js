@@ -77,10 +77,11 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
                   id="select-Location"
                   value={shiftLocation}
                   onChange={handleLocationChange}
+                  required
                 >
-                  <MenuItem value="location">
+                  {/* <MenuItem value="location">
                     <em>None</em>
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem value={"Amager"}>Amager</MenuItem>
                   <MenuItem value={"Østerbro"}>Østerbro</MenuItem>
                   <MenuItem value={"Valby"}>Valby</MenuItem>
@@ -97,10 +98,11 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
                   id="select-Time"
                   value={shiftTime}
                   onChange={handleTimeChange}
+                  required
                 >
-                  <MenuItem value="time">
+                  {/* <MenuItem value="time">
                     <em>None</em>
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem value={"10:00 - 15:00"}>10:00 - 15:00</MenuItem>
                   <MenuItem value={"14:00 - 19:00"}>14:00 - 19:00</MenuItem>
                 </Select>
