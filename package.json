@@ -31,8 +31,8 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "cross-env PORT=4040 react-scripts start",
-     "predeploy": "npm run build",
+    "start": "cross-env PORT=3000 react-scripts start",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
