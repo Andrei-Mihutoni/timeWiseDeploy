@@ -39,11 +39,11 @@ function Home(props) {
   const [location, setLocation] = useState("");
   // const [currentPageName, setCurrentPageName] = useState("");
 
-  // const currentPageName = props.location.pathname.substring(1);
-  // console.log(currentPageName);
-  // const handleChange = (event) => {
-  //   setLocation(event.target.value);
-  // };
+  const currentPageName = props.location.pathname.substring(1);
+  console.log(currentPageName);
+  const handleChange = (event) => {
+    setLocation(event.target.value);
+  };
 
   const { user } = useAuth0();
   const classes = useStyles();
@@ -52,15 +52,14 @@ function Home(props) {
       <CssBaseline />
       {/* <Header /> */}
 
-      <Header  />
+      <Header currentPageName={currentPageName} />
       <div className={classes.root}>
         <Container fixed>
           <Grid container spacing={3}>
             <Grid item xs={6}>
               <h2 className={(classes.paper, "marginTopHome1")}>
                 {/* {JSON.stringify(user, null, 2)} */}
-                {/* Hello {user.nickname} */}
-                Hello
+                Hello {user.nickname}
               </h2>
             </Grid>
             <Grid item xs={6}>

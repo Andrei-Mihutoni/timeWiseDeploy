@@ -58,22 +58,11 @@ function App(props) {
       {/* <ShiftList></ShiftList> */}
       <Router>
         <Switch>
-          {/* <ProtectedRoute path="/home" component={Home} /> */}
-           <Route path="/home">
-            <Home />
-          </Route>
-          {/* <ProtectedRoute path="/calendar" component={Calendar} /> */}
-          <Route path="/calendar">
-            <Calendar />
-          </Route>
-          {/* <ProtectedRoute path="/Locations" component={Locations} /> */}
-          <Route path="/Locations">
-            <Locations />
-          </Route>
-          {/* <ProtectedRoute path="/usersList" component={Users} /> */}
-            <Route path="/usersList">
-            <Users />
-          </Route>
+          <ProtectedRoute path="/home" component={Home} />
+          <ProtectedRoute path="/calendar" component={Calendar} />
+          <ProtectedRoute path="/Locations" component={Locations} />
+          <ProtectedRoute path="/usersList" component={Users} />
+
           <Route path="/AddShifts">
             <Addshifts getShiftDetails={getShiftDetails} />
           </Route>
@@ -81,7 +70,7 @@ function App(props) {
             <Confirmshift shiftToAdd={shiftToAdd} />
           </Route>
           {/* <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> */}
-          {/* <ProtectedRoute path="/Modal1" component={Modal1} /> */}
+          <ProtectedRoute path="/Modal1" component={Modal1} />
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
 
