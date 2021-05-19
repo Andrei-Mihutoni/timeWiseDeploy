@@ -164,7 +164,7 @@ export default function PrimarySearchAppBar(props) {
       </MenuItem>
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
+          <Badge badgeContent={11} color="orange">
             <NotificationsIcon />
           </Badge>
         </IconButton>
