@@ -15,7 +15,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Divider from "@material-ui/core/Divider";
 import { connect } from "react-redux";
-import { updateShiftToAdd } from "../actions/shiftActions";
+import { updateShiftTime, updateShiftLocation } from "../actions/shiftActions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,39 +35,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Addshifts({ shiftData, updateShiftToAdd }) {
+function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftTime, setShiftTime] = useState("");
-  let newShift = {};
-
-  // function addShiftToCalendar(day) {
-  //   console.log(
-  //     "day inside AddShift comp.",
-  //     day,
-  //     "location : ",
-  //     shiftLocation,
-  //     "shift time:",
-  //     shiftTime
-  //   );
-  //   newShift = {
-  //     day,
-  //     shiftTime,
-  //     shiftLocation,
-  //   };
-  //   console.log(newShift, "shiftData");
-  //   // updateShiftToAdd(newShift);
-  //   console.log(shiftData, "shiftToAdd");
-  // }
-  useEffect(() => {
-    // updateShiftToAdd(newShift);
-  }, []);
 
   const handleTimeChange = (event) => {
     setShiftTime(event.target.value);
+    console.log(shiftTime);
+    updateShiftTime(shiftTime);
   };
   const handleLocationChange = (event) => {
     setshiftLocation(event.target.value);
+    updateShiftLocation(shiftLocation);
   };
   return (
     <div>
@@ -139,7 +119,7 @@ function Addshifts({ shiftData, updateShiftToAdd }) {
               style={{ marginTop: "-50px", marginBottom: "-50px" }}
             >
               <CustomCalendar
-                shiftSelectedDetails={{ shiftLocation, shiftTime }}
+              // shiftSelectedDetails={{ shiftLocation, shiftTime }}
               />
             </Grid>
 
@@ -191,8 +171,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateShiftToAdd: (shiftToAdd) =>
-      dispatch({ type: "UPDATE_SHIFT_TO_ADD", shiftToAdd: shiftToAdd }),
+    updateShiftTime: (shiftTime) => dispatch(updateShiftTime(shiftTime)),
+    updateShiftLocation: (shiftLocation) =>
+      dispatch(updateShiftLocation(shiftLocation)),
   };
 };
 

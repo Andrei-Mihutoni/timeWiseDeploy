@@ -21,17 +21,16 @@ import Addshifts from "./pages/Addshifts";
 import Confirmshift from "./pages/Confirmshift";
 import Modal1 from "./components/TransitionsModal";
 import ShiftList from "./containers/ShiftList";
-
+import Header from "./components/Header";
 import { Appbar, Button, Container } from "muicss/react";
 
 import "./App.scss";
 
-function App() {
+function App(props) {
   const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
   const [shiftToAdd, setShiftToAdd] = useState({});
   // let shiftToAdd;
-
   if (isLoading) {
     return <Loading />;
   }
@@ -44,11 +43,6 @@ function App() {
   }
   return (
     <div>
-      <div className="container flex-grow-1">
-        {/* <Switch> */}
-
-        {/* </Switch> */}
-      </div>
       {/* <Appbar>
             <nav>
             <ul>

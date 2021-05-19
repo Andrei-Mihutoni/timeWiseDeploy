@@ -9,27 +9,13 @@ import CloudIcon from "@material-ui/icons/Cloud";
 import WbSunnyIcon from "@material-ui/icons/WbSunny";
 import AcUnitIcon from "@material-ui/icons/AcUnit";
 import Modal from "@material-ui/core/Modal";
-// import CreateShift from "../component/CreateShift";
 
 import { connect } from "react-redux";
-import { fetchShifts, updateShiftToAdd } from "./actions/shiftActions";
-
-// const initialState = {
-//   shiftToAdd: { day: "", shiftTime: "", shiftLocation: "" },
-// };
-// function reduce(state, action) {
-//   switch (action.type) {
-//     case "updateNewShift":
-//       return { ...state.shiftToAdd, ...action.payload };
-
-//     default:
-//       throw new Error();
-//   }
-// }
-// const ReducerContext = React.createContext();
-// function useGlobalReducer() {
-//   return React.useContext(ReducerContext);
-// }
+import {
+  fetchShifts,
+  updateShiftToAdd,
+  setShiftDetails,
+} from "./actions/shiftActions";
 
 const materialTheme = createMuiTheme({
   overrides: {
@@ -109,7 +95,7 @@ function CustomCalendar({
   shiftData,
   fetchShifts,
   updateShiftToAdd,
-  shiftSelectedDetails,
+  setShiftDetails,
 }) {
   useEffect(() => {
     fetchShifts();
@@ -125,16 +111,19 @@ function CustomCalendar({
   const shiftDays = shiftData.shifts.map((shift) => {
     return parseInt(shift.day.substring(8, 10));
   });
+
   let newShift;
   newShift = {
     day: selectedDate,
-    shiftTime: shiftSelectedDetails.shiftTime,
-    shiftLocation: shiftSelectedDetails.shiftLocation,
+    shiftTime: shiftData.shiftTime,
+    shiftLocation: shiftData.shiftLocation,
   };
-
   function storeShift() {
     console.log(shiftData.shiftToAdd, newShift, "in storeShift");
     updateShiftToAdd(newShift);
+  }
+  function storeShiftDetails() {
+    setShiftDetails(selectedDate);
   }
 
   function getDayElement(
@@ -228,6 +217,7 @@ function CustomCalendar({
       } else if (isShift) {
         dateTile = (
           <Paper
+            onClick={storeShiftDetails}
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
           >
             {/* <CreateShift></CreateShift> */}
@@ -237,7 +227,7 @@ function CustomCalendar({
             <Grid item> {day.getDate()}</Grid>
           </Paper>
         );
-      } else {
+      } else if (!isShift) {
         dateTile = (
           <Paper
             onClick={storeShift}
@@ -305,6 +295,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchShifts: () => dispatch(fetchShifts()),
     updateShiftToAdd: (shift) => dispatch(updateShiftToAdd(shift)),
+    setShiftDetails: (day) => dispatch(setShiftDetails(day)),
   };
 };
 
