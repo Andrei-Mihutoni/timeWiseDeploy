@@ -82,8 +82,8 @@ function App(props) {
           </Route>
           {/* <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> */}
           {/* <ProtectedRoute path="/Modal1" component={Modal1} /> */}
-          {/* <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/external-api" component={ExternalApi} /> */}
+          <ProtectedRoute path="/profile" component={Profile} />
+          <ProtectedRoute path="/external-api" component={ExternalApi} />
 
           {isAuthenticated && <Redirect to="/home" from="/" />}
           <Route path="/" exact component={HomePage} />

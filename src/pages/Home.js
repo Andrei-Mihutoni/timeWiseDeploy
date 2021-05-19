@@ -59,7 +59,8 @@ function Home(props) {
             <Grid item xs={6}>
               <h2 className={(classes.paper, "marginTopHome1")}>
                 {/* {JSON.stringify(user, null, 2)} */}
-                Hello {user.nickname}
+                {/* Hello {user.nickname} */}
+                Hello
               </h2>
             </Grid>
             <Grid item xs={6}>
