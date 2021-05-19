@@ -6,6 +6,9 @@ import {
   POST_SHIFT_SUCCESS,
   POST_SHIFT_FAILURE,
   UPDATE_SHIFT_TO_ADD,
+  UPDATE_SHIFT_TIME,
+  UPDATE_SHIFT_LOCATION,
+  SET_SHIFT_DETAILS,
 } from "./shiftTypes";
 
 const endpoint = "https://danieldb-2683.restdb.io/rest/timewiseshifts";
@@ -113,5 +116,29 @@ export const updateShiftToAdd = (shiftToAdd) => {
   return {
     type: UPDATE_SHIFT_TO_ADD,
     payload: shiftToAdd,
+  };
+};
+
+export const updateShiftTime = (shiftTime) => {
+  console.log("in updateShiftTime ", shiftTime);
+  return {
+    type: UPDATE_SHIFT_TIME,
+    payload: shiftTime,
+  };
+};
+
+export const updateShiftLocation = (shiftLocation) => {
+  console.log("in updateShiftLocation ", shiftLocation);
+  return {
+    type: UPDATE_SHIFT_LOCATION,
+    payload: shiftLocation,
+  };
+};
+
+export const setShiftDetails = (shiftDay) => {
+  console.log("in setShiftDetails ", shiftDay);
+  return {
+    type: SET_SHIFT_DETAILS,
+    payload: shiftDay,
   };
 };

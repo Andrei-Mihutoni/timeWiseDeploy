@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,11 +10,11 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,14 +35,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Home() {
+function Home(props) {
+  const [location, setLocation] = useState("");
+  // const [currentPageName, setCurrentPageName] = useState("");
 
-  const [location, setLocation] = React.useState('');
-
+  const currentPageName = props.location.pathname.substring(1);
+  console.log(currentPageName);
   const handleChange = (event) => {
     setLocation(event.target.value);
   };
-
 
   const { user } = useAuth0();
   const classes = useStyles();
@@ -51,7 +52,7 @@ function Home() {
       <CssBaseline />
       {/* <Header /> */}
 
-      <Header />
+      <Header currentPageName={currentPageName} />
       <div className={classes.root}>
         <Container fixed>
           <Grid container spacing={3}>

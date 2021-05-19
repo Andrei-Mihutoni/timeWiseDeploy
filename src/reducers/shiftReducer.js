@@ -7,6 +7,9 @@ import {
   POST_SHIFT_FAILURE,
   UPDATE_SHIFT_TO_ADD,
   UPDATE_SHIFT_DAY,
+  UPDATE_SHIFT_TIME,
+  UPDATE_SHIFT_LOCATION,
+  SET_SHIFT_DETAILS,
 } from "../actions/shiftTypes";
 
 const initialState = {
@@ -15,6 +18,9 @@ const initialState = {
   error: "",
   selectedDate: "",
   shiftToAdd: { day: "", shiftTime: "", shiftLocation: "", worker: "" },
+  shiftLocation: "",
+  shiftTime: "",
+  shiftDetails: { day: "", shiftTime: "", shiftLocation: "", worker: "" },
 };
 
 const reducer = (state = initialState, action) => {
@@ -71,6 +77,34 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         shiftToAdd: { ...action.payload },
+      };
+    case UPDATE_SHIFT_LOCATION:
+      console.log("in UPDATE_SHIFT_LOCATION", action.payload);
+      return {
+        ...state,
+        shiftLocation: action.payload,
+      };
+    case UPDATE_SHIFT_TIME:
+      console.log("in UPDATE_SHIFT_TIME", action.payload);
+      return {
+        ...state,
+        shiftTime: action.payload,
+      };
+    case SET_SHIFT_DETAILS:
+      let chosenShifts = state.shifts.filter((shift) => {
+        console.log(shift.day);
+        if (
+          shift.day.substring(8, 10) ===
+          action.payload.toISOString().substring(8, 10)
+        ) {
+          return shift;
+        }
+      });
+      console.log("in SET_SHIFT_DETAILS", chosenShifts);
+
+      return {
+        ...state,
+        shiftDetails: chosenShifts[0],
       };
     default:
       return state;
