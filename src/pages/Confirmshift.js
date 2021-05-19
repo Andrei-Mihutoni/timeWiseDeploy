@@ -111,7 +111,7 @@ function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
               <h2>{shiftData.shiftToAdd.day.toString().substr(0, 10)}</h2>
             </Grid>
 
-            <Container maxWidth="sm" style={{ marginTop: "-20px" }}>
+            <Container maxWidth="lg" style={{ marginTop: "-20px" }}>
               <Grid container spacing={3}>
                 <Grid item xs={6}>
                   <h3>Company :</h3>

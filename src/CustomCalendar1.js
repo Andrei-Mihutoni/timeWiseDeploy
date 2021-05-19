@@ -332,7 +332,7 @@ function CustomCalendar({
           >
             <Fade in={open}>
               <div className={classes.paperModal}>
-                <h2 id="transition-modal-title">Shift created</h2>
+                <h2 id="transition-modal-title">Shift details</h2>
                 <p id="transition-modal-description">
                   The following shift has been created and added to the calendar
                 </p>
