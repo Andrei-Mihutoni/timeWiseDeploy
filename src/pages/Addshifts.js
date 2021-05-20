@@ -57,13 +57,8 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <h2 className={(classes.paper, "marginTopHome1")}>Add a shift</h2>
-            </Grid>
+            <Grid item xs={12}></Grid>
 
-            <Grid item xs={12}>
-              <h2 className="marginTopHome2">Location, Date and time</h2>
-            </Grid>
             <Grid item xs={12}>
               <p className="marginTopHome2">
                 Choose a location, Date and time to add the shift
@@ -113,13 +108,36 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
               <Divider variant="middle" />
             </Grid>
             <Grid item xs={12}>
-              <h2 className="choosedate">Choose a date</h2>
+              <h2 className="choosedate">Choose an avilable date</h2>
+
             </Grid>
             <Grid
               item
               xs={12}
               style={{ marginTop: "-50px", marginBottom: "-50px" }}
             >
+              <Grid item xs={12}>
+                <div className="datesmap">
+                  <div className="map-wrapper">
+                    <div
+                      style={{ backgroundColor: "lightBlue" }}
+                      className="circle-map"
+                    ></div>
+                    <p>Existing Shifts</p>
+                  </div>
+                  <div className="map-wrapper">
+                    <div className="circle-map"></div>
+                    <p>Avilable dates</p>
+                  </div>
+                  <div className="map-wrapper">
+                    <div
+                      style={{ backgroundColor: "lightGreen" }}
+                      className="circle-map"
+                    ></div>
+                    <p>Selected date</p>
+                  </div>
+                </div>
+              </Grid>
               <CustomCalendar
               // shiftSelectedDetails={{ shiftLocation, shiftTime }}
               />
