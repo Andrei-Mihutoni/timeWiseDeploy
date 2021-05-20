@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../media/logo_timeWise.png";
+import Logo from "../media/logo-04.png";
 
 
 const Hero = () => (
