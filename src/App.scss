@@ -1,8 +1,6 @@
 @import url("//cdn.muicss.com/mui-0.9.41/css/mui.min.css");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,300;1,500&display=swap');
-$font-body: 'Poppins',
-sans-serif;
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,300;1,500&display=swap");
+$font-body: "Poppins", sans-serif;
 
 @import "./style/custom";
 @import "./style/calendar";
@@ -10,8 +8,8 @@ sans-serif;
 @import "./style/footer";
 @import "./style/home";
 
-body{
-  font:100% $font-body;
+body {
+  font: 100% $font-body;
 }
 a {
   color: black;
@@ -84,4 +82,16 @@ li {
 
 .MuiPickersBasePicker-pickerView {
   height: 54vh;
+}
+
+@media (min-width: 499px) {
+  .MuiGrid-root.homeLogin.MuiGrid-item.MuiGrid-grid-xs-12 {
+    margin-top: -50px;
+  }
+  .text-center.hero.timeWiselogo {
+    margin-top: 10%;
+  }
+  .homeContent {
+    margin-top: 10%;
+  }
 }
