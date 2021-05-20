@@ -113,7 +113,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
               <Divider variant="middle" />
             </Grid>
             <Grid item xs={12}>
-              <h2>Choose a date</h2>
+              <h2 className="choosedate">Choose a date</h2>
             </Grid>
             <Grid
               item
@@ -125,7 +125,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
               />
             </Grid>
 
-            <Grid item xs={6} style={{ marginTop: "20px" }}>
+            <Grid item xs={6} style={{ marginTop: "50px" }}>
               <Link to="/home">
                 <Button
                   variant="contained"
@@ -140,7 +140,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
                 </Button>
               </Link>
             </Grid>
-            <Grid item xs={6} style={{ marginTop: "20px" }}>
+            <Grid item xs={6} style={{ marginTop: "50px" }}>
               <Link to="/Confirmshift">
                 <Button
                   variant="contained"

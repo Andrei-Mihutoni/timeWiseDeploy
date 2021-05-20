@@ -257,10 +257,11 @@ function CustomCalendar({
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
           >
             {/* <CreateShift></CreateShift> */}
-            <Grid style={{ marginTop: "15px" }} item>
-              {/* <AcUnitIcon style={{ color: "#3d5afe", width: "15px" }} /> */}
+            <Grid item></Grid>
+            <Grid className="shifdayitem" item>
+              {" "}
+              {day.getDate()}
             </Grid>
-            <Grid item> {day.getDate()}</Grid>
           </Paper>
         );
       } else if (!isShift) {
@@ -432,7 +433,6 @@ function CustomCalendar({
                 >
                   Ok
                 </Button>
-
               </div>
             </Fade>
           </Modal>
