@@ -1,0 +1,23 @@
+
+.datesmap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .map-wrapper{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         margin: 10px;
+    }
+}
+
+.circle-map{
+    width: 45px;
+    height: 45px;
+    background-color: #e8f5e9;
+    margin: 3px;
+    box-shadow: none;
+    border-radius: 50%;
+    padding: 1px;
+}
