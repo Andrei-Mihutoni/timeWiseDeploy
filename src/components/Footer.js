@@ -15,6 +15,7 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core";
 const useStyles = makeStyles({
   root: {
     width: "100vw",
+    backgroundColor: '#009bcc', 
   },
 });
 
