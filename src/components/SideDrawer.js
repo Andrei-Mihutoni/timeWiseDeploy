@@ -5,6 +5,7 @@ import {
   ListItem,
   ListItemText
 } from "@material-ui/core";
+import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from "@material-ui/core/styles";
 import { Menu } from "@material-ui/icons";
 import * as React from "react";
@@ -48,8 +49,9 @@ const SideDrawer = ({ navLinks }) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List component="nav">
+        <CloseIcon className='closeMenu' fontSize="large" />
         <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Home'> <h2>Home</h2></NavLink>
-        <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Locations'> <h2>Locations</h2></NavLink>
+        <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/MyProfile'> <h2>My Profile</h2></NavLink>
         <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Calendar'> <h2>Calendar</h2></NavLink>
       </List>
     </div>
@@ -66,7 +68,7 @@ const SideDrawer = ({ navLinks }) => {
       </IconButton>
 
       <Drawer
-        anchor="left"
+        anchor="right"
         open={state.right}
         onOpen={toggleDrawer("right", true)}
         onClose={toggleDrawer("right", false)}

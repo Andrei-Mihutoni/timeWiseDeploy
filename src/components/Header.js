@@ -60,7 +60,7 @@ export default function Header(props) {
             </IconButton>
             <IconButton
               edge="end"
-              aria-label="account of current user"
+              aria-label="aburger menu"
               aria-haspopup="true"
               color="inherit"
             >
