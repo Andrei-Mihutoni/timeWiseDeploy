@@ -11,6 +11,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import LogoutButton from "../components/logout-button";
 import SideDrawer from "./SideDrawer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -50,11 +52,12 @@ export default function Header(props) {
           <div className={classes.sectionIcons}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
-                <MailIcon />
+                {/* <MailIcon /> */}
+                <FontAwesomeIcon icon={ faComment} />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
+            <IconButton aria-label="show 2 new notifications" color="inherit">
+              <Badge badgeContent={2} color="secondary">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
