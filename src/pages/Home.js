@@ -40,7 +40,7 @@ function Home(props) {
   // const [currentPageName, setCurrentPageName] = useState("");
 
   const currentPageName = props.location.pathname.substring(1);
-  console.log(currentPageName);
+  
   const handleChange = (event) => {
     setLocation(event.target.value);
   };

@@ -3,20 +3,14 @@ import CustomCalendar1 from "../CustomCalendar1";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-function Calendar({ shiftData }) {
-  console.log(shiftData);
+function Calendar(props) {
+  const currentPageName = props.location.pathname.substring(1);
+  console.log(props.shiftData);
   return (
     <div
       className="Calendar"
-      style={
-        {
-          // display: "grid",
-          // placeItems: "center",
-          // height: "70vh",
-        }
-      }
     >
-      <Header />
+      <Header currentPageName={currentPageName}/>
       <CustomCalendar1 />
       <Footer />
     </div>

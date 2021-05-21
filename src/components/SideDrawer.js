@@ -48,13 +48,6 @@ const SideDrawer = ({ navLinks }) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List component="nav">
-        {/* {navLinks.map(({ title, path }) => (
-          <a href={path} key={title} className={classes.linkText}>
-            <ListItem button>
-              <ListItemText primary={title} />
-            </ListItem>
-          </a>
-        ))} */}
         <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Home'> <h2>Home</h2></NavLink>
         <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Locations'> <h2>Locations</h2></NavLink>
         <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Calendar'> <h2>Calendar</h2></NavLink>
@@ -73,7 +66,7 @@ const SideDrawer = ({ navLinks }) => {
       </IconButton>
 
       <Drawer
-        anchor="right"
+        anchor="left"
         open={state.right}
         onOpen={toggleDrawer("right", true)}
         onClose={toggleDrawer("right", false)}
