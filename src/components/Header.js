@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: `uppercase`,
     color: `white`,
   },
-  sectionDesktop: {
+  sectionIcons: {
     display: "block",
     [theme.breakpoints.up("md")]: {
       display: "flex",
@@ -47,7 +47,7 @@ export default function Header(props) {
             {props.currentPageName}{" "}
           </Typography>
           <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
+          <div className={classes.sectionIcons}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
