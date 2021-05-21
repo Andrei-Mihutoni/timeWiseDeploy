@@ -5,6 +5,7 @@ import {
   ListItem,
   ListItemText
 } from "@material-ui/core";
+import LogoutButton from "../components/logout-button";
 import CloseIcon from '@material-ui/icons/Close';
 import { Home } from "@material-ui/icons";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
@@ -93,7 +94,8 @@ const SideDrawer = ({ navLinks }) => {
         <ListItem>
         <Link style={{marginTop:'10px', marginLeft:'15px'}} className={classes.listItemIcon} to=''>        
            <ExitToAppIcon  style={{ color: 'black' }}  />
-             <p className="logout">Log Out</p>  </Link>
+             {/* <p className="logout">Log Out</p>  </Link> */}
+               <LogoutButton className="buttonCustomLogout" /> </Link>
               </ListItem>
        </List>
            
