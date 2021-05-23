@@ -5,35 +5,31 @@ div.MuiPickersBasePicker-pickerView {
   margin-top: -6px;
   text-align: center;
 }
-  .shifdayitem {
-    padding-top: 14px;
-            color: white;
-  }
-  .choosedate{
-    margin-bottom: 50px;
-  }
- .MuiPickersBasePicker-container { }
+.shifdayitem {
+  padding-top: 14px;
+  color: white;
+}
+.choosedate {
+  margin-bottom: 50px;
+}
+
 @media screen and (min-width: 702px) {
-  .MuiPickersBasePicker-container{
+  .MuiPickersBasePicker-container {
     width: 700px;
   }
-  .MuiPickersCalendar-week{
-  
-    div{
+  .MuiPickersCalendar-week {
+    div {
       width: 55px;
       height: 55px;
       margin: 5px;
-        .shifdayitem {
-          padding-top: 0;
-          color: white;
-
-
-        }
-      .MuiGrid-item{
+      .shifdayitem {
+        padding-top: 0;
+        color: white;
+      }
+      .MuiGrid-item {
         margin: 0;
         margin-bottom: -35px;
       }
     }
   }
-
 }

@@ -3,11 +3,28 @@ import { addUser, fetchUsers } from "../actions/userActions";
 import { connect } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import { CssBaseline } from "@material-ui/core";
-import Hidden from '@material-ui/core/Hidden';  
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Hidden from '@material-ui/core/Hidden'; 
+import ClientLogo from "../media/NyLivLogo.png"
+
+const useStyles = makeStyles(() => ({
+  root: {
+    flexGrow: 1,
+  },
+
+    
+}));
+
 
 function Profile({ userData, fetchUsers, addUser }) {
+  
   const { user } = useAuth0();
   const { name, picture, email } = user;
+  const classes = useStyles();
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -21,28 +38,41 @@ function Profile({ userData, fetchUsers, addUser }) {
   }, []);
 
   return (
+
+
       
     <div>
       <CssBaseline />
-      <div className="row align-items-center profile-header">
-        <div className="col-md-2 mb-3">
+       <Container>
+          <Grid container spacing={3}>
+             <Grid  item xs={12} >
+               <img className="clientLogo" src={ClientLogo} alt="Client Logo" style={{marginTop:'25px', float:'left'}}/>
+             </Grid>
+    
+            <Grid item xs={12}>
           <img
+          className="profilePic"
             src={picture}
             alt="Profile"
-            className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
+            
           />
-        </div>
-        <div className="col-md text-center text-md-left">
-          <h2>Name: {name}</h2>
-          <p className="lead text-muted"> Email: {email}</p>
-        </div>
-      </div>
+       </Grid>
+                <Grid  item xs={12} style={{marginTop:"-10%"}}>
+          <p className="ProfileIntro"><span>Name:</span> {name}</p>
+          <p className="ProfileIntro"><span> Email: </span>{email}</p>
+          <p className="ProfileIntro"><span>Phone:</span> +45 6061 9798</p>
+        </Grid>
+       
+        </Grid>
+        </Container>
+     
       <div className="row">
         <Hidden only={['sm', 'xs', 'md', 'lg', 'xl']}>
         <pre className="userProfileJson">{JSON.stringify(user, null, 2)}</pre>
         </Hidden>
       </div>
     </div>
+
   );
 }
 

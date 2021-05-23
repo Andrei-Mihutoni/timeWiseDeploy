@@ -1,3 +1,31 @@
 .row.align-items-center.profile-header {
   margin-top: 100px;
 }
+.clientLogo {
+  border: 1px solid rgba($color: #888, $alpha: 0.3);
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px 2px rgba($color: #888, $alpha: 0.1);
+}
+.profilePic {
+  border: 1px solid rgba($color: #888, $alpha: 0.3);
+  border-radius: 50%;
+  float: right;
+  margin-top: -10%;
+  box-shadow: 1px 1px 5px 2px rgba($color: #888, $alpha: 0.3);
+}
+.ProfileIntro {
+  margin-left: 20px;
+  text-align: left;
+  span {
+    font-weight: 600;
+  }
+}
+
+.settingIntro {
+  float: left;
+  margin-left: 40px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 699px) {
+}
