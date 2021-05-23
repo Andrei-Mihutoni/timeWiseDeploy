@@ -6,6 +6,9 @@ import { HomePage, Profile, ExternalApi } from "./views";
 import ProtectedRoute from "./auth/protected-route";
 import LogoutButton from "../src/components/logout-button";
 import CustomCalendar1 from "./CustomCalendar1";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./theme";
+import { GlobalStyles } from "./global";
 import {
   BrowserRouter as Router,
   Switch,
@@ -30,6 +33,7 @@ function App(props) {
   const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
   const [shiftToAdd, setShiftToAdd] = useState({});
+
   // let shiftToAdd;
   if (isLoading) {
     return <Loading />;
@@ -43,6 +47,10 @@ function App(props) {
   }
   return (
     <div>
+      {/* <ThemeProvider theme={lightTheme}> */}
+      {/* <GlobalStyles /> */}
+      {/* <button>Toggle theme</button> */}
+      {/* <h1>It's a light theme!</h1> */}
       {/* <Appbar>
             <nav>
             <ul>
@@ -100,6 +108,7 @@ function App(props) {
           <Route path="/" exact component={HomePage} /> */}
         </Switch>
       </Router>
+      {/* </ThemeProvider> */}
     </div>
   );
 }
