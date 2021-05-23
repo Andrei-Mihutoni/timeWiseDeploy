@@ -37,23 +37,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
   const classes = useStyles();
-  const [shiftLocation, setshiftLocation] = useState("");
-  const [shiftTime, setShiftTime] = useState("");
-  const currentPageName = "Add Shift"
 
-  const handleTimeChange = (event) => {
-    setShiftTime(event.target.value);
-    console.log(shiftTime);
-    updateShiftTime(shiftTime);
-  };
-  const handleLocationChange = (event) => {
-    setshiftLocation(event.target.value);
-    updateShiftLocation(shiftLocation);
-  };
+  const currentPageName = "Add Shift";
+
   return (
     <div>
       <CssBaseline />
-      <Header currentPageName={currentPageName}/>
+      <Header currentPageName={currentPageName} />
 
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>
@@ -61,56 +51,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
             <Grid item xs={12}></Grid>
 
             <Grid item xs={12}>
-              <p className="marginTopHome2">
-                Choose a location, Date and time to add the shift
-              </p>
-            </Grid>
-            <Grid item xs={6}>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="select-Location">Location</InputLabel>
-                <Select
-                  labelId="select-Location"
-                  id="select-Location"
-                  value={shiftLocation}
-                  onChange={handleLocationChange}
-                  required
-                >
-                  {/* <MenuItem value="location">
-                    <em>None</em>
-                  </MenuItem> */}
-                  <MenuItem value={"Amager"}>Amager</MenuItem>
-                  <MenuItem value={"Østerbro"}>Østerbro</MenuItem>
-                  <MenuItem value={"Valby"}>Valby</MenuItem>
-                  <MenuItem value={"Frederiksberg"}>Frederiksberg</MenuItem>
-                </Select>
-                <FormHelperText>Choose The Location</FormHelperText>
-              </FormControl>
-            </Grid>
-            <Grid item xs={6}>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="select-Time">Time</InputLabel>
-                <Select
-                  labelId="select-Time"
-                  id="select-Time"
-                  value={shiftTime}
-                  onChange={handleTimeChange}
-                  required
-                >
-                  {/* <MenuItem value="time">
-                    <em>None</em>
-                  </MenuItem> */}
-                  <MenuItem value={"10:00 - 15:00"}>10:00 - 15:00</MenuItem>
-                  <MenuItem value={"14:00 - 19:00"}>14:00 - 19:00</MenuItem>
-                </Select>
-                <FormHelperText>Choose The Time</FormHelperText>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
-            <Grid item xs={12}>
               <h2 className="choosedate">Choose an avilable date</h2>
-
             </Grid>
             <Grid
               item

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CustomCalendar from "../CustomCalendar1";
@@ -18,7 +18,12 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { connect } from "react-redux";
-import { postShift, updateShiftToAdd } from "../actions/shiftActions";
+import {
+  postShift,
+  updateShiftToAdd,
+  updateShiftTime,
+  updateShiftLocation,
+} from "../actions/shiftActions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,22 +57,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
-function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
+function Confirmshift({
+  shiftData,
+  postShift,
+  updateShiftToAdd,
+  updateShiftTime,
+  updateShiftLocation,
+}) {
   const currentPageName = "Confirm Shift ";
   const classes = useStyles();
+  const [shiftLocation, setshiftLocation] = useState("");
+  const [shiftTime, setShiftTime] = useState("");
   const [open, setOpen] = React.useState(false);
   const [person, setPerson] = React.useState("");
+  const newShift = {
+    day: shiftData.shiftToAdd.day,
+    shiftTime: shiftTime,
+    shiftLocation: shiftLocation,
+    worker: person,
+  };
   const handlePersonChange = (event) => {
     setPerson(event.target.value);
     console.log(person);
-    const newShift = {
-      day: shiftData.shiftToAdd.day,
-      shiftTime: shiftData.shiftToAdd.shiftTime,
-      shiftLocation: shiftData.shiftToAdd.shiftLocation,
-      worker: person,
-    };
     console.log(newShift);
     updateShiftToAdd(newShift);
     console.log(shiftData.shiftToAdd);
@@ -85,6 +96,20 @@ function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleTimeChange = (event) => {
+    setShiftTime(event.target.value);
+    console.log(shiftTime);
+    updateShiftTime(event.target.value);
+    updateShiftToAdd(newShift);
+    console.log(shiftData.shiftToAdd);
+  };
+  const handleLocationChange = (event) => {
+    setshiftLocation(event.target.value);
+    console.log(event.target.value, "in addhift");
+    updateShiftLocation(event.target.value);
+    updateShiftToAdd(newShift);
+    console.log(shiftData.shiftToAdd);
+  };
   return (
     <div>
       <CssBaseline />
@@ -94,18 +119,89 @@ function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <h2 className={(classes.paper, "marginTopHome1")}>Add a shift</h2>
+              <h2 className={(classes.paper, "marginTopHome1")}>
+                Confirm shift
+              </h2>
             </Grid>
 
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <h2 className="marginTopHome2">Shift details</h2>
             </Grid>
             <Grid item xs={12}>
               <p className="marginTopHome2">
                 Check the shift details and confirm the new shift
               </p>
+            </Grid> */}
+
+            <Grid item xs={12}>
+              <Divider variant="middle" />
+            </Grid>
+            <Grid item xs={12}>
+              <p className="marginTopHome2">
+                Choose a location, Date and time to add the shift
+              </p>
             </Grid>
 
+            <Grid item xs={4}>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="select-Location">Location</InputLabel>
+                <Select
+                  labelId="select-Location"
+                  id="select-Location"
+                  value={shiftLocation}
+                  onChange={handleLocationChange}
+                  required
+                >
+                  {/* <MenuItem value="location">
+                    <em>None</em>
+                  </MenuItem> */}
+                  <MenuItem value={"Amager"}>Amager</MenuItem>
+                  <MenuItem value={"Østerbro"}>Østerbro</MenuItem>
+                  <MenuItem value={"Valby"}>Valby</MenuItem>
+                  <MenuItem value={"Frederiksberg"}>Frederiksberg</MenuItem>
+                </Select>
+                <FormHelperText>Choose The Location</FormHelperText>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={4}>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="select-Time">Time</InputLabel>
+                <Select
+                  labelId="select-Time"
+                  id="select-Time"
+                  value={shiftTime}
+                  onChange={handleTimeChange}
+                  required
+                >
+                  {/* <MenuItem value="time">
+                    <em>None</em>
+                  </MenuItem> */}
+                  <MenuItem value={"10:00 - 15:00"}>10:00 - 15:00</MenuItem>
+                  <MenuItem value={"14:00 - 19:00"}>14:00 - 19:00</MenuItem>
+                </Select>
+                <FormHelperText>Choose The Time</FormHelperText>
+              </FormControl>
+            </Grid>
+            <Grid item xs={4}>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="select-Person">Personal</InputLabel>
+                <Select
+                  labelId="select-Person"
+                  id="select-Person"
+                  value={person}
+                  onChange={handlePersonChange}
+                >
+                  <MenuItem value="person">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={"Daniel"}>Daniel</MenuItem>
+                  <MenuItem value={"Andrie"}>Andrie</MenuItem>
+                  <MenuItem value={"Laufey"}>Laufey</MenuItem>
+                </Select>
+                <FormHelperText>Chose The Personal</FormHelperText>
+              </FormControl>
+            </Grid>
             <Grid item xs={12}>
               <Divider variant="middle" />
             </Grid>
@@ -125,6 +221,27 @@ function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
                   </p>
                 </Grid>
                 <Grid item xs={6}>
+                  <h3
+                    style={{
+                      marginTop: "-20px",
+                      marginLeft: "-10px",
+                    }}
+                  >
+                    Date :
+                  </h3>
+                </Grid>
+                <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
+                  <p
+                    style={{
+                      marginTop: "-20px",
+                      marginLeft: "45px",
+                      textAlign: "left",
+                    }}
+                  >
+                    {shiftData.shiftToAdd.day.toString().substring(0, 16)}
+                  </p>
+                </Grid>
+                <Grid item xs={6}>
                   <h3 style={{ marginTop: "-20px", marginLeft: "-10px" }}>
                     Location :
                   </h3>
@@ -137,7 +254,7 @@ function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
                       textAlign: "left",
                     }}
                   >
-                    {shiftData.shiftToAdd.shiftLocation.toString()}
+                    {shiftLocation}
                   </p>
                 </Grid>
                 <Grid item xs={6}>
@@ -153,27 +270,24 @@ function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
                       textAlign: "left",
                     }}
                   >
-                    {shiftData.shiftToAdd.shiftTime.toString()}
+                    {shiftTime}
                   </p>
                 </Grid>
-                <Grid item xs={12}>
-                  <FormControl className={classes.formControl}>
-                    <InputLabel id="select-Person">Personal</InputLabel>
-                    <Select
-                      labelId="select-Person"
-                      id="select-Person"
-                      value={person}
-                      onChange={handlePersonChange}
-                    >
-                      <MenuItem value="person">
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={"Daniel"}>Daniel</MenuItem>
-                      <MenuItem value={"Andrie"}>Andrie</MenuItem>
-                      <MenuItem value={"Laufey"}>Laufey</MenuItem>
-                    </Select>
-                    <FormHelperText>Chose The Personal</FormHelperText>
-                  </FormControl>
+                <Grid item xs={6}>
+                  <h3 style={{ marginTop: "-20px", marginLeft: "-45px" }}>
+                    Worker:
+                  </h3>
+                </Grid>
+                <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
+                  <p
+                    style={{
+                      marginTop: "-20px",
+                      marginLeft: "45px",
+                      textAlign: "left",
+                    }}
+                  >
+                    {person}
+                  </p>
                 </Grid>
               </Grid>
             </Container>
@@ -365,6 +479,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     postShift: (newShift) => dispatch(postShift(newShift)),
     updateShiftToAdd: (worker) => dispatch(updateShiftToAdd(worker)),
+    updateShiftTime: (shiftTime) => dispatch(updateShiftTime(shiftTime)),
+    updateShiftLocation: (shiftLocation) =>
+      dispatch(updateShiftLocation(shiftLocation)),
   };
 };
 
