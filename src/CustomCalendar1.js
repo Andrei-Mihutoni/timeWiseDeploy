@@ -63,6 +63,7 @@ export const styles = makeStyles((theme) => ({
     height: "35px",
     backgroundColor: "lightGreen",
     margin: "3px",
+
     boxShadow: "none",
     borderRadius: "50%",
     padding: "1px",
@@ -78,7 +79,7 @@ export const styles = makeStyles((theme) => ({
     backgroundColor: "#f9fbe7",
     borderRadius: "50%",
     borderStyle: "solid",
-    borderWidth: "2px",
+    borderWidth: "1px",
     borderColor: "lime",
     padding: "1px",
     cursor: "pointer",
@@ -144,10 +145,13 @@ function CustomCalendar({
     shiftLocation: shiftData.shiftLocation,
   };
   function storeShift() {
+    handleDateChange();
     console.log(shiftData.shiftToAdd, newShift, "in storeShift");
     updateShiftToAdd(newShift);
   }
   function storeShiftDetails() {
+    handleDateChange();
+
     setShiftDetails(selectedDate);
     console.log(selectedDate);
     handleOpen();
@@ -161,6 +165,9 @@ function CustomCalendar({
     setOpen(false);
   };
 
+  function getDay(myday) {
+    console.log(myday);
+  }
   function getDayElement(
     day,
     selectedDate,

@@ -131,12 +131,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateShiftTime: (shiftTime) => dispatch(updateShiftTime(shiftTime)),
-    updateShiftLocation: (shiftLocation) =>
-      dispatch(updateShiftLocation(shiftLocation)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Addshifts);
+export default connect(mapStateToProps)(Addshifts);
