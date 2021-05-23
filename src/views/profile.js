@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { addUser, fetchUsers } from "../actions/userActions";
 import { connect } from "react-redux";
-
 import { useAuth0 } from "@auth0/auth0-react";
+import { CssBaseline } from "@material-ui/core";
+import Hidden from '@material-ui/core/Hidden';  
 
 function Profile({ userData, fetchUsers, addUser }) {
   const { user } = useAuth0();
@@ -20,7 +21,9 @@ function Profile({ userData, fetchUsers, addUser }) {
   }, []);
 
   return (
+      
     <div>
+      <CssBaseline />
       <div className="row align-items-center profile-header">
         <div className="col-md-2 mb-3">
           <img
@@ -30,12 +33,14 @@ function Profile({ userData, fetchUsers, addUser }) {
           />
         </div>
         <div className="col-md text-center text-md-left">
-          <h2>{name}</h2>
-          <p className="lead text-muted">{email}</p>
+          <h2>Name: {name}</h2>
+          <p className="lead text-muted"> Email: {email}</p>
         </div>
       </div>
       <div className="row">
+        <Hidden only={['sm', 'xs', 'md', 'lg', 'xl']}>
         <pre className="userProfileJson">{JSON.stringify(user, null, 2)}</pre>
+        </Hidden>
       </div>
     </div>
   );

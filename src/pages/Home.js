@@ -21,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: "center",
+      color: theme.palette.text.secondary,
+    },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -40,7 +40,7 @@ function Home(props) {
   // const [currentPageName, setCurrentPageName] = useState("");
 
   const currentPageName = props.location.pathname.substring(1);
-  console.log(currentPageName);
+  
   const handleChange = (event) => {
     setLocation(event.target.value);
   };

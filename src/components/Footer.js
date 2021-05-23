@@ -2,12 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import RestoreIcon from "@material-ui/icons/Restore";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 import TodayIcon from "@material-ui/icons/Today";
 import { Home } from "@material-ui/icons";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
@@ -63,9 +60,9 @@ export default function Footer() {
                 </Grid>
 
                 <Grid item xs={4}>
-                  <NavLink activeClassName="is-active" to="/Locations">
-                    <LocationOnIcon />
-                    <p style={{ marginTop: "-10px" }}>Location</p>
+                  <NavLink activeClassName="is-active" to="/MyProfile">
+                    <AccountCircleIcon />
+                    <p style={{ marginTop: "-10px" }}>My Profile</p>
                   </NavLink>
                 </Grid>
               </Grid>

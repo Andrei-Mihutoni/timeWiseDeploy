@@ -39,6 +39,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftTime, setShiftTime] = useState("");
+  const currentPageName = "Add Shift"
 
   const handleTimeChange = (event) => {
     setShiftTime(event.target.value);
@@ -52,7 +53,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
   return (
     <div>
       <CssBaseline />
-      <Header />
+      <Header currentPageName={currentPageName}/>
 
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>

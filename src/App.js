@@ -18,15 +18,11 @@ import {
 } from "react-router-dom";
 import Calendar from "./pages/Calendar";
 import Home from "./pages/Home";
-import Locations from "./pages/Locations";
+import MyProfile from "./pages/MyProfile";
 import Users from "./pages/Users";
 import Addshifts from "./pages/Addshifts";
 import Confirmshift from "./pages/Confirmshift";
 import Modal1 from "./components/TransitionsModal";
-import ShiftList from "./containers/ShiftList";
-import Header from "./components/Header";
-import { Appbar, Button, Container } from "muicss/react";
-
 import "./App.scss";
 
 function App(props) {
@@ -68,7 +64,7 @@ function App(props) {
         <Switch>
           <ProtectedRoute path="/home" component={Home} />
           <ProtectedRoute path="/calendar" component={Calendar} />
-          <ProtectedRoute path="/Locations" component={Locations} />
+          <ProtectedRoute path="/MyProfile" component={MyProfile} />
           <ProtectedRoute path="/usersList" component={Users} />
 
           <Route path="/AddShifts">

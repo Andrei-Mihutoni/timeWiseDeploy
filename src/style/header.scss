@@ -8,5 +8,20 @@
 }
 
 span.MuiBadge-badge.MuiBadge-anchorOriginTopRightRectangle {
-  background-color: orange;
+  background-color: #ff9800;
+}
+
+svg.MuiSvgIcon-root.closeMenu.MuiSvgIcon-fontSizeLarge {
+  margin-left: 160px;
+  margin-top: 14px;
+}
+
+ul.MuiList-root.logOutMenu.MuiList-padding {
+  padding-top: 50vh;
+  padding-left: 45px;
+}
+.logout {
+  margin-left: 40px;
+  color: black;
+  margin-top: 8px;
 }

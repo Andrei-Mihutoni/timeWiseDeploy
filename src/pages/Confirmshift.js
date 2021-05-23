@@ -52,7 +52,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
+  const currentPageName = "Confirm Shift ";
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [person, setPerson] = React.useState("");
@@ -85,7 +88,7 @@ function Confirmshift({ shiftData, postShift, updateShiftToAdd }) {
   return (
     <div>
       <CssBaseline />
-      <Header />
+      <Header currentPageName={currentPageName} />
 
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>

@@ -5,13 +5,22 @@ import {
   ListItem,
   ListItemText
 } from "@material-ui/core";
+import LogoutButton from "../components/logout-button";
+import CloseIcon from '@material-ui/icons/Close';
+import { Home } from "@material-ui/icons";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SettingsIcon from '@material-ui/icons/Settings';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ContactsIcon from '@material-ui/icons/Contacts';
 import { makeStyles } from "@material-ui/core/styles";
 import { Menu } from "@material-ui/icons";
 import * as React from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const useStyles = makeStyles({
+
+
+const useStyles = makeStyles((theme) => ({
   list: {
     width: 250
   },
@@ -19,11 +28,27 @@ const useStyles = makeStyles({
     textDecoration: `none`,
     textTransform: `uppercase`,
     color: `black`,
-    textAlign: 'left',
+    textAlign: 'right',
     marginTop: '10px',
-    marginLeft: '20px',
-  }
-});
+    marginLeft: '0px',
+  },
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
+  listItemIcon: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flexDirection: 'row',
+    color:'black',
+
+  },
+}));
 
 const SideDrawer = ({ navLinks }) => {
   const classes = useStyles();
@@ -48,17 +73,32 @@ const SideDrawer = ({ navLinks }) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List component="nav">
-        {/* {navLinks.map(({ title, path }) => (
-          <a href={path} key={title} className={classes.linkText}>
-            <ListItem button>
-              <ListItemText primary={title} />
-            </ListItem>
-          </a>
-        ))} */}
-        <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Home'> <h2>Home</h2></NavLink>
-        <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Locations'> <h2>Locations</h2></NavLink>
-        <NavLink className={classes.linkText, 'headerBurgerMenu'} to='/Calendar'> <h2>Calendar</h2></NavLink>
+        <CloseIcon className='closeMenu' fontSize="large" />
+
+        <Link style={{marginTop:'30px'}} className={classes.listItemIcon} to='/home'>        
+           <Home style={{ color: 'black'}}  />
+               Home </Link>
+               <Link style={{marginTop:'20px'}} className={classes.listItemIcon} to='/MyProfile'>        
+           <AccountCircleIcon style={{ color: 'black' }}  />
+               Profile </Link>
+                 <Link style={{marginTop:'20px', marginLeft:'10px'}} className={classes.listItemIcon} to=''>        
+           <SettingsIcon style={{ color: 'black' }}  />
+              Settings </Link>
+            <Link style={{marginTop:'20px', marginLeft:'15px'}} className={classes.listItemIcon} to=''>        
+           <ContactsIcon style={{ color: 'black' }}  />
+              Contacts </Link>
+           
       </List>
+       
+      <List className="logOutMenu" >
+        <ListItem>
+        <Link style={{marginTop:'10px', marginLeft:'15px'}} className={classes.listItemIcon} to=''>        
+           <ExitToAppIcon  style={{ color: 'black' }}  />
+             {/* <p className="logout">Log Out</p>  </Link> */}
+               <LogoutButton className="buttonCustomLogout" /> </Link>
+              </ListItem>
+       </List>
+           
     </div>
   );
 
