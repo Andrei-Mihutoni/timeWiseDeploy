@@ -57,7 +57,7 @@ function Profile({ userData, fetchUsers, addUser }) {
             
           />
        </Grid>
-                <Grid  item xs={12} style={{marginTop:"-10%"}}>
+                <Grid className='profileNameMarginTop' xs={12} >
           <p className="ProfileIntro"><span>Name:</span> {name}</p>
           <p className="ProfileIntro"><span> Email: </span>{email}</p>
           <p className="ProfileIntro"><span>Phone:</span> +45 6061 9798</p>

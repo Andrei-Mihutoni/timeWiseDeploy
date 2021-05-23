@@ -13,6 +13,9 @@
   margin-top: -10%;
   box-shadow: 1px 1px 5px 2px rgba($color: #888, $alpha: 0.3);
 }
+.profileNameMarginTop {
+  margin-top: -10%;
+}
 .ProfileIntro {
   margin-left: 20px;
   text-align: left;
@@ -27,5 +30,11 @@
   font-weight: 600;
 }
 
-@media screen and (min-width: 699px) {
+@media screen and (min-width: 499px) {
+  .profileNameMarginTop {
+    margin-top: 0;
+  }
+  .profilePic {
+    margin-top: 0;
+  }
 }

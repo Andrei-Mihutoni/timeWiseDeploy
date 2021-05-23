@@ -23,6 +23,7 @@ import Users from "./pages/Users";
 import Addshifts from "./pages/Addshifts";
 import Confirmshift from "./pages/Confirmshift";
 import Modal1 from "./components/TransitionsModal";
+import SettingPage from "./pages/SettingPage"
 import "./App.scss";
 
 function App(props) {
@@ -66,7 +67,7 @@ function App(props) {
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/MyProfile" component={MyProfile} />
           <ProtectedRoute path="/usersList" component={Users} />
-
+           <ProtectedRoute path="/Settings" component={SettingPage} />
           <Route path="/AddShifts">
             <Addshifts getShiftDetails={getShiftDetails} />
           </Route>

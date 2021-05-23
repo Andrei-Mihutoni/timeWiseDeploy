@@ -75,13 +75,13 @@ const SideDrawer = ({ navLinks }) => {
       <List component="nav">
         <CloseIcon className='closeMenu' fontSize="large" />
 
-        <Link style={{marginTop:'30px'}} className={classes.listItemIcon} to='/home'>        
+        <Link style={{marginTop:'30px'}} className={classes.listItemIcon} to='/Home'>        
            <Home style={{ color: 'black'}}  />
                Home </Link>
                <Link style={{marginTop:'20px'}} className={classes.listItemIcon} to='/MyProfile'>        
            <AccountCircleIcon style={{ color: 'black' }}  />
                Profile </Link>
-                 <Link style={{marginTop:'20px', marginLeft:'10px'}} className={classes.listItemIcon} to=''>        
+                 <Link style={{marginTop:'20px', marginLeft:'10px'}} className={classes.listItemIcon} to='/Settings'>        
            <SettingsIcon style={{ color: 'black' }}  />
               Settings </Link>
             <Link style={{marginTop:'20px', marginLeft:'15px'}} className={classes.listItemIcon} to=''>        

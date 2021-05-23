@@ -2,7 +2,7 @@ import React from "react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Profile from "../views/profile";
-import Settings from "./Settings";
+import Settings from "../components/Settings";
 
 function MyProfile(props) {
   const currentPageName = props.location.pathname.substring(1);
