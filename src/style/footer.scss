@@ -16,11 +16,11 @@ a {
 }
 
 .is-active {
-  color: white;
   svg {
-    font-size: 30px;
+    color: blue;
+    font-size: 25px;
   }
   p {
-    font-weight: 600;
+    color: blue;
   }
 }
