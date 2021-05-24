@@ -7,6 +7,7 @@ import { Home } from "@material-ui/icons";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -14,6 +15,12 @@ const useStyles = makeStyles({
     width: "100vw",
     backgroundColor: '#009bcc', 
   },
+  footerIcons:{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+   
+  }
 });
 
 export default function Footer() {
@@ -47,22 +54,32 @@ export default function Footer() {
                     activeClassName="is-active"
                     to="/Calendar"
                   >
+                    <ListItemIcon className={classes.footerIcons}>
                     <TodayIcon />
-                    <p style={{ marginTop: "-10px" }}>Calendar</p>
+                    <span className="hide">Calendar</span>
+                    </ListItemIcon>
+                    {/* <p style={{ marginTop: "-10px" }}>Calendar</p> */}
                   </NavLink>
                 </Grid>
 
                 <Grid item xs={4}>
                   <NavLink activeClassName="is-active" to="/Home">
+                    <ListItemIcon className={classes.footerIcons}>
                     <Home />
-                    <p style={{ marginTop: "-10px" }}>Home</p>
+                    <span className="hide"> Home</span> 
+                    {/* <p style={{ marginTop: "-10px" }}>Home</p> */}
+      
+                    </ListItemIcon>
                   </NavLink>
                 </Grid>
 
                 <Grid item xs={4}>
                   <NavLink activeClassName="is-active" to="/MyProfile">
+                    <ListItemIcon className={classes.footerIcons}>
                     <AccountCircleIcon />
-                    <p style={{ marginTop: "-10px" }}>My Profile</p>
+                    {/* <p style={{ marginTop: "-10px" }}>My Profile</p> */}
+                   <span className="hide">Profile</span> 
+                    </ListItemIcon>
                   </NavLink>
                 </Grid>
               </Grid>
