@@ -15,12 +15,37 @@ a {
   }
 }
 
+// .is-active {
+//   svg {
+//     color: orange;
+//     font-size: 25px;
+//   }
+//   p {
+//     color: blue;
+//   }
+// }
+
+// .MuiListItemIcon-root {
+//   color: white;
+//   display: inline-flex;
+//   min-width: 56px;
+//   flex-shrink: 0;
+// }
+.hide {
+  display: none;
+}
 .is-active {
   svg {
-    color: blue;
-    font-size: 25px;
+    color: orange;
   }
-  p {
-    color: blue;
+  .hide {
+    display: block;
+    color: orange;
   }
+  // -webkit-box-shadow: inset 1px 1px 10px #333;
+  // -moz-box-shadow: inset 1px 1px 10px #333;
+  // box-shadow: inset 0px 2px 7px #4f4f4f;
+  // font-weight: 600;
+  // color: #fff;
+  // letter-spacing: 0.5px;
 }
