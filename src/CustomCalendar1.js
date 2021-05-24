@@ -139,22 +139,23 @@ function CustomCalendar({
   });
 
   let newShift;
-  newShift = {
-    day: selectedDate,
-    shiftTime: shiftData.shiftTime,
-    shiftLocation: shiftData.shiftLocation,
-  };
-  function storeShift() {
-    handleDateChange();
-    console.log(shiftData.shiftToAdd, newShift, "in storeShift");
-    updateShiftToAdd(newShift);
-  }
-  function storeShiftDetails() {
-    handleDateChange();
+  function storeShift(event) {
+    handleDateChange(event);
 
-    setShiftDetails(selectedDate);
-    console.log(selectedDate);
-    handleOpen();
+    newShift = {
+      day: event,
+      shiftTime: shiftData.shiftTime,
+      shiftLocation: shiftData.shiftLocation,
+    };
+    updateShiftToAdd(newShift);
+    shiftData.shifts.forEach((element) => {
+      if (
+        element.day.substring(8, 10) === event.toISOString().substring(8, 10)
+      ) {
+        setShiftDetails(event);
+        handleOpen();
+      }
+    });
   }
 
   const handleOpen = () => {
@@ -183,7 +184,6 @@ function CustomCalendar({
     const isSelected = day.getDate() === selectedDate.getDate();
     const isToday =
       day.getDate() === today.getDate() && day.getMonth() === today.getMonth();
-    // console.log(day.getTime());
     let dateTile;
     if (isInCurrentMonth) {
       if (isSunny) {
@@ -260,7 +260,6 @@ function CustomCalendar({
         dateTile = (
           <Paper
             value={selectedDate}
-            onClick={storeShiftDetails}
             className={isSelected ? classes.selectedDayPaper : classes.shiftDay}
           >
             {/* <CreateShift></CreateShift> */}
@@ -274,7 +273,7 @@ function CustomCalendar({
       } else if (!isShift) {
         dateTile = (
           <Paper
-            onClick={storeShift}
+            value={selectedDate}
             className={
               isSelected
                 ? classes.selectedDayPaper
@@ -317,7 +316,7 @@ function CustomCalendar({
         <ThemeProvider theme={materialTheme}>
           <DatePicker
             value={selectedDate}
-            onChange={handleDateChange}
+            onChange={storeShift}
             variant="static"
             renderDay={(day, selectedDate, isInCurrentMonth, dayComponent) =>
               getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
