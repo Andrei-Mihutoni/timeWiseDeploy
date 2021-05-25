@@ -5,8 +5,8 @@ import Profile from "../views/profile";
 import Settings from "../components/Settings";
 
 function MyProfile(props) {
-  const currentPageName = props.location.pathname.substring(1);
-  
+  // const currentPageName = props.location.pathname.substring(1);
+  const currentPageName = 'PROFILE';
   
   return (
     <div className="MyProfile">

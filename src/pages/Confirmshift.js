@@ -65,7 +65,7 @@ function Confirmshift({
   updateShiftTime,
   updateShiftLocation,
 }) {
-  const currentPageName = "Confirm Shift ";
+  const currentPageName = "CONFIRM SHIFT ";
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftTime, setShiftTime] = useState("");

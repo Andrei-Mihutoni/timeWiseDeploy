@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
   const classes = useStyles();
 
-  const currentPageName = "Add Shift";
+  const currentPageName = "ADD SHIFTS";
 
   return (
     <div>

@@ -8,7 +8,7 @@ function Calendar(props) {
   const currentPageName = props.location.pathname.substring(1);
   console.log(props.shiftData);
   return (
-    <div className="Calendar">
+    <div className="CALENDAR">
       <Header currentPageName={currentPageName} />
 
       <Grid style={{ marginTop: "50px" }} item xs={12}>
