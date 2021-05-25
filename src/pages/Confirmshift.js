@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    mazWidth: 100,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -192,9 +192,9 @@ function Confirmshift({
                   value={person}
                   onChange={handlePersonChange}
                 >
-                  <MenuItem value="person">
+                  {/* <MenuItem value="person">
                     <em>None</em>
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem value={"Daniel"}>Daniel</MenuItem>
                   <MenuItem value={"Andrie"}>Andrie</MenuItem>
                   <MenuItem value={"Laufey"}>Laufey</MenuItem>
@@ -210,7 +210,7 @@ function Confirmshift({
               <h2>{shiftData.shiftToAdd.day.toString().substr(0, 10)}</h2>
             </Grid>
 
-            <Container maxWidth="lg" style={{ marginTop: "-20px" }}>
+            <Container maxWidth="sx" style={{ marginTop: "-20px" }}>
               <Grid container spacing={3}>
                 <Grid item xs={6}>
                   <h3>Company :</h3>
