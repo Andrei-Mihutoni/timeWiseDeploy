@@ -22,7 +22,7 @@ const initialState = {
   shiftLocation: "",
   shiftTime: "",
   shiftDetails: { day: "", shiftTime: "", shiftLocation: "", worker: "" },
-  themeColor1: "red",
+  themeColor1: "#009bcc",
 };
 
 const reducer = (state = initialState, action) => {
