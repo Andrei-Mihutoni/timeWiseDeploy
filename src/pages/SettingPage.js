@@ -32,7 +32,7 @@ function SettinPage() {
   
     </Grid>
     </div>
- <div  style={{marginTop:'150px'}}>
+ <div  style={{marginTop:'250px'}}>
        <Footer/>
        </div>
 </>
