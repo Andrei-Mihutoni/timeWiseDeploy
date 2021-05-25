@@ -11,6 +11,7 @@ class SketchColor extends React.Component {
       b: '203',
       a: '1',
     },
+    background: '#fff',
   };
 
   handleClick = () => {
@@ -24,7 +25,7 @@ class SketchColor extends React.Component {
   handleChange = (color) => {
     this.setState({ color: color.rgb })
   };
-
+  
   render() {
 
     const styles = reactCSS({
@@ -43,9 +44,9 @@ class SketchColor extends React.Component {
         popover: {
           position: 'absolute',
           zIndex: '2',
-          top:'50%',
-          left:'50%',
-          transform: 'translate(-50%, -50%)',
+          top:'30%',
+          left:'10%',
+          // transform: 'translate(-50%, -50%)',
         
         },
         cover: {
