@@ -24,6 +24,10 @@ import Addshifts from "./pages/Addshifts";
 import Confirmshift from "./pages/Confirmshift";
 import Modal1 from "./components/TransitionsModal";
 import SettingPage from "./pages/SettingPage";
+<<<<<<< HEAD
+=======
+import Contacts from "./pages/Contacts";
+>>>>>>> f99b74468ac3c427ba9ce307a24fcc763892865b
 import "./App.scss";
 
 function App(props) {
@@ -65,7 +69,12 @@ function App(props) {
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/MyProfile" component={MyProfile} />
           <ProtectedRoute path="/usersList" component={Users} />
+<<<<<<< HEAD
           <ProtectedRoute path="/Settings" component={SettingPage} />
+=======
+           <ProtectedRoute path="/Settings" component={SettingPage} />
+           <ProtectedRoute path="/Contacts" component={Contacts} />
+>>>>>>> f99b74468ac3c427ba9ce307a24fcc763892865b
           <Route path="/AddShifts">
             <Addshifts getShiftDetails={getShiftDetails} />
           </Route>

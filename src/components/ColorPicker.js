@@ -2,15 +2,22 @@ import React from 'react'
 import reactCSS from 'reactcss'
 import { SketchPicker } from 'react-color'
 
+
 class SketchColor extends React.Component {
+  
   state = {
     displayColorPicker: false,
+     background: '#fff',
     color: {
       r: '0',
       g: '155',
       b: '203',
       a: '1',
     },
+    background: '#fff',
+  };
+   handleChangeComplete = (color) => {
+    this.setState({ background: color.hex });
   };
 
   handleClick = () => {
@@ -24,7 +31,7 @@ class SketchColor extends React.Component {
   handleChange = (color) => {
     this.setState({ color: color.rgb })
   };
-
+  
   render() {
 
     const styles = reactCSS({
@@ -43,9 +50,9 @@ class SketchColor extends React.Component {
         popover: {
           position: 'absolute',
           zIndex: '2',
-          top:'50%',
-          left:'50%',
-          transform: 'translate(-50%, -50%)',
+          top:'30%',
+          left:'10%',
+          // transform: 'translate(-50%, -50%)',
         
         },
         cover: {
@@ -65,12 +72,16 @@ class SketchColor extends React.Component {
         </div>
         { this.state.displayColorPicker ? <div style={ styles.popover }>
           <div style={ styles.cover } onClick={ this.handleClose }/>
-          <SketchPicker color={ this.state.color } onChange={ this.handleChange } />
+          <SketchPicker color={ this.state.color } onChange={ this.handleChange } 
+         />
         </div> : null }
-
+          
+    
       </div>
     )
   }
 }
 
 export default SketchColor
+
+ 

@@ -22,7 +22,7 @@ function SettinPage() {
   const classes = useStyles();
   return (
 <>
-<Header currentPageName="Settings"/>
+<Header currentPageName="SETTINGS"/>
     <CssBaseline />
      <div className={classes.root}>
        <Grid container>
@@ -32,7 +32,9 @@ function SettinPage() {
   
     </Grid>
     </div>
-<Footer />
+ <div  style={{marginTop:'250px'}}>
+       <Footer/>
+       </div>
 </>
 );
 }

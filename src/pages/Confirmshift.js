@@ -17,6 +17,7 @@ import Divider from "@material-ui/core/Divider";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import Hidden from '@material-ui/core/Hidden'; 
 import { connect } from "react-redux";
 import {
   postShift,
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
+    minWidth: 100,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -64,7 +65,7 @@ function Confirmshift({
   updateShiftTime,
   updateShiftLocation,
 }) {
-  const currentPageName = "Confirm Shift ";
+  const currentPageName = "CONFIRM SHIFT ";
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftTime, setShiftTime] = useState("");
@@ -136,12 +137,13 @@ function Confirmshift({
             <Grid item xs={12}>
               <Divider variant="middle" />
             </Grid>
+             
             <Grid item xs={12}>
               <p className="marginTopHome2">
-                Choose a location, Date and time to add the shift
+                Choose a location, Date and time 
               </p>
             </Grid>
-
+            <Grid container spacing={0}>
             <Grid item xs={4}>
               <FormControl className={classes.formControl}>
                 <InputLabel id="select-Location">Location</InputLabel>
@@ -160,7 +162,9 @@ function Confirmshift({
                   <MenuItem value={"Valby"}>Valby</MenuItem>
                   <MenuItem value={"Frederiksberg"}>Frederiksberg</MenuItem>
                 </Select>
+                <Hidden only={'xs'}>
                 <FormHelperText>Choose The Location</FormHelperText>
+                </Hidden>
               </FormControl>
             </Grid>
 
@@ -180,7 +184,9 @@ function Confirmshift({
                   <MenuItem value={"10:00 - 15:00"}>10:00 - 15:00</MenuItem>
                   <MenuItem value={"14:00 - 19:00"}>14:00 - 19:00</MenuItem>
                 </Select>
+                 <Hidden only={'xs'}>
                 <FormHelperText>Choose The Time</FormHelperText>
+                </Hidden>
               </FormControl>
             </Grid>
             <Grid item xs={4}>
@@ -192,25 +198,29 @@ function Confirmshift({
                   value={person}
                   onChange={handlePersonChange}
                 >
-                  <MenuItem value="person">
+                  {/* <MenuItem value="person">
                     <em>None</em>
-                  </MenuItem>
+                  </MenuItem> */}
                   <MenuItem value={"Daniel"}>Daniel</MenuItem>
                   <MenuItem value={"Andrie"}>Andrie</MenuItem>
                   <MenuItem value={"Laufey"}>Laufey</MenuItem>
                 </Select>
+                  <Hidden only={'xs'}>
                 <FormHelperText>Chose The Personal</FormHelperText>
+                </Hidden>
               </FormControl>
             </Grid>
+            </Grid>
+
             <Grid item xs={12}>
-              <Divider variant="middle" />
+              <Divider style={{marginTop:'20px'}} variant="middle" />
             </Grid>
 
             <Grid item xs={12}>
               <h2>{shiftData.shiftToAdd.day.toString().substr(0, 10)}</h2>
             </Grid>
 
-            <Container maxWidth="lg" style={{ marginTop: "-20px" }}>
+            <Container maxWidth="sx" style={{ marginTop: "-20px" }}>
               <Grid container spacing={3}>
                 <Grid item xs={6}>
                   <h3>Company :</h3>

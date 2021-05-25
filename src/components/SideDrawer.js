@@ -84,7 +84,7 @@ const SideDrawer = ({ navLinks }) => {
                  <Link style={{marginTop:'20px', marginLeft:'10px'}} className={classes.listItemIcon} to='/Settings'>        
            <SettingsIcon style={{ color: 'black' }}  />
               Settings </Link>
-            <Link style={{marginTop:'20px', marginLeft:'15px'}} className={classes.listItemIcon} to=''>        
+            <Link style={{marginTop:'20px', marginLeft:'15px'}} className={classes.listItemIcon} to='/Contacts'>        
            <ContactsIcon style={{ color: 'black' }}  />
               Contacts </Link>
            
