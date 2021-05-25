@@ -10,6 +10,12 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { SketchPicker } from "react-color";
 import { connect } from "react-redux";
 import { changeThemeMainColor } from "../actions/shiftActions";
+// Theme changer
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, customTheme } from "../theme";
+import { GlobalStyles } from "../global";
+import Toggle from "../components/Toggle";
+
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -23,6 +29,14 @@ const useStyles = makeStyles(() => ({
 
 export default function Settings() {
   const classes = useStyles();
+   const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
 
   return (
     <div className="settings">
@@ -69,7 +83,15 @@ export default function Settings() {
           <Grid style={{ marginTop: "25px" }} xs={6}>
             <p className={classes.settingTexts}>Dark theme</p>
           </Grid>
-          <Grid style={{ marginTop: "15px" }} xs={6}></Grid>
+          <Grid style={{ marginTop: "15px" }} xs={6}>
+
+             <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+              <>
+                <GlobalStyles />
+                <Toggle theme={theme} toggleTheme={toggleTheme} />
+              </>
+            </ThemeProvider>
+          </Grid>
         </Grid>
       </Container>
     </div>

@@ -36,7 +36,7 @@ function Contacts() {
   const classes = useStyles();
   return (
 <>
-<Header currentPageName="CONTACTS"/>
+<Header currentPageName="CONT"/>
     <CssBaseline />
      <div className={classes.root}>
            <Container>

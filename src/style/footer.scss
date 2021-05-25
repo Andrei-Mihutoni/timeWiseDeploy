@@ -3,13 +3,13 @@
 }
 .is-active {
   .footerBtn {
-    -webkit-box-shadow: inset 1px 1px 1px #333;
-    -moz-box-shadow: inset 1px 1px 1px #333;
-    box-shadow: inset 0px 2px 7px #4f4f4f;
-    font-weight: 600;
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8),
+      -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+
     color: #fff;
     letter-spacing: 0.5px;
-    border-radius: 5px;
+    // border-left: 1px solid;
+    // border-right: 1px solid;
   }
 }
 
@@ -17,8 +17,8 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  padding-top: 10px;
-  padding-bottom: 5px;
+  padding-top: 6px;
+  // padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #009bcc;
