@@ -17,6 +17,7 @@ import Divider from "@material-ui/core/Divider";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import Hidden from '@material-ui/core/Hidden'; 
 import { connect } from "react-redux";
 import {
   postShift,
@@ -50,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     margin: theme.spacing(1),
-    mazWidth: 100,
+    minWidth: 100,
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -136,12 +137,13 @@ function Confirmshift({
             <Grid item xs={12}>
               <Divider variant="middle" />
             </Grid>
+             
             <Grid item xs={12}>
               <p className="marginTopHome2">
-                Choose a location, Date and time to add the shift
+                Choose a location, Date and time 
               </p>
             </Grid>
-
+            <Grid container spacing={0}>
             <Grid item xs={4}>
               <FormControl className={classes.formControl}>
                 <InputLabel id="select-Location">Location</InputLabel>
@@ -160,7 +162,9 @@ function Confirmshift({
                   <MenuItem value={"Valby"}>Valby</MenuItem>
                   <MenuItem value={"Frederiksberg"}>Frederiksberg</MenuItem>
                 </Select>
+                <Hidden only={'xs'}>
                 <FormHelperText>Choose The Location</FormHelperText>
+                </Hidden>
               </FormControl>
             </Grid>
 
@@ -180,7 +184,9 @@ function Confirmshift({
                   <MenuItem value={"10:00 - 15:00"}>10:00 - 15:00</MenuItem>
                   <MenuItem value={"14:00 - 19:00"}>14:00 - 19:00</MenuItem>
                 </Select>
+                 <Hidden only={'xs'}>
                 <FormHelperText>Choose The Time</FormHelperText>
+                </Hidden>
               </FormControl>
             </Grid>
             <Grid item xs={4}>
@@ -199,11 +205,15 @@ function Confirmshift({
                   <MenuItem value={"Andrie"}>Andrie</MenuItem>
                   <MenuItem value={"Laufey"}>Laufey</MenuItem>
                 </Select>
+                  <Hidden only={'xs'}>
                 <FormHelperText>Chose The Personal</FormHelperText>
+                </Hidden>
               </FormControl>
             </Grid>
+            </Grid>
+
             <Grid item xs={12}>
-              <Divider variant="middle" />
+              <Divider style={{marginTop:'20px'}} variant="middle" />
             </Grid>
 
             <Grid item xs={12}>
