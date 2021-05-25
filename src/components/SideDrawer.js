@@ -112,7 +112,7 @@ const SideDrawer = ({ navLinks }) => {
             style={{ marginTop: "10px", marginLeft: "15px" }}
             className={classes.listItemIcon}
             to=""
-          >Log out
+          >
             <ExitToAppIcon style={{ color: "black" }} />
             {/* <p className="logout">Log Out</p>  </Link> */}
             <LogoutButton className="buttonCustomLogout" />{" "}

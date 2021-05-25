@@ -50,9 +50,9 @@ class SketchColor extends React.Component {
         popover: {
           position: "absolute",
           zIndex: "2",
-          top: "30%",
-          left: "10%",
-          // transform: 'translate(-50%, -50%)',
+          bottom:"45%",
+          right:'33%',
+         
         },
         cover: {
           position: "fixed",

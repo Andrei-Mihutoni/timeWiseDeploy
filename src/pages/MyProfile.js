@@ -5,11 +5,11 @@ import Profile from "../views/profile";
 import Settings from "../components/Settings";
 
 function MyProfile(props) {
-  const currentPageName = props.location.pathname.substring(1);
+  // const currentPageName = props.location.pathname.substring(1);
 
   return (
     <div className="MyProfile">
-      <Header currentPageName={currentPageName} />
+      <Header currentPageName='PROFILE' />
       <Profile className="profile" />
       <div style={{ marginTop: "100px" }}>
         <Settings />
