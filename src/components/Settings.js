@@ -4,10 +4,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-// import SketchColor from "./ColorPicker";
+import SketchColor from "./ColorPicker";
 import Switch from "@material-ui/core/Switch";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { SketchPicker } from "react-color";
+import { connect } from "react-redux";
+import { changeThemeMainColor } from "../actions/shiftActions";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -19,22 +21,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Settings() {
+export default function Settings() {
   const classes = useStyles();
-  const [state, setState] = useState({
-    checkedA: true,
-    checkedB: true,
-  });
 
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-  const [color, setColor] = useState("blue");
-
-  const handleChangeComplete = (mycolor) => {
-    setColor({ background: mycolor.hex });
-    console.log(color);
-  };
   return (
     <div className="settings">
       <CssBaseline />
@@ -74,34 +63,15 @@ function Settings() {
           <Grid style={{ marginTop: "25px" }} xs={6}>
             <p className={classes.settingTexts}>Primary color</p>
           </Grid>
-          <div style={{ color }}>Hello</div>
           <Grid style={{ marginTop: "15px" }} xs={6}>
-            <SketchPicker
-              color={color}
-              onChangeComplete={(color) => {
-                setColor(color.hex);
-              }}
-            />
+            <SketchColor></SketchColor>
           </Grid>
           <Grid style={{ marginTop: "25px" }} xs={6}>
             <p className={classes.settingTexts}>Dark theme</p>
           </Grid>
-          <Grid style={{ marginTop: "15px" }} xs={6}>
-            <FormControlLabel
-              style={{ marginLeft: "20px" }}
-              control={
-                <Switch
-                  checked={state.checkedB}
-                  onChange={handleChange}
-                  name="checkedB"
-                  color="primary"
-                />
-              }
-            />
-          </Grid>
+          <Grid style={{ marginTop: "15px" }} xs={6}></Grid>
         </Grid>
       </Container>
     </div>
   );
 }
-export default Settings;

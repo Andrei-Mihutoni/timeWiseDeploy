@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -15,6 +17,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
+// Theme changer
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, customTheme } from "../theme";
+import { GlobalStyles } from "../global";
+import Toggle from "../components/Toggle";
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -40,12 +47,19 @@ const useStyles = makeStyles((theme) => ({
 const navLinks = [];
 
 function Header(props) {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
   const classes = useStyles();
-
   return (
     <div
       className={classes.grow}
-      style={{ background: props.shiftData.themeColor1 }}
+      style={{ backgroundColor: props.shiftData.themeColor1 }}
     >
       <AppBar position="static">
         <Toolbar>
@@ -54,6 +68,12 @@ function Header(props) {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionIcons}>
+            <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+              <>
+                <GlobalStyles />
+                <Toggle theme={theme} toggleTheme={toggleTheme} />
+              </>
+            </ThemeProvider>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 {/* <MailIcon /> */}
