@@ -11,8 +11,9 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import LogoutButton from "../components/logout-button";
 import SideDrawer from "./SideDrawer";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComment } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -21,6 +22,8 @@ const useStyles = makeStyles((theme) => ({
   inputRoot: {
     color: "inherit",
   },
+  headerBackground: {},
+
   linkText: {
     textDecoration: `none`,
     textTransform: `uppercase`,
@@ -36,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
 
 const navLinks = [];
 
-export default function Header(props) {
+function Header(props) {
   const classes = useStyles();
 
-
-
   return (
-    <div className={classes.grow}>
+    <div
+      className={classes.grow}
+      style={{ background: props.shiftData.themeColor1 }}
+    >
       <AppBar position="static">
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
@@ -53,7 +57,7 @@ export default function Header(props) {
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 {/* <MailIcon /> */}
-                <FontAwesomeIcon icon={ faComment} />
+                <FontAwesomeIcon icon={faComment} />
               </Badge>
             </IconButton>
             <IconButton aria-label="show 2 new notifications" color="inherit">
@@ -67,7 +71,7 @@ export default function Header(props) {
               aria-haspopup="true"
               color="inherit"
             >
-             <SideDrawer navLinks={navLinks} />
+              <SideDrawer navLinks={navLinks} />
             </IconButton>
           </div>
         </Toolbar>
@@ -75,3 +79,11 @@ export default function Header(props) {
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    shiftData: state.shift,
+  };
+};
+
+export default connect(mapStateToProps)(Header);

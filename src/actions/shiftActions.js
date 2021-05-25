@@ -9,6 +9,7 @@ import {
   UPDATE_SHIFT_TIME,
   UPDATE_SHIFT_LOCATION,
   SET_SHIFT_DETAILS,
+  UPDATE_THEMECOLOR1,
 } from "./shiftTypes";
 
 const endpoint = "https://danieldb-2683.restdb.io/rest/timewiseshifts";
@@ -139,5 +140,12 @@ export const setShiftDetails = (shiftDay) => {
   return {
     type: SET_SHIFT_DETAILS,
     payload: shiftDay,
+  };
+};
+
+export const changeThemeMainColor = (color) => {
+  return {
+    type: UPDATE_THEMECOLOR1,
+    payload: color,
   };
 };

@@ -10,6 +10,7 @@ import {
   UPDATE_SHIFT_TIME,
   UPDATE_SHIFT_LOCATION,
   SET_SHIFT_DETAILS,
+  UPDATE_THEMECOLOR1,
 } from "../actions/shiftTypes";
 
 const initialState = {
@@ -21,6 +22,7 @@ const initialState = {
   shiftLocation: "",
   shiftTime: "",
   shiftDetails: { day: "", shiftTime: "", shiftLocation: "", worker: "" },
+  themeColor1: "red",
 };
 
 const reducer = (state = initialState, action) => {
@@ -111,6 +113,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         shiftDetails: { ...state.shiftDetails, ...newChosenShifts },
+      };
+    case UPDATE_THEMECOLOR1:
+      console.log("in UPDATE_THEMECOLOR1", action.payload);
+      return {
+        ...state,
+        themeColor1: action.payload,
       };
     default:
       return state;
