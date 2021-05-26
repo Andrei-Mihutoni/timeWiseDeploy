@@ -98,26 +98,3 @@ li {
     margin-top: 10%;
   }
 }
-@media screen and (min-width: 702px) {
-  .MuiPickersBasePicker-container {
-    width: 700px;
-  }
-  span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption {
-    width: 62px;
-  }
-  .MuiPickersCalendar-week {
-    div {
-      width: 55px;
-      height: 55px;
-      margin: 5px;
-      .shifdayitem {
-        padding-top: 0;
-        color: white;
-      }
-      .MuiGrid-item {
-        margin: 0;
-        margin-bottom: -35px;
-      }
-    }
-  }
-}
