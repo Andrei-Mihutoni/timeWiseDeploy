@@ -27,6 +27,7 @@ import SettingPage from "./pages/SettingPage";
 import Contacts from "./pages/Contacts";
 import Message from './pages/Message';
 import Notifications from './pages/Notifications';
+import ShiftRequest from './pages/ShiftRequest';
 import "./App.scss";
 
 function App(props) {
@@ -72,6 +73,7 @@ function App(props) {
           <ProtectedRoute path="/Contacts" component={Contacts} />
           <ProtectedRoute path="/Messages" component={Message} />
            <ProtectedRoute path="/Notifications" component={Notifications} />
+           <ProtectedRoute path="/ShiftRequest" component={ShiftRequest} />
           <Route path="/AddShifts">
             <Addshifts getShiftDetails={getShiftDetails} />
           </Route>

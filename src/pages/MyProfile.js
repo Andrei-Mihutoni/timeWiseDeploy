@@ -11,7 +11,7 @@ function MyProfile(props) {
     <div className="MyProfile">
       <Header currentPageName='PROFILE' />
       <Profile className="profile" />
-      <div style={{ marginTop: "100px" }}>
+      <div style={{ marginTop: "50px" }}>
         <Settings />
       </div>
       <div style={{ marginTop: "150px" }}>

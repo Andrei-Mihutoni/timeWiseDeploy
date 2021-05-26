@@ -52,13 +52,14 @@ function Home(props) {
   const classes = useStyles();
   return (
     <div>
-      <CssBaseline />
-      {/* <Header /> */}
-
       <Header currentPageName={currentPageName} />
+      <CssBaseline />
+     
+
+      
       <div className={classes.root}>
         <Container fixed>
-          <Grid container spacing={6}>
+          <Grid container spacing={3}>
             <Grid justify="left" alignItems="left" item xs={6}>
               <div>
                 <h2 className={(classes.paper, "marginTopHome1")}>
@@ -76,24 +77,8 @@ function Home(props) {
                 alt="Client Logo"
                 style={{ marginTop: "30px" }}
               />
-              {/* <Paper className={(classes.paper, "marginTopHome1 request")}>
-                <h3>
-                  <span>2 new</span> shift requests
-                </h3>
-              </Paper> */}
+              
             </Grid>
-            {/* <Grid item xs={12}>
-              <h2 className="marginTopHome2">Home</h2>
-            </Grid>
-            <Grid item xs={12}>
-              <p className="marginTopHome2">
-                Tap an action below to get started
-              </p>
-            </Grid> */}
-            {/* <Box
-              borderBottom={2}
-              style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
-            /> */}
 
             <Grid style={{ marginTop: "30px" }} item xs={6}>
               <h3 className="marginTopHome2">Add new shift</h3>
@@ -139,6 +124,7 @@ function Home(props) {
               <h3 className="marginTopHome2">Shift requests</h3>
             </Grid>
             <Grid item xs={6}>
+              <Link to="/ShiftRequest">
               <Button
                 variant="contained"
                 style={{
@@ -148,27 +134,14 @@ function Home(props) {
               >
                 REQUESTS
               </Button>
+              </Link>
             </Grid>
             <Box
               borderBottom={1}
               style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
             />
-            {/* <Grid item xs={6}>
-              <h3 className="marginTopHome2">All shifts </h3>
-            </Grid> */}
-            {/* <Grid item xs={6}>
-              <Link to="/Calendar">
-                <Button
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#009bcc",
-                    color: "white",
-                  }}
-                >
-                  CALENDAR
-                </Button>
-              </Link>
-            </Grid> */}
+          
+         
           </Grid>
         </Container>
       </div>

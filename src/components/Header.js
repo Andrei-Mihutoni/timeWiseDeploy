@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import Logo from "../media/logo-05-05.svg";
 import { Link } from "react-router-dom";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -13,7 +12,7 @@ import SideDrawer from "./SideDrawer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -76,17 +75,20 @@ function Header(props) {
               {props.currentPageName}{" "}
             </Typography>
           </div>
-
+            
           <IconButton aria-label="show 4 new mails" color="inherit">
+            <Link to="/Messages">
             <Badge badgeContent={4} color="secondary">
-              {/* <MailIcon /> */}
               <FontAwesomeIcon icon={faComment} style={{ color: "white" }} />
             </Badge>
+            </Link>
           </IconButton>
           <IconButton aria-label="show 2 new notifications" color="inherit">
+            <Link to="/Notifications">
             <Badge badgeContent={2} color="secondary">
               <NotificationsIcon style={{ color: "white" }} />
             </Badge>
+            </Link>
           </IconButton>
           <IconButton
             edge="end"
