@@ -25,9 +25,9 @@ function Profile({ userData, fetchUsers, addUser }) {
   const { user } = useAuth0();
   const { name, picture, email } = user;
   const classes = useStyles();
-  // useEffect(() => {
-  //   fetchUsers();
-  // }, []);
+  useEffect(() => {
+    fetchUsers();
+  }, []);
   // useEffect(() => {
   //   console.log(user);
   //   userData.users.forEach((newUser) => {
@@ -36,17 +36,7 @@ function Profile({ userData, fetchUsers, addUser }) {
   //     }
   //   });
   // }, []);
-   
-  useEffect(() => {
-    fetchUsers();
-    console.log(user);
-    userData.users.forEach((newUser) => {
-      if (newUser.email !== user.email) {
-        addUser(user);
-      }
-    });
-     ;
-  }, [fetchUsers]);
+ 
 
   return (
 
