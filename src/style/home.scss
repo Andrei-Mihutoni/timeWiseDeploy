@@ -1,9 +1,18 @@
-.marginTopHome1 {
-  margin-top: 35px;
-  margin-left: 10px;
-}
 h2.marginTopHome1 {
+  margin-top: 35px;
+  text-transform: uppercase;
+  margin-left: 10px;
   text-align: left;
+
+}
+
+p.marginTopHome1 {
+font-style: italic;
+margin: 0;
+  margin-left: 10px;
+    text-align: left;
+
+
 }
 .marginTopHome1.request {
   background-color: rgba(0, 167, 238, 0.08);
@@ -32,4 +41,15 @@ a:hover,
 a:focus,
 a:active {
   text-decoration: none;
+}
+
+
+@media screen and (min-width: 702px) {
+ .homeClientLogo{
+justify-self: right;
+align-items: right;
+justify-items: right;
+justify-content: right;
+margin-right: -100px;
+ }
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import Logo from "../media/logo-05-05.svg";
+import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -17,13 +19,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 
-
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
-  title:{
-    color:'white',
+  title: {
+    color: "white",
   },
 
   linkText: {
@@ -42,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
 const navLinks = [];
 
 function Header(props) {
- 
   const classes = useStyles();
   return (
     <div
@@ -50,34 +50,58 @@ function Header(props) {
       style={{ backgroundColor: props.shiftData.themeColor1 }}
     >
       {/* <AppBar position="static"> */}
-        <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            {props.currentPageName}{" "}
-          </Typography>
-          <div className={classes.grow} />
-          <div className={classes.sectionIcons}>
-           
-            <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                {/* <MailIcon /> */}
-                <FontAwesomeIcon icon={faComment}  style={{color:'white'}}/>
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 2 new notifications" color="inherit">
-              <Badge badgeContent={2} color="secondary">
-                <NotificationsIcon style={{color:'white'}}/>
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="aburger menu"
-              aria-haspopup="true"
-              color="inherit"
+      <Toolbar>
+        <Link className="logoLink" to="/home">
+          <img
+            className="headerLogoImg"
+            src={Logo}
+            alt="Time Wise logo"
+            width="120"
+          />
+        </Link>
+
+        <div className={classes.grow} />
+        <div className={classes.sectionIcons}>
+          <div
+            style={{
+              alignSelf: "center",
+              marginTop: "4x",
+              marginRight: "5px",
+            }}
+            aria-label="show 4 new mails"
+            color="inherit"
+          >
+            <Typography
+              style={{ marginLeft: "10px" }}
+              className={classes.title}
+              variant="h6"
+              noWrap
             >
-              <SideDrawer navLinks={navLinks} />
-            </IconButton>
+              {props.currentPageName}{" "}
+            </Typography>
           </div>
-        </Toolbar>
+
+          <IconButton aria-label="show 4 new mails" color="inherit">
+            <Badge badgeContent={4} color="secondary">
+              {/* <MailIcon /> */}
+              <FontAwesomeIcon icon={faComment} style={{ color: "white" }} />
+            </Badge>
+          </IconButton>
+          <IconButton aria-label="show 2 new notifications" color="inherit">
+            <Badge badgeContent={2} color="secondary">
+              <NotificationsIcon style={{ color: "white" }} />
+            </Badge>
+          </IconButton>
+          <IconButton
+            edge="end"
+            aria-label="aburger menu"
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <SideDrawer navLinks={navLinks} />
+          </IconButton>
+        </div>
+      </Toolbar>
       {/* </AppBar> */}
     </div>
   );
