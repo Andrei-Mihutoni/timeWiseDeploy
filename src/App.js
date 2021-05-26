@@ -25,6 +25,8 @@ import Confirmshift from "./pages/Confirmshift";
 import Modal1 from "./components/TransitionsModal";
 import SettingPage from "./pages/SettingPage";
 import Contacts from "./pages/Contacts";
+import Message from './pages/Message';
+import Notifications from './pages/Notifications';
 import "./App.scss";
 
 function App(props) {
@@ -68,6 +70,8 @@ function App(props) {
           <ProtectedRoute path="/usersList" component={Users} />
           <ProtectedRoute path="/Settings" component={SettingPage} />
           <ProtectedRoute path="/Contacts" component={Contacts} />
+          <ProtectedRoute path="/Messages" component={Message} />
+           <ProtectedRoute path="/Notifications" component={Notifications} />
           <Route path="/AddShifts">
             <Addshifts getShiftDetails={getShiftDetails} />
           </Route>
