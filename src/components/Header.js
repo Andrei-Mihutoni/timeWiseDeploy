@@ -2,20 +2,16 @@ import React from "react";
 import { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import LogoutButton from "../components/logout-button";
 import SideDrawer from "./SideDrawer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -49,24 +45,27 @@ function Header(props) {
       className={classes.grow}
       style={{ backgroundColor: props.shiftData.themeColor1 }}
     >
-      {/* <AppBar position="static"> */}
         <Toolbar>
           <Typography className={classes.title} variant="h6" noWrap>
-            {props.currentPageName}{" "}
+            {props.currentPageName}
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionIcons}>
            
             <IconButton aria-label="show 4 new mails" color="inherit">
+              <Link to='/Messages'>
               <Badge badgeContent={4} color="secondary">
-                {/* <MailIcon /> */}
                 <FontAwesomeIcon icon={faComment}  style={{color:'white'}}/>
               </Badge>
+              </Link>
+              
             </IconButton>
             <IconButton aria-label="show 2 new notifications" color="inherit">
+              <Link to='/Notifications'>
               <Badge badgeContent={2} color="secondary">
                 <NotificationsIcon style={{color:'white'}}/>
               </Badge>
+              </Link>
             </IconButton>
             <IconButton
               edge="end"
@@ -78,7 +77,7 @@ function Header(props) {
             </IconButton>
           </div>
         </Toolbar>
-      {/* </AppBar> */}
+     
     </div>
   );
 }
