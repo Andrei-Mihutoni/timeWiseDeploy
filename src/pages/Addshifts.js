@@ -85,7 +85,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
               />
             </Grid>
 
-            <Grid item xs={6} style={{ marginTop: "50px" }}>
+            <Grid item xs={6} style={{ marginTop: "0px" }}>
               <Link to="/home">
                 <Button
                   variant="contained"
@@ -100,7 +100,7 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
                 </Button>
               </Link>
             </Grid>
-            <Grid item xs={6} style={{ marginTop: "50px" }}>
+            <Grid item xs={6} style={{ marginTop: "0px" }}>
               <Link to="/Confirmshift">
                 <Button
                   variant="contained"

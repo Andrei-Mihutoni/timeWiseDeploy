@@ -181,8 +181,8 @@ function Confirmshift({
                   {/* <MenuItem value="time">
                     <em>None</em>
                   </MenuItem> */}
-                  <MenuItem value={"10:00 - 15:00"}>10:00 - 15:00</MenuItem>
-                  <MenuItem value={"14:00 - 19:00"}>14:00 - 19:00</MenuItem>
+                  <MenuItem value={"10:00-15:00"}>10:00-15:00</MenuItem>
+                  <MenuItem value={"14:00-19:00"}>14:00-19:00</MenuItem>
                 </Select>
                  <Hidden only={'xs'}>
                 <FormHelperText>Choose The Time</FormHelperText>
@@ -223,7 +223,7 @@ function Confirmshift({
             <Container maxWidth="sx" style={{ marginTop: "-20px" }}>
               <Grid container spacing={3}>
                 <Grid item xs={6}>
-                  <h3>Company :</h3>
+                  <h3 >Company :</h3>
                 </Grid>
                 <Grid item xs={6} style={{ margin: "20px 0px 10px" }}>
                   <p style={{ marginLeft: "45px", textAlign: "left" }}>
@@ -234,7 +234,7 @@ function Confirmshift({
                   <h3
                     style={{
                       marginTop: "-20px",
-                      marginLeft: "-10px",
+                      marginLeft: "-50px",
                     }}
                   >
                     Date :
@@ -248,7 +248,7 @@ function Confirmshift({
                       textAlign: "left",
                     }}
                   >
-                    {shiftData.shiftToAdd.day.toString().substring(0, 16)}
+                    {shiftData.shiftToAdd.day.toString().substring(0, 10)}
                   </p>
                 </Grid>
                 <Grid item xs={6}>
@@ -268,7 +268,7 @@ function Confirmshift({
                   </p>
                 </Grid>
                 <Grid item xs={6}>
-                  <h3 style={{ marginTop: "-20px", marginLeft: "-45px" }}>
+                  <h3 style={{ marginTop: "-20px", marginLeft: "-55px" }}>
                     Time:
                   </h3>
                 </Grid>
@@ -284,7 +284,7 @@ function Confirmshift({
                   </p>
                 </Grid>
                 <Grid item xs={6}>
-                  <h3 style={{ marginTop: "-20px", marginLeft: "-45px" }}>
+                  <h3 style={{ marginTop: "-20px", marginLeft: "-30px" }}>
                     Worker:
                   </h3>
                 </Grid>
@@ -356,7 +356,7 @@ function Confirmshift({
                 <Grid container spacing={3} className={classes.insideGrid}>
                   <Grid item xs={6}>
                     <h3 style={{ marginLeft: "-5px", textAlign: "left" }}>
-                      Company :
+                      Company:
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "20px 0px 10px" }}>
@@ -372,7 +372,7 @@ function Confirmshift({
                         textAlign: "left",
                       }}
                     >
-                      Location :
+                      Location:
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
@@ -438,7 +438,7 @@ function Confirmshift({
                         textAlign: "left",
                       }}
                     >
-                      Employee
+                      Employee:
                     </h3>
                   </Grid>
                   <Grid item xs={6} style={{ margin: "0px 0px 10px" }}>
