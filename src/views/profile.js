@@ -45,8 +45,8 @@ function Profile({ userData, fetchUsers, addUser }) {
         addUser(user);
       }
     });
-     fetchUsers();
-  }, []);
+     ;
+  }, [fetchUsers]);
 
   return (
 
