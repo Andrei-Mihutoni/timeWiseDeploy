@@ -16,16 +16,18 @@ import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { useAuth0 } from "@auth0/auth0-react";
+import Profile from "../views/profile";
+import ClientLogo from "../media/NyLivLogo.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: "center",
-      color: theme.palette.text.secondary,
-    },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -40,8 +42,8 @@ function Home(props) {
   // const [currentPageName, setCurrentPageName] = useState("");
 
   // const currentPageName = props.location.pathname.substring(1);
-  const currentPageName = "HOME"
-  
+  const currentPageName = "HOME";
+
   const handleChange = (event) => {
     setLocation(event.target.value);
   };
@@ -56,37 +58,47 @@ function Home(props) {
       <Header currentPageName={currentPageName} />
       <div className={classes.root}>
         <Container fixed>
-          <Grid container spacing={3}>
-            <Grid item xs={6}>
-              <h2 className={(classes.paper, "marginTopHome1")}>
-                {/* {JSON.stringify(user, null, 2)} */}
-                Hello {user.nickname}
-              </h2>
+          <Grid container spacing={6}>
+            <Grid justify="left" alignItems="left" item xs={6}>
+              <div>
+                <h2 className={(classes.paper, "marginTopHome1")}>
+                  {/* {JSON.stringify(user, null, 2)} */}
+                  Hello {user.nickname}
+                </h2>
+                <p className={"marginTopHome1"}>Manager</p>
+                <p className={"marginTopHome1"}>Ny Liv Spa</p>
+              </div>
             </Grid>
             <Grid item xs={6}>
-              <Paper className={(classes.paper, "marginTopHome1 request")}>
+              <img
+                className="clientLogo"
+                src={ClientLogo}
+                alt="Client Logo"
+                style={{ marginTop: "30px" }}
+              />
+              {/* <Paper className={(classes.paper, "marginTopHome1 request")}>
                 <h3>
                   <span>2 new</span> shift requests
                 </h3>
-              </Paper>
+              </Paper> */}
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <h2 className="marginTopHome2">Home</h2>
             </Grid>
             <Grid item xs={12}>
               <p className="marginTopHome2">
                 Tap an action below to get started
               </p>
-            </Grid>
-            <Box
+            </Grid> */}
+            {/* <Box
               borderBottom={2}
               style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
-            />
+            /> */}
 
-            <Grid item xs={6}>
+            <Grid style={{ marginTop: "30px" }} item xs={6}>
               <h3 className="marginTopHome2">Add new shift</h3>
             </Grid>
-            <Grid item xs={6}>
+            <Grid style={{ marginTop: "30px" }} item xs={6}>
               <Link to="/AddShifts">
                 <Button
                   variant="contained"
@@ -124,7 +136,7 @@ function Home(props) {
               style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
             />
             <Grid item xs={6}>
-              <h3 className="marginTopHome2">All shift requests</h3>
+              <h3 className="marginTopHome2">Shift requests</h3>
             </Grid>
             <Grid item xs={6}>
               <Button
@@ -141,10 +153,10 @@ function Home(props) {
               borderBottom={1}
               style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
             />
-            <Grid item xs={6}>
+            {/* <Grid item xs={6}>
               <h3 className="marginTopHome2">All shifts </h3>
-            </Grid>
-            <Grid item xs={6}>
+            </Grid> */}
+            {/* <Grid item xs={6}>
               <Link to="/Calendar">
                 <Button
                   variant="contained"
@@ -156,7 +168,7 @@ function Home(props) {
                   CALENDAR
                 </Button>
               </Link>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Container>
       </div>
