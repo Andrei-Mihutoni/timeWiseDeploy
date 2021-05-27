@@ -21,31 +21,28 @@ import Home from "./pages/Home";
 import MyProfile from "./pages/MyProfile";
 import Users from "./pages/Users";
 import Addshifts from "./pages/Addshifts";
+import Editshift from "./pages/Editshift";
+
 import Confirmshift from "./pages/Confirmshift";
+import Confirmeditshift from "./pages/Confirmeditshift";
+
 import Modal1 from "./components/TransitionsModal";
 import SettingPage from "./pages/SettingPage";
 import Contacts from "./pages/Contacts";
-import Message from './pages/Message';
-import Notifications from './pages/Notifications';
-import ShiftRequest from './pages/ShiftRequest';
+import Message from "./pages/Message";
+import Notifications from "./pages/Notifications";
+import ShiftRequest from "./pages/ShiftRequest";
 import "./App.scss";
 
 function App(props) {
   const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
-  const [shiftToAdd, setShiftToAdd] = useState({});
 
   // let shiftToAdd;
   if (isLoading) {
     return <Loading />;
   }
 
-  function getShiftDetails(shift) {
-    console.log(shift, "shift in app");
-    // shiftToAdd=shift;
-    const nextShift = { ...shift };
-    // setShiftToAdd(nextShift);
-  }
   return (
     <div>
       {/* <button>Toggle theme</button> */}
@@ -72,13 +69,19 @@ function App(props) {
           <ProtectedRoute path="/Settings" component={SettingPage} />
           <ProtectedRoute path="/Contacts" component={Contacts} />
           <ProtectedRoute path="/Messages" component={Message} />
-           <ProtectedRoute path="/Notifications" component={Notifications} />
-           <ProtectedRoute path="/ShiftRequest" component={ShiftRequest} />
+          <ProtectedRoute path="/Notifications" component={Notifications} />
+          <ProtectedRoute path="/ShiftRequest" component={ShiftRequest} />
           <Route path="/AddShifts">
-            <Addshifts getShiftDetails={getShiftDetails} />
+            <Addshifts />
+          </Route>
+          <Route path="/EditShifts">
+            <Editshift />
           </Route>
           <Route path="/ConfirmShift">
-            <Confirmshift shiftToAdd={shiftToAdd} />
+            <Confirmshift />
+          </Route>
+          <Route path="/Confirmeditshift">
+            <Confirmeditshift />
           </Route>
           {/* <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> */}
           <ProtectedRoute path="/Modal1" component={Modal1} />

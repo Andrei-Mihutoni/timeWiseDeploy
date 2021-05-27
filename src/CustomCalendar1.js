@@ -134,10 +134,13 @@ function CustomCalendar({
   const cloudyDays = [];
   const snowyDays = [];
   // const shiftDays = [];
-  const shiftDays = shiftData.shifts.map((shift) => {
-    return parseInt(shift.day);
+  let shiftDays = [];
+  // if (shiftData.shifts.length > 0) {
+  shiftDays = shiftData.shifts.map((shift) => {
+    return parseInt(shift.day.substring(8, 10));
+    // return shift.day.toISOString();
   });
-
+  // }
   let newShift;
   function storeShift(event) {
     handleDateChange(event);
@@ -150,7 +153,7 @@ function CustomCalendar({
     updateShiftToAdd(newShift);
     shiftData.shifts.forEach((element) => {
       if (
-        element.day === event.toISOString().substring(8, 10)
+        element.day.substring(8, 10) === event.toISOString().substring(8, 10)
       ) {
         setShiftDetails(event);
         handleOpen();

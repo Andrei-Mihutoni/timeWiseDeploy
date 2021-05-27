@@ -8,8 +8,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Divider from "@material-ui/core/Divider";
 import { connect } from "react-redux";
+import { updateShiftTime, updateShiftLocation } from "../actions/shiftActions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,10 +35,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Addshifts() {
+function Editshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
   const classes = useStyles();
 
-  const currentPageName = "ADD SHIFTS";
+  const currentPageName = "EDIT SHIFTS";
 
   return (
     <div>
@@ -45,7 +51,7 @@ function Addshifts() {
             <Grid item xs={12}></Grid>
 
             <Grid item xs={12}>
-              <h2 className="choosedate">Choose an avilable date</h2>
+              <h2 className="choosedate">Choose an existing shift date</h2>
             </Grid>
             <Grid
               item
@@ -93,7 +99,7 @@ function Addshifts() {
               </Link>
             </Grid>
             <Grid item xs={6} style={{ marginTop: "0px" }}>
-              <Link to="/Confirmshift">
+              <Link to="/Confirmeditshift">
                 <Button
                   variant="contained"
                   style={{
@@ -123,4 +129,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Addshifts);
+export default connect(mapStateToProps)(Editshifts);

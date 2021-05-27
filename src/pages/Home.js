@@ -54,9 +54,7 @@ function Home(props) {
     <div>
       <Header currentPageName={currentPageName} />
       <CssBaseline />
-     
 
-      
       <div className={classes.root}>
         <Container fixed>
           <Grid container spacing={3}>
@@ -77,7 +75,6 @@ function Home(props) {
                 alt="Client Logo"
                 style={{ marginTop: "30px" }}
               />
-              
             </Grid>
 
             <Grid style={{ marginTop: "30px" }} item xs={6}>
@@ -104,7 +101,7 @@ function Home(props) {
               <h3 className="marginTopHome2">Edit a shift</h3>
             </Grid>
             <Grid item xs={6}>
-              <Link to="/home">
+              <Link to="/Editshifts">
                 <Button
                   variant="contained"
                   style={{
@@ -125,23 +122,21 @@ function Home(props) {
             </Grid>
             <Grid item xs={6}>
               <Link to="/ShiftRequest">
-              <Button
-                variant="contained"
-                style={{
-                  backgroundColor: "#009bcc",
-                  color: "white",
-                }}
-              >
-                REQUESTS
-              </Button>
+                <Button
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#009bcc",
+                    color: "white",
+                  }}
+                >
+                  REQUESTS
+                </Button>
               </Link>
             </Grid>
             <Box
               borderBottom={1}
               style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
             />
-          
-         
           </Grid>
         </Container>
       </div>
