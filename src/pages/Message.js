@@ -67,7 +67,7 @@ function Message() {
          <h3 className={classes.headingText}>Daniel Momtahanny</h3>
          <p style={{marginTop:'-10px',fontSize:'10px',}}>Grear! see you tomorrow!</p>
   </Grid>
-       <Grid className={classes.smallText} style={{marginTop:'80px'}}  item xs={3}>
+       <Grid className={classes.smallText} style={{marginTop:'40px'}}  item xs={3}>
  <small>Mon</small>
  <small>10:20</small>
   </Grid>
