@@ -24,7 +24,7 @@ function MyProfile(props) {
             </Grid>
             </Container>
       <Profile className="profile" />
-      <div style={{ marginTop: "50px" }}>
+      <div style={{ marginTop: "25px" }}>
         <Settings />
       </div>
       <div style={{ marginTop: "150px" }}>
