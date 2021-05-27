@@ -124,7 +124,7 @@ function Confirmshift({
                 {currentPageName}
               </h2>
               
-              <Divider style={{marginTop:'20px'}} variant="middle" />
+              <Divider style={{marginTop:'10px'}} variant="middle" />
             
             </Grid>
 

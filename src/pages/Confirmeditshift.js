@@ -65,7 +65,7 @@ function Confirmeditshift({
   updateShiftTime,
   updateShiftLocation,
 }) {
-  const currentPageName = "CONFIRM EDIT";
+  const currentPageName = "CONFIRM EDIT SHIFT";
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftTime, setShiftTime] = useState("");
@@ -121,13 +121,12 @@ function Confirmeditshift({
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
-                Confirm edit shift
+               {currentPageName}
               </h2>
+              <Divider style={{marginTop:'10px'}} variant="middle" />
             </Grid>
 
-            <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
+            
 
             <Grid item xs={12}>
               <p className="marginTopHome2">Choose a location, Date and time</p>

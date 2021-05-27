@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
-
+import Divider from "@material-ui/core/Divider";
 import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +46,7 @@ function Addshifts() {
               <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
               {currentPageName} </h2>
-              <Divider style={{marginTop:'20px'}} variant="middle" />
+              <Divider style={{marginTop:'10px'}} variant="middle" />
             </Grid>
            
 

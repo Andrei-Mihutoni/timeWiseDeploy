@@ -77,11 +77,10 @@ function ShiftRequest() {
               <h2 className={(classes.paper, "marginTopHome1")}>
                 {currentPageName}
               </h2>
+                 <Divider style={{marginTop:'10px'}} variant="middle" />
             </Grid>
 
-            <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
+           
              
             <Grid item xs={12}>
               <p style={{color:'#009BCC', textAlign:'left',marginTop:'15px'}}>

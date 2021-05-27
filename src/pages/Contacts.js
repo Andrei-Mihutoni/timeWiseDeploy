@@ -45,13 +45,14 @@ function Contacts() {
      <div className={classes.root}>
            <Container>
        <Grid container>
-         <Grid>
+         <Grid xs={12}>
          <h2 className={(classes.paper, "marginTopHome1")}>
               {currentPageName} </h2>
-              <Divider style={{marginTop:'20px'}} variant="middle" />
+               <Divider style={{marginTop:'10px'}} variant="middle" />
             </Grid>
+           
              <Grid className={classes.marginLeft} xs={12} >
-               <img className="clientLogo" src={ClientLogo} alt="Client Logo" style={{marginTop:'5px', float:'left'}}/>
+               <img className="clientLogo" src={ClientLogo} alt="Client Logo" style={{marginTop:'20px', float:'left'}}/>
              </Grid>
                <Grid style={{marginTop:'50px'}}  item xs={8}>
          <p className="ProfileIntro"><span>Name:</span> Nitzan</p>

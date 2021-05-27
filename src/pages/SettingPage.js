@@ -33,7 +33,7 @@ function SettinPage() {
           <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
               {currentPageName} </h2>
-              <Divider style={{marginTop:'20px'}} variant="middle" />
+              <Divider style={{marginTop:'10px'}} variant="middle" />
             </Grid>
             </Container>
     <Grid style={{marginTop:'50px'}}  item xs={12}>

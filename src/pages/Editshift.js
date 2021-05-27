@@ -48,10 +48,17 @@ function Editshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>
           <Grid container spacing={2}>
-            <Grid item xs={12}></Grid>
+          <Grid item xs={12}>
+              <h2 className={(classes.paper, "marginTopHome1")}>
+                {currentPageName}
+              </h2>
+              
+              <Divider style={{marginTop:'10px'}} variant="middle" />
+            
+            </Grid>
 
             <Grid item xs={12}>
-              <h2 className="choosedate">Choose an existing shift date</h2>
+              <h2 className="choosedate" style={{marginTop:'10px'}}>Choose an existing shift date</h2>
             </Grid>
             <Grid
               item

@@ -58,7 +58,7 @@ function Message() {
           <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
               {currentPageName} </h2>
-              <Divider style={{marginTop:'20px'}} variant="middle" />
+              <Divider style={{marginTop:'10px'}} variant="middle" />
             </Grid>
            <Grid style={{marginTop:'40px'}}  item xs={3}>
    <img className={classes.staffImg} src={Daniel} alt="Daniel" style={{float:'left'}}/>
