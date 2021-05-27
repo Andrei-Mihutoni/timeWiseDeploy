@@ -156,6 +156,9 @@ function CustomCalendar({
         element.day.substring(8, 10) === event.toISOString().substring(8, 10)
       ) {
         setShiftDetails(event);
+
+        updateShiftToAdd(element);
+        console.log(element, shiftData.shiftToAdd);
         handleOpen();
       }
     });
@@ -430,18 +433,20 @@ function CustomCalendar({
                     </Grid>
                   </Grid>
                 </Container>
-                <Button
-                  onClick={handleClose}
-                  variant="contained"
-                  style={{
-                    backgroundColor: "#03DAC5",
-                    color: "white",
-                    borderRadius: "28px",
-                    width: "100px",
-                  }}
-                >
-                  Ok
-                </Button>
+                <Link to="/Confirmeditshift">
+                  <Button
+                    onClick={handleClose}
+                    variant="contained"
+                    style={{
+                      backgroundColor: "#03DAC5",
+                      color: "white",
+                      borderRadius: "28px",
+                      width: "120px",
+                    }}
+                  >
+                    Edit Shift
+                  </Button>
+                </Link>
               </div>
             </Fade>
           </Modal>

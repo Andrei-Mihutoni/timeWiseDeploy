@@ -125,15 +125,6 @@ function Confirmeditshift({
               </h2>
             </Grid>
 
-            {/* <Grid item xs={12}>
-              <h2 className="marginTopHome2">Shift details</h2>
-            </Grid>
-            <Grid item xs={12}>
-              <p className="marginTopHome2">
-                Check the shift details and confirm the new shift
-              </p>
-            </Grid> */}
-
             <Grid item xs={12}>
               <Divider variant="middle" />
             </Grid>
@@ -463,7 +454,7 @@ function Confirmeditshift({
                     width: "100px",
                   }}
                 >
-                  Ok
+                  Confirm{" "}
                 </Button>
               </Link>
             </div>
