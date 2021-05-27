@@ -73,7 +73,12 @@ function Notifications() {
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
+              <Grid item xs={12}>
+              <h2 className={(classes.paper, "marginTopHome1")}>
+              {currentPageName} </h2>
+              <Divider style={{marginTop:'20px'}} variant="middle" />
+            </Grid>
+            {/* <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
                 Shift Requests 
               </h2>
@@ -81,7 +86,7 @@ function Notifications() {
 
             <Grid item xs={12}>
               <Divider variant="middle" />
-            </Grid>
+            </Grid> */}
              
             <Grid item xs={12}>
               <p style={{color:'#009BCC', textAlign:'left',marginTop:'15px'}}>
@@ -159,7 +164,7 @@ function Notifications() {
             </Grid>
 
             <Grid item xs={12}>
-              <h3 style={{textAlign:'left',marginTop:'25px'}}>Requests: </h3>
+              <h3 style={{textAlign:'left',marginTop:'25px',marginBottom:'20px'}}>Requests: </h3>
             </Grid>
 
             <Grid container spacing={2}>

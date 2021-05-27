@@ -66,14 +66,14 @@ function Header(props) {
             aria-label="show 4 new mails"
             color="inherit"
           >
-            <Typography
+            {/* <Typography
               style={{ marginLeft: "10px" }}
               className={classes.title}
               variant="h6"
               noWrap
             >
               {props.currentPageName}{" "}
-            </Typography>
+            </Typography> */}
           </div>
             
           <IconButton aria-label="show 4 new mails" color="inherit">

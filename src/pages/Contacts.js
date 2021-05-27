@@ -10,7 +10,10 @@ import Daniel from '../media/Staff/Daniel.jpeg';
 import Nitzan from '../media/Staff/Nitzan.jpeg';
 import Andrei from '../media/Staff/Andrie.jpeg';
 import Ioana from '../media/Staff/Ioana.jpg';
+import Divider from "@material-ui/core/Divider";
 
+
+const currentPageName = "CONTACTS";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -28,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
      borderRadius: '50%',
     border: '1px solid rgba(8,8,8,0.5)',
     boxShadow: '1px 1px 5px 2px rgba(8,8,8,0.3)',
+    float:'left',
   }
 }));
 
@@ -41,17 +45,22 @@ function Contacts() {
      <div className={classes.root}>
            <Container>
        <Grid container>
+         <Grid>
+         <h2 className={(classes.paper, "marginTopHome1")}>
+              {currentPageName} </h2>
+              <Divider style={{marginTop:'20px'}} variant="middle" />
+            </Grid>
              <Grid className={classes.marginLeft} xs={12} >
-               <img className="clientLogo" src={ClientLogo} alt="Client Logo" style={{marginTop:'25px', float:'left'}}/>
+               <img className="clientLogo" src={ClientLogo} alt="Client Logo" style={{marginTop:'5px', float:'left'}}/>
              </Grid>
-               <Grid style={{marginTop:'100px'}}  item xs={8}>
+               <Grid style={{marginTop:'50px'}}  item xs={8}>
          <p className="ProfileIntro"><span>Name:</span> Nitzan</p>
           <p className="ProfileIntro"><span> Email: </span>nit@timewise.com</p>
           <p className="ProfileIntro"><span>Phone:</span> +45 6061 9796</p>
    
   </Grid>
-   <Grid style={{marginTop:'90px'}}  item xs={4}>
-   <img className={classes.staffImg} src={Nitzan} alt="Nitzan" style={{float:'right'}}/>
+   <Grid style={{marginTop:'40px'}}  item xs={4}>
+   <img className={classes.staffImg} src={Nitzan} alt="Nitzan" />
   </Grid>
                <Grid style={{marginTop:'50px'}}  item xs={8}>
          <p className="ProfileIntro"><span>Name:</span> Andrei</p>
@@ -60,7 +69,7 @@ function Contacts() {
    
   </Grid>
    <Grid style={{marginTop:'40px'}}  item xs={4}>
-   <img className={classes.staffImg} src={Andrei} alt="Andrei" style={{float:'right'}}/>
+   <img className={classes.staffImg} src={Andrei} alt="Andrei" />
   </Grid>
       <Grid style={{marginTop:'50px'}}  item xs={8}>
          <p className="ProfileIntro"><span>Name:</span> Daniel</p>
@@ -69,7 +78,7 @@ function Contacts() {
    
   </Grid>
    <Grid style={{marginTop:'40px'}}  item xs={4}>
-   <img className={classes.staffImg} src={Daniel} alt="Daniel" style={{float:'right'}}/>
+   <img className={classes.staffImg} src={Daniel} alt="Daniel" />
   </Grid>
     <Grid style={{marginTop:'50px'}}  item xs={8}>
          <p className="ProfileIntro"><span>Name:</span> Ioana</p>
@@ -78,7 +87,7 @@ function Contacts() {
    
   </Grid>
    <Grid style={{marginTop:'40px'}}  item xs={4}>
-   <img className={classes.staffImg} src={Ioana} alt="Ioana" style={{float:'right'}}/>
+   <img className={classes.staffImg} src={Ioana} alt="Ioana" />
   </Grid>
   
     </Grid>

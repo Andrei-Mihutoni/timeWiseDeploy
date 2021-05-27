@@ -4,8 +4,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Settings from '../components/Settings'
 import Header from "../components/Header";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
+import Divider from "@material-ui/core/Divider";
+import Container from "@material-ui/core/Container";
 
+const currentPageName = "SETTINGS";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -22,11 +25,18 @@ function SettinPage() {
   const classes = useStyles();
   return (
 <>
-<Header currentPageName="SETTINGS"/>
+<Header currentPageName={currentPageName}/>
     <CssBaseline />
      <div className={classes.root}>
        <Grid container>
-    <Grid style={{marginTop:'100px'}}  item xs={12}>
+         <Container>
+          <Grid item xs={12}>
+              <h2 className={(classes.paper, "marginTopHome1")}>
+              {currentPageName} </h2>
+              <Divider style={{marginTop:'20px'}} variant="middle" />
+            </Grid>
+            </Container>
+    <Grid style={{marginTop:'50px'}}  item xs={12}>
    <Settings />
   </Grid>
   

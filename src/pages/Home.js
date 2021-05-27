@@ -18,6 +18,7 @@ import Select from "@material-ui/core/Select";
 import { useAuth0 } from "@auth0/auth0-react";
 import Profile from "../views/profile";
 import ClientLogo from "../media/NyLivLogo.png";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,12 +61,17 @@ function Home(props) {
       <div className={classes.root}>
         <Container fixed>
           <Grid container spacing={3}>
+             <Grid item xs={12}>
+              <h2 className={(classes.paper, "marginTopHome1")}>
+              {currentPageName} </h2>
+              <Divider style={{marginTop:'20px'}} variant="middle" />
+            </Grid>
             <Grid justify="left" alignItems="left" item xs={6}>
-              <div>
-                <h2 className={(classes.paper, "marginTopHome1")}>
+              <div >
+                <p className={(classes.paper, "marginTopHome1")} style={{fontSize:"14px", fontWeight:'600'}}>
                   {/* {JSON.stringify(user, null, 2)} */}
                   Hello {user.nickname}
-                </h2>
+                </p>
                 <p className={"marginTopHome1"}>Manager</p>
                 <p className={"marginTopHome1"}>Ny Liv Spa</p>
               </div>
@@ -75,7 +81,7 @@ function Home(props) {
                 className="clientLogo"
                 src={ClientLogo}
                 alt="Client Logo"
-                style={{ marginTop: "30px" }}
+                style={{ marginTop: "0px" }}
               />
               
             </Grid>

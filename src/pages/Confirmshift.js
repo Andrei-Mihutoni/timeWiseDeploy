@@ -121,8 +121,11 @@ function Confirmshift({
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
-                Confirm shift
+                {currentPageName}
               </h2>
+              
+              <Divider style={{marginTop:'20px'}} variant="middle" />
+            
             </Grid>
 
             {/* <Grid item xs={12}>
@@ -134,9 +137,7 @@ function Confirmshift({
               </p>
             </Grid> */}
 
-            <Grid item xs={12}>
-              <Divider variant="middle" />
-            </Grid>
+           
              
             <Grid item xs={12}>
               <p className="marginTopHome2">

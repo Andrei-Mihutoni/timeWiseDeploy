@@ -9,6 +9,9 @@ import Daniel from '../media/Staff/Daniel.jpeg';
 import Nitzan from '../media/Staff/Nitzan.jpeg';
 import Andrei from '../media/Staff/Andrie.jpeg';
 import Ioana from '../media/Staff/Ioana.jpg';
+import Divider from "@material-ui/core/Divider";
+
+const currentPageName ="MESSAGES"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,15 +50,20 @@ function Message() {
   const classes = useStyles();
   return (
 <>
-<Header currentPageName="Messages"/>
+<Header currentPageName={currentPageName}/>
     <CssBaseline />
      <div className={classes.root}>
            <Container>
        <Grid container>
-           <Grid style={{marginTop:'80px'}}  item xs={3}>
+          <Grid item xs={12}>
+              <h2 className={(classes.paper, "marginTopHome1")}>
+              {currentPageName} </h2>
+              <Divider style={{marginTop:'20px'}} variant="middle" />
+            </Grid>
+           <Grid style={{marginTop:'40px'}}  item xs={3}>
    <img className={classes.staffImg} src={Daniel} alt="Daniel" style={{float:'left'}}/>
   </Grid>
-   <Grid  style={{marginTop:'80px'}}  item xs={6}>
+   <Grid  style={{marginTop:'40px'}}  item xs={6}>
          <h3 className={classes.headingText}>Daniel Momtahanny</h3>
          <p style={{marginTop:'-10px',fontSize:'10px',}}>Grear! see you tomorrow!</p>
   </Grid>

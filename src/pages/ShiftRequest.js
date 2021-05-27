@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ShiftRequest() {
-  const currentPageName = "Shift Request ";
+  const currentPageName = "SHIFT REQUESTS ";
   const classes = useStyles();
   const [shiftLocation, setshiftLocation] = useState("");
   const [shiftRequest, setShiftRequest] = useState("");
@@ -75,7 +75,7 @@ function ShiftRequest() {
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
-                Shift Requests 
+                {currentPageName}
               </h2>
             </Grid>
 
@@ -159,7 +159,7 @@ function ShiftRequest() {
             </Grid>
 
             <Grid item xs={12}>
-              <h3 style={{textAlign:'left',marginTop:'25px'}}>Requests: </h3>
+              <h3 style={{textAlign:'left',marginTop:'25px',marginBottom:'25px'}}>Requests: </h3>
             </Grid>
 
             <Grid container spacing={2}>

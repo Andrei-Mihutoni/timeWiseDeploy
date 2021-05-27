@@ -48,7 +48,13 @@ function Addshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>
           <Grid container spacing={2}>
-            <Grid item xs={12}></Grid>
+            
+              <Grid item xs={12}>
+              <h2 className={(classes.paper, "marginTopHome1")}>
+              {currentPageName} </h2>
+              <Divider style={{marginTop:'20px'}} variant="middle" />
+            </Grid>
+           
 
             <Grid item xs={12}>
               <h2 className="choosedate">Choose an avilable date</h2>
