@@ -83,7 +83,7 @@ function Addshifts() {
               <CustomCalendar />
             </Grid>
 
-            <Grid item xs={6} style={{ marginTop: "40px" }}>
+            <Grid item xs={6} style={{ marginTop: "55px" }}>
               <Link to="/home">
                 <Button
                   variant="contained"
@@ -98,7 +98,7 @@ function Addshifts() {
                 </Button>
               </Link>
             </Grid>
-            <Grid item xs={6} style={{ marginTop: "40px" }}>
+            <Grid item xs={6} style={{ marginTop: "55px" }}>
               <Link to="/Confirmshift">
                 <Button
                   variant="contained"
