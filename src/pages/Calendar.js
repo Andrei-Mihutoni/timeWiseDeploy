@@ -12,35 +12,35 @@ function Calendar(props) {
   return (
     <div className="CALENDAR">
       <Header currentPageName={currentPageName} />
-    <Container>
-      <Grid style={{ marginTop: "50px" }} item xs={12}>
-        <Grid item xs={12}>
-              <h2 className="marginTopHome1">
-                {currentPageName}
-              </h2>
-              <Divider style={{marginTop:'10px'}} variant="middle" />
-            </Grid>
-        <div className="datesmap">
-          <div className="map-wrapper">
-            <div
-              style={{ backgroundColor: "lightBlue" }}
-              className="circle-map"
-            ></div>
-            <p>Existing Shifts</p>
+      <Container>
+        <Grid style={{ marginTop: "0px" }} item xs={12}>
+          <Grid item xs={12}>
+            <h2 className="marginTopHome1">
+              {currentPageName}
+            </h2>
+            <Divider style={{ marginTop: '-5px', marginBottom: '15px' }} variant="middle" />
+          </Grid>
+          <div className="datesmap">
+            <div className="map-wrapper">
+              <div
+                style={{ backgroundColor: "lightBlue" }}
+                className="circle-map"
+              ></div>
+              <p>Existing Shifts</p>
+            </div>
+            <div className="map-wrapper">
+              <div className="circle-map"></div>
+              <p>Avilable dates</p>
+            </div>
+            <div className="map-wrapper">
+              <div
+                style={{ backgroundColor: "lightGreen" }}
+                className="circle-map"
+              ></div>
+              <p>Selected date</p>
+            </div>
           </div>
-          <div className="map-wrapper">
-            <div className="circle-map"></div>
-            <p>Avilable dates</p>
-          </div>
-          <div className="map-wrapper">
-            <div
-              style={{ backgroundColor: "lightGreen" }}
-              className="circle-map"
-            ></div>
-            <p>Selected date</p>
-          </div>
-        </div>
-      </Grid>
+        </Grid>
       </Container>
       <CustomCalendar1 />
 

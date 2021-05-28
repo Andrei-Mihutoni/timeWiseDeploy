@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   list: {
-    width: 250,
+    width: 200,
   },
   linkText: {
     textDecoration: `none`,
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+
   },
   listItemIcon: {
     display: "flex",
@@ -70,10 +71,10 @@ const SideDrawer = ({ navLinks }) => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List component="nav">
-        <CloseIcon className="closeMenu" fontSize="large" />
+        {/* <CloseIcon style={{ marginRight: "10px" }} className="closeMenu" fontSize="large" /> */}
 
         <Link
-          style={{ marginTop: "30px" }}
+          style={{ marginLeft: "-30px", marginTop: "30px" }}
           className={classes.listItemIcon}
           to="/Home"
         >
@@ -81,7 +82,7 @@ const SideDrawer = ({ navLinks }) => {
           Home{" "}
         </Link>
         <Link
-          style={{ marginTop: "20px" }}
+          style={{ marginLeft: "-30px", marginTop: "20px" }}
           className={classes.listItemIcon}
           to="/MyProfile"
         >
@@ -89,7 +90,7 @@ const SideDrawer = ({ navLinks }) => {
           Profile{" "}
         </Link>
         <Link
-          style={{ marginTop: "20px", marginLeft: "10px" }}
+          style={{ marginLeft: "-25px", marginTop: "20px" }}
           className={classes.listItemIcon}
           to="/Settings"
         >
@@ -97,7 +98,7 @@ const SideDrawer = ({ navLinks }) => {
           Settings{" "}
         </Link>
         <Link
-          style={{ marginTop: "20px", marginLeft: "15px" }}
+          style={{ marginLeft: "-20px", marginTop: "20px" }}
           className={classes.listItemIcon}
           to="/Contacts"
         >
@@ -109,7 +110,7 @@ const SideDrawer = ({ navLinks }) => {
       <List className="logOutMenu">
         <ListItem>
           <Link
-            style={{ marginTop: "10px", marginLeft: "15px" }}
+            style={{ marginTop: "95%", marginLeft: "-5px" }}
             className={classes.listItemIcon}
             to=""
           >

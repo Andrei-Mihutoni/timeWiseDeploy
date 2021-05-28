@@ -59,19 +59,19 @@ function Home(props) {
       <div className={classes.root}>
         <Container fixed>
           <Grid container spacing={3}>
-             <Grid item xs={12}>
+            <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
-              {currentPageName} </h2>
-              <Divider style={{marginTop:'10px'}} variant="middle" />
+                {currentPageName} </h2>
+              <Divider style={{ marginTop: '-5px', marginBottom: '15px' }} variant="middle" />
             </Grid>
             <Grid justify="left" alignItems="left" item xs={6}>
               <div >
-                <p className={(classes.paper, "marginTopHome1")} style={{fontSize:"14px", fontWeight:'600'}}>
+                <p className={(classes.paper, "marginTopHome1")} style={{ fontSize: "14px", fontWeight: '600' }}>
                   {/* {JSON.stringify(user, null, 2)} */}
                   Hello {user.nickname}
                 </p>
-                <p className={"marginTopHome1"}>Manager</p>
-                <p className={"marginTopHome1"}>Ny Liv Spa</p>
+                <p className={"marginTopHome1 secondaryOpacity75"}>Manager</p>
+                <p className={"marginTopHome1 secondaryOpacity75"}>Ny Liv Spa</p>
               </div>
             </Grid>
             <Grid item xs={6}>
@@ -83,10 +83,10 @@ function Home(props) {
               />
             </Grid>
 
-            <Grid style={{ marginTop: "30px" }} item xs={6}>
-              <h3 className="marginTopHome2">Add new shift</h3>
+            <Grid style={{ marginTop: "80px" }} item xs={6}>
+              <h3 className="marginTopHome2 actionNameHP">Add new shift</h3>
             </Grid>
-            <Grid style={{ marginTop: "30px" }} item xs={6}>
+            <Grid style={{ marginTop: "80px" }} item xs={6}>
               <Link to="/AddShifts">
                 <Button
                   variant="contained"
@@ -101,12 +101,12 @@ function Home(props) {
             </Grid>
             <Box
               borderBottom={1}
-              style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
+              style={{ width: "100vw", borderColor: "gray", margin: "10px", marginTop: "1px", opacity: "50%", }}
             />
-            <Grid item xs={6}>
-              <h3 className="marginTopHome2">Edit a shift</h3>
+            <Grid style={{ marginTop: "10px" }} item xs={6}>
+              <h3 className="marginTopHome2 actionNameHP">Edit a shift</h3>
             </Grid>
-            <Grid item xs={6}>
+            <Grid style={{ marginTop: "10px" }} item xs={6}>
               <Link to="/Editshifts">
                 <Button
                   variant="contained"
@@ -121,12 +121,12 @@ function Home(props) {
             </Grid>
             <Box
               borderBottom={1}
-              style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
+              style={{ width: "100vw", borderColor: "gray", margin: "10px", marginTop: "1px", opacity: "50%", }}
             />
-            <Grid item xs={6}>
-              <h3 className="marginTopHome2">Shift requests</h3>
+            <Grid style={{ marginTop: "10px" }} item xs={6}>
+              <h3 className="marginTopHome2 actionNameHP">Shift requests</h3>
             </Grid>
-            <Grid item xs={6}>
+            <Grid style={{ marginTop: "10px" }} item xs={6}>
               <Link to="/ShiftRequest">
                 <Button
                   variant="contained"
@@ -141,7 +141,7 @@ function Home(props) {
             </Grid>
             <Box
               borderBottom={1}
-              style={{ width: "100vw", borderColor: "gray", margin: "10px" }}
+              style={{ width: "100vw", borderColor: "gray", margin: "10px", marginTop: "1px", opacity: "50%", }}
             />
           </Grid>
         </Container>

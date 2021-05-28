@@ -17,12 +17,12 @@ function MyProfile(props) {
     <div className="MyProfile">
       <Header currentPageName={currentPageName} />
       <Container>
-       <Grid item xs={12}>
-              <h2 className="marginTopHome1">
-              {currentPageName} </h2>
-              <Divider style={{marginTop:'10px'}} variant="middle" />
-            </Grid>
-            </Container>
+        <Grid item xs={12}>
+          <h2 className="marginTopHome1">
+            {currentPageName} </h2>
+          <Divider style={{ marginTop: '-5px', marginBottom: '15px' }} variant="middle" />
+        </Grid>
+      </Container>
       <Profile className="profile" />
       <div style={{ marginTop: "25px" }}>
         <Settings />

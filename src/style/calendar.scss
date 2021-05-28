@@ -1,5 +1,6 @@
 div.MuiPickersBasePicker-pickerView {
   max-width: 100%;
+  display: block;
 }
 .MuiGrid-root.MuiGrid-item {
   margin-top: -7px;
@@ -12,6 +13,10 @@ div.MuiPickersBasePicker-pickerView {
 .choosedate {
   margin-top: 10px;
   margin-bottom: 50px;
+}
+
+.map-wrapper p {
+  font-size: 11px;
 }
 
 @media screen and (min-width: 702px) {

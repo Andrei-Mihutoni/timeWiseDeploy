@@ -37,8 +37,8 @@ function Footer({ shiftData }) {
         <NavLink exact={true} activeClassName="is-active" to="/Calendar">
           <div className="footerBtn">
             <ListItemIcon className={classes.footerIcons}>
-              <TodayIcon />
-              <span className="iconName">Calendar</span>
+              {/* <TodayIcon /> */}
+              <span className="iconName">CALENDAR</span>
             </ListItemIcon>
           </div>
         </NavLink>
@@ -48,8 +48,8 @@ function Footer({ shiftData }) {
         <NavLink activeClassName="is-active" to="/Home">
           <div className="footerBtn">
             <ListItemIcon className={classes.footerIcons}>
-              <Home />
-              <span className="iconName"> Home</span>
+              {/* <Home /> */}
+              <span className="iconName"> HOME</span>
             </ListItemIcon>
           </div>
         </NavLink>
@@ -59,9 +59,9 @@ function Footer({ shiftData }) {
         <NavLink activeClassName="is-active" to="/MyProfile">
           <div className="footerBtn">
             <ListItemIcon className={classes.footerIcons}>
-              <AccountCircleIcon />
+              {/* <AccountCircleIcon /> */}
               {/* <p style={{ marginTop: "-10px" }}>My Profile</p> */}
-              <span className="iconName">Profile</span>
+              <span className="iconName">PROFILE</span>
             </ListItemIcon>
           </div>
         </NavLink>

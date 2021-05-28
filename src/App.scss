@@ -1,5 +1,6 @@
 @import url("//cdn.muicss.com/mui-0.9.41/css/mui.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,300;1,500&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,300;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,500&display=swap");
 $font-body: "Poppins", sans-serif;
 
 @import "./style/custom";
@@ -46,7 +47,7 @@ li {
 
 .logoutBtn.btn {
   color: black;
-  background-color: white;
+  background-color: transparent;
   /* width: 0px; */
   /* max-width: 0px; */
   height: 0px;
@@ -54,6 +55,7 @@ li {
   margin-top: -18px;
   font-weight: 500;
   margin-left: 36px;
+  border: none;
 }
 
 .homeContent {
@@ -84,7 +86,7 @@ li {
 }
 
 .MuiPickersBasePicker-pickerView {
-  height: 54vh;
+  height: 49vh;
 }
 
 @media (min-width: 499px) {

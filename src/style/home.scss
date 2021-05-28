@@ -3,10 +3,12 @@ h2.marginTopHome1 {
   text-transform: uppercase;
   margin-left: 10px;
   text-align: left;
+  opacity: 75%;
+  font-size: 20px;
 }
 
 p.marginTopHome1 {
-  font-style: italic;
+  // font-style: italic;
   margin: 0;
   margin-left: 10px;
   text-align: left;
@@ -38,6 +40,15 @@ a:hover,
 a:focus,
 a:active {
   text-decoration: none;
+}
+
+.actionNameHP {
+  font-size: 15px;
+}
+
+.secondaryOpacity75 {
+  opacity: 75%;
+  font-size: 12px;
 }
 
 @media screen and (min-width: 702px) {

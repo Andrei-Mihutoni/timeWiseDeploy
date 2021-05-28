@@ -199,8 +199,8 @@ function CustomCalendar({
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -216,8 +216,8 @@ function CustomCalendar({
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -233,8 +233,8 @@ function CustomCalendar({
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -252,8 +252,8 @@ function CustomCalendar({
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -284,8 +284,8 @@ function CustomCalendar({
               isSelected
                 ? classes.selectedDayPaper
                 : isToday
-                ? classes.todayPaper
-                : classes.normalDayPaper
+                  ? classes.todayPaper
+                  : classes.normalDayPaper
             }
           >
             <Grid item>
@@ -315,7 +315,7 @@ function CustomCalendar({
       style={{
         display: "grid",
         placeItems: "center",
-        height: "80vh",
+        // height: "80vh",
       }}
     >
       <MuiPickersUtilsProvider utils={DateFnsUtils}>

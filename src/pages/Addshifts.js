@@ -42,13 +42,13 @@ function Addshifts() {
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>
           <Grid container spacing={2}>
-            
-              <Grid item xs={12}>
+
+            <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
-              {currentPageName} </h2>
-              <Divider style={{marginTop:'10px'}} variant="middle" />
+                {currentPageName} </h2>
+              <Divider style={{ marginTop: '10px' }} variant="middle" />
             </Grid>
-           
+
 
             <Grid item xs={12}>
               <h2 className="choosedate">Choose an avilable date</h2>
@@ -83,7 +83,7 @@ function Addshifts() {
               <CustomCalendar />
             </Grid>
 
-            <Grid item xs={6} style={{ marginTop: "0px" }}>
+            <Grid item xs={6} style={{ marginTop: "40px" }}>
               <Link to="/home">
                 <Button
                   variant="contained"
@@ -98,7 +98,7 @@ function Addshifts() {
                 </Button>
               </Link>
             </Grid>
-            <Grid item xs={6} style={{ marginTop: "0px" }}>
+            <Grid item xs={6} style={{ marginTop: "40px" }}>
               <Link to="/Confirmshift">
                 <Button
                   variant="contained"
@@ -116,7 +116,7 @@ function Addshifts() {
           </Grid>
         </Container>
       </div>
-      <div style={{ marginTop: "150px" }}>
+      <div style={{ marginTop: "30px" }}>
         <Footer />
       </div>
     </div>
