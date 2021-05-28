@@ -48,17 +48,17 @@ function Editshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
       <div className={classes.root} style={{ marginBottom: "100px" }}>
         <Container>
           <Grid container spacing={2}>
-          <Grid item xs={12}>
+            <Grid item xs={12}>
               <h2 className={(classes.paper, "marginTopHome1")}>
                 {currentPageName}
               </h2>
-              
-              <Divider style={{marginTop:'10px'}} variant="middle" />
-            
+
+              <Divider style={{ marginTop: '10px' }} variant="middle" />
+
             </Grid>
 
             <Grid item xs={12}>
-              <h2 className="choosedate" style={{marginTop:'10px'}}>Choose an existing shift date</h2>
+              <h2 className="choosedate" style={{ marginTop: '10px' }}>Choose an existing shift date</h2>
             </Grid>
             <Grid
               item
@@ -90,7 +90,7 @@ function Editshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
               <CustomCalendar />
             </Grid>
 
-            <Grid item xs={6} style={{ marginTop: "0px" }}>
+            <Grid item xs={6} style={{ marginTop: "55px" }}>
               <Link to="/home">
                 <Button
                   variant="contained"
@@ -105,7 +105,7 @@ function Editshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
                 </Button>
               </Link>
             </Grid>
-            <Grid item xs={6} style={{ marginTop: "0px" }}>
+            <Grid item xs={6} style={{ marginTop: "55px" }}>
               <Link to="/Confirmeditshift">
                 <Button
                   variant="contained"
@@ -123,7 +123,7 @@ function Editshifts({ shiftData, updateShiftTime, updateShiftLocation }) {
           </Grid>
         </Container>
       </div>
-      <div style={{ marginTop: "150px" }}>
+      <div style={{ marginTop: "30px" }}>
         <Footer />
       </div>
     </div>

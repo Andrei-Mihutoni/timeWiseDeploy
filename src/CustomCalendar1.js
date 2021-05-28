@@ -26,7 +26,7 @@ const materialTheme = createMuiTheme({
   overrides: {
     MuiPickersToolbar: {
       toolbar: {
-        backgroundColor: "#8bc34a",
+        backgroundColor: "#4a94c3",
       },
     },
     MuiPickersCalendarHeader: {
