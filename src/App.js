@@ -45,24 +45,9 @@ function App(props) {
 
   return (
     <div>
-      {/* <button>Toggle theme</button> */}
-      {/* <h1>It's a light theme!</h1> */}
-      {/* <Appbar>
-            <nav>
-            <ul>
-            <li>
-            <Link to="/Home">Home</Link>
-            </li>
-            </ul>
-            </nav>
-            
-          </Appbar> */}
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-      {/* <ShiftList></ShiftList> */}
       <Router>
         <Switch>
-          <ProtectedRoute path="/home" component={Home} />
+          <Route path="/home" component={Home} />
           <ProtectedRoute path="/calendar" component={Calendar} />
           <ProtectedRoute path="/MyProfile" component={MyProfile} />
           <ProtectedRoute path="/usersList" component={Users} />
