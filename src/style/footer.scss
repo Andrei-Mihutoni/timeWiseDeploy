@@ -16,9 +16,10 @@
     // border-left: 1px solid;
     // border-right: 1px solid;
   }
-  span.iconName {
-    opacity: 100%;
-  }
+}
+
+.is-active span.iconName {
+  opacity: 100%;
 }
 
 .footerContainer {
@@ -33,12 +34,13 @@
   svg {
     color: white;
   }
-  .iconName {
-    color: white;
-    font-size: small;
-    opacity: 80%;
-    font-weight: 600;
-  }
+}
+
+.iconName {
+  color: white;
+  font-size: small;
+  opacity: 80%;
+  font-weight: 600;
 }
 
 .footerBtn {

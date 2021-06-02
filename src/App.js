@@ -45,21 +45,6 @@ function App(props) {
 
   return (
     <div>
-      {/* <button>Toggle theme</button> */}
-      {/* <h1>It's a light theme!</h1> */}
-      {/* <Appbar>
-            <nav>
-            <ul>
-            <li>
-            <Link to="/Home">Home</Link>
-            </li>
-            </ul>
-            </nav>
-            
-          </Appbar> */}
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-      {/* <ShiftList></ShiftList> */}
       <Router>
         <Switch>
           <ProtectedRoute path="/home" component={Home} />
@@ -83,35 +68,12 @@ function App(props) {
           <Route path="/Confirmeditshift">
             <Confirmeditshift />
           </Route>
-          {/* <ProtectedRoute path="/ConfirmShift" component={Confirmshift} /> */}
           <ProtectedRoute path="/Modal1" component={Modal1} />
           <ProtectedRoute path="/profile" component={Profile} />
           <ProtectedRoute path="/external-api" component={ExternalApi} />
 
           {isAuthenticated && <Redirect to="/home" from="/" />}
           <Route path="/" exact component={HomePage} />
-
-          {/* <Route path="/calendar">
-            <Calendar />
-          </Route>
-
-          <Route path="/home">
-            <Home />
-          </Route>
-
-          <Route path="/Locations">
-            <Locations />
-          </Route>
-
-          <Route path="/usersList">
-            <Users />
-          </Route>
-
-          <ProtectedRoute path="/profile" component={Profile} />
-          <ProtectedRoute path="/external-api" component={ExternalApi} />
-
-          {isAuthenticated && <Redirect to="/home" from='/' />}
-          <Route path="/" exact component={HomePage} /> */}
         </Switch>
       </Router>
     </div>
