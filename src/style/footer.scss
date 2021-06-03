@@ -19,7 +19,8 @@
 }
 
 .is-active span.iconName {
-  opacity: 100%;
+  // opacity: 100%;
+  font-weight: 600;
 }
 
 .footerContainer {
@@ -39,8 +40,8 @@
 .iconName {
   color: white;
   font-size: small;
-  opacity: 80%;
-  font-weight: 600;
+  // opacity: 80%;
+  font-weight: 400;
 }
 
 .footerBtn {
